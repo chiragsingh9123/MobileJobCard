@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent">
+
+ <LinearLayout
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:orientation="vertical"
+ android:padding="24dp">
+
+ <TextView
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginTop="24dp"
+ android:text="Create New Account"
+ android:textColor="@color/text_primary"
+ android:textSize="24sp"
+ android:textStyle="bold" />
+
+ <TextView
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Fill the details to register • 7 din FREE trial"
+ android:textColor="@color/text_secondary" />
+
+ <com.google.android.material.textfield.TextInputLayout
+ style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="24dp" android:hint="Shop / Business Name">
+ <com.google.android.material.textfield.TextInputEditText
+ android:id="@+id/etShopName"
+ android:layout_width="match_parent" android:layout_height="wrap_content" />
+ </com.google.android.material.textfield.TextInputLayout>
+
+ <com.google.android.material.textfield.TextInputLayout
+ style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:hint="Owner Name">
+ <com.google.android.material.textfield.TextInputEditText
+ android:id="@+id/etOwnerName"
+ android:layout_width="match_parent" android:layout_height="wrap_content" />
+ </com.google.android.material.textfield.TextInputLayout>
+
+ <com.google.android.material.textfield.TextInputLayout
+ style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:hint="Mobile Number">
+ <com.google.android.material.textfield.TextInputEditText
+ android:id="@+id/etMobile" android:inputType="number" android:digits="0123456789" android:maxLength="10"
+ android:layout_width="match_parent" android:layout_height="wrap_content" />
+ </com.google.android.material.textfield.TextInputLayout>
+
+ <com.google.android.material.textfield.TextInputLayout
+ style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:hint="Email (Optional)">
+ <com.google.android.material.textfield.TextInputEditText
+ android:id="@+id/etEmail" android:inputType="textEmailAddress"
+ android:layout_width="match_parent" android:layout_height="wrap_content" />
+ </com.google.android.material.textfield.TextInputLayout>
+
+ <com.google.android.material.textfield.TextInputLayout
+ style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:hint="Password"
+ app:endIconMode="password_toggle">
+ <com.google.android.material.textfield.TextInputEditText
+ android:id="@+id/etPassword" android:inputType="textPassword"
+ android:layout_width="match_parent" android:layout_height="wrap_content" />
+ </com.google.android.material.textfield.TextInputLayout>
+
+ <com.google.android.material.textfield.TextInputLayout
+ style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:hint="Confirm Password"
+ app:endIconMode="password_toggle">
+ <com.google.android.material.textfield.TextInputEditText
+ android:id="@+id/etConfirmPassword" android:inputType="textPassword"
+ android:layout_width="match_parent" android:layout_height="wrap_content" />
+ </com.google.android.material.textfield.TextInputLayout>
+
+ <Button
+ android:id="@+id/btnRegister"
+ android:layout_width="match_parent"
+ android:layout_height="56dp"
+ android:layout_marginTop="24dp"
+ android:backgroundTint="@color/primary"
+ android:text="Register"
+ android:textSize="16sp" />
+ </LinearLayout>
+</ScrollView>

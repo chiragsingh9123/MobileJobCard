@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <application
+        android:name=".RevenueAccountApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="Mobile JobCard"
+        android:theme="@style/Theme.RevenueAccount"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name=".activities.SplashActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.OtpVerifyActivity" />
+        <activity android:name=".activities.DashboardActivity" />
+        <activity android:name=".activities.NewJobCardActivity" />
+        <activity android:name=".activities.JobDetailsActivity" />
+        <activity android:name=".activities.EditJobActivity" />
+        <activity android:name=".activities.JobsActivity" />
+        <activity android:name=".activities.CustomersActivity" />
+        <activity android:name=".activities.CustomerDetailActivity" />
+        <activity android:name=".activities.InventoryActivity" />
+        <activity android:name=".activities.ReportsActivity" />
+        <activity android:name=".activities.SettingsActivity" />
+        <activity android:name=".activities.DeliveryActivity" />
+        <activity android:name=".activities.KhataActivity" />
+        <activity android:name=".activities.RedeemVoucherActivity" />
+        <activity android:name=".activities.StaffActivity" />
+        <activity android:name=".activities.SubscriptionActivity" />
+        <activity android:name=".activities.ShopProfileActivity" />
+        <activity android:name=".activities.PrintSettingsActivity" />
+        <activity android:name=".activities.TemplatesActivity" />
+        <activity android:name=".activities.NotificationSettingsActivity" />
+        <activity android:name=".activities.BackupActivity" />
+        <activity android:name=".activities.ChangePasswordActivity" />
+        <activity android:name=".activities.ActivityLogActivity" />
+        <activity android:name=".activities.AboutActivity" />
+        <activity android:name=".activities.RolesInfoActivity" />
+        <activity android:name=".activities.PrivacyPolicyActivity" />
+        <activity android:name=".activities.DeveloperInfoActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>

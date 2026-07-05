@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent">
+
+ <LinearLayout
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:orientation="vertical"
+ android:padding="16dp">
+
+ <TextView
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:text="Delivery &amp; Payment" android:textSize="22sp"
+ android:textColor="@color/text_primary" android:textStyle="bold" />
+
+ <TextView
+ android:id="@+id/tvJobId"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:layout_marginTop="4dp" android:textColor="@color/primary"
+ android:textStyle="bold" />
+
+ <com.google.android.material.card.MaterialCardView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="16dp" app:cardCornerRadius="12dp">
+
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="vertical" android:padding="16dp">
+
+ <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:text="Payment Summary" android:textStyle="bold"
+ android:textColor="@color/text_primary" />
+
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:orientation="horizontal">
+ <TextView android:layout_width="0dp" android:layout_weight="1"
+ android:layout_height="wrap_content" android:text="Total Cost"
+ android:textColor="@color/text_secondary" />
+ <TextView android:id="@+id/tvTotalCost"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:textColor="@color/text_primary" android:textStyle="bold" />
+ </LinearLayout>
+
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="8dp" android:orientation="horizontal">
+ <TextView android:layout_width="0dp" android:layout_weight="1"
+ android:layout_height="wrap_content" android:text="Advance / Paid"
+ android:textColor="@color/text_secondary" />
+ <TextView android:id="@+id/tvAdvance"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:textColor="@color/success" android:textStyle="bold" />
+ </LinearLayout>
+
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="8dp" android:orientation="horizontal">
+ <TextView android:layout_width="0dp" android:layout_weight="1"
+ android:layout_height="wrap_content" android:text="Balance"
+ android:textColor="@color/text_secondary" />
+ <TextView android:id="@+id/tvBalance"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:textColor="@color/error" android:textStyle="bold" />
+ </LinearLayout>
+ </LinearLayout>
+ </com.google.android.material.card.MaterialCardView>
+
+ <TextView
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:layout_marginTop="20dp" android:text="Payment Method"
+ android:textColor="@color/text_primary" android:textStyle="bold" />
+
+ <RadioGroup
+ android:id="@+id/rgMethod"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="horizontal">
+ <RadioButton android:id="@+id/rbCash" android:checked="true"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:text="Cash" />
+ <RadioButton android:id="@+id/rbUpi"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:layout_marginStart="16dp" android:text="UPI" />
+ <RadioButton android:id="@+id/rbCard"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:layout_marginStart="16dp" android:text="Card" />
+ </RadioGroup>
+
+ <com.google.android.material.textfield.TextInputLayout
+ style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:hint="Received Amount ₹">
+ <com.google.android.material.textfield.TextInputEditText
+ android:id="@+id/etReceivedAmount" android:inputType="numberDecimal"
+ android:layout_width="match_parent" android:layout_height="wrap_content" />
+ </com.google.android.material.textfield.TextInputLayout>
+
+ <!-- Khata warning -->
+ <TextView
+ android:id="@+id/tvKhataWarning"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="8dp" android:background="#FFF3E0"
+ android:padding="12dp" android:textColor="#E65100"
+ android:visibility="gone" />
+
+ <Button
+ android:id="@+id/btnCompleteDelivery"
+ android:layout_width="match_parent" android:layout_height="56dp"
+ android:layout_marginTop="24dp"
+ android:backgroundTint="@color/success"
+ android:text="Complete Delivery" android:textSize="16sp" />
+ </LinearLayout>
+</ScrollView>

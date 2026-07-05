@@ -1,0 +1,11 @@
+App icon status: DONE.
+
+A proper adaptive launcher icon has been created using pure XML vector drawables
+(no external image files needed):
+  - res/drawable/ic_launcher_background.xml (brand gradient background)
+  - res/drawable/ic_launcher_foreground.xml (clipboard + wrench icon)
+  - res/mipmap-anydpi-v26/ic_launcher.xml and ic_launcher_round.xml
+
+If you would like a different icon design, the easiest way is:
+  Android Studio -> right-click "res" folder -> New -> Image Asset
+  -> choose your own image/logo -> this will regenerate the mipmap files.

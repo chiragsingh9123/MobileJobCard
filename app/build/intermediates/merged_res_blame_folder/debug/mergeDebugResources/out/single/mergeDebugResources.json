@@ -1,0 +1,382 @@
+[
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_edit_job.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_edit_job.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_people.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_people.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/color_chip_bg_selector.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/color/chip_bg_selector.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_security.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_security.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_person.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_person.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_developer_info.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_developer_info.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_delivery.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_delivery.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_bg_badge.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/bg_badge.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_bg_avatar.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/bg_avatar.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_register.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_voucher.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_voucher.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_khata.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_khata.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_dashboard.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_bg_splash.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/bg_splash.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_customers.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_customers.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_privacy.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_privacy.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_box.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_box.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_chart.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_chart.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_back.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_key.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_key.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_khata_customer.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_khata_customer.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_home.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_about.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_about.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_chevron_right.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_chevron_right.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_bg_header_gradient.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/bg_header_gradient.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_roles_info.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_roles_info.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_calendar.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_calendar.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_phone_call.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_phone_call.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_include_bottom_nav.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/include_bottom_nav.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/xml_file_paths.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/xml/file_paths.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_filter_chip.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_filter_chip.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_action_tile.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_action_tile.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_staff.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_staff.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_print_settings.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_print_settings.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_activity_log.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_activity_log.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_staff.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_staff.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_email.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_email.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_settings.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_wrench.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_wrench.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_customer_detail.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_customer_detail.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_globe.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_globe.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_stat_card.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_stat_card.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_info.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_info.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_otp_verify.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_otp_verify.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_more.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_more.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_product.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_product.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_subscription.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_subscription.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_close.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_close.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_notification.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_notification.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_chat.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_chat.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/menu_menu_bottom_nav.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/menu/menu_bottom_nav.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_dialog_rwr.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/dialog_rwr.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_search.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_search.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_call.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_call.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_customer.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_customer.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_change_password.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_change_password.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_jobs.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_jobs.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_developer.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_developer.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_history.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_history.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_backup.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_backup.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_phone_android.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_phone_android.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_templates.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_templates.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_reports.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_reports.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_media_thumb.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_media_thumb.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_edit.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_edit.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_notification_settings.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_notification_settings.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_activity_log.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_activity_log.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_bg_circle_white.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/bg_circle_white.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_new_job_card.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_new_job_card.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_video.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_video.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_backup_cloud.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_backup_cloud.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_photo.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_photo.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_barcode_scan.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_barcode_scan.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_shop_profile.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_shop_profile.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_menu_row.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_menu_row.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_redeem_voucher.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_redeem_voucher.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_settings.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_rupee.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_rupee.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_print.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_print.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_splash.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_privacy_policy.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_privacy_policy.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_add.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_add.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_job_details.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_job_details.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/color_nav_item_color.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/color/nav_item_color.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_send_message.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_send_message.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_inventory.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_inventory.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_login.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_store.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_store.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_logout.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/drawable_ic_receipt.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/drawable/ic_receipt.xml"
+    },
+    {
+        "merged": "com.revenueaccount.app-debug-35:/layout_item_job.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/item_job.xml"
+    }
+]
