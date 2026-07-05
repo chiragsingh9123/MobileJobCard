@@ -18,3 +18,26 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             bash /root/update.sh
+
+      - name: Notify Telegram (Success)
+        if: success()
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d text="✅ Deployment completed successfully!
+          
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref_name }}
+          Commit: ${{ github.sha }}
+          Triggered by: ${{ github.actor }}"
+
+      - name: Notify Telegram (Failure)
+        if: failure()
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d text="❌ Deployment failed!
+          
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref_name }}
+          Triggered by: ${{ github.actor }}"
