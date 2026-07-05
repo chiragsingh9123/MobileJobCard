@@ -1,0 +1,28 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> Vouchers</h1></div>
+<div class="card"><h3 style="margin-bottom:12px"> Voucher Generate Karein</h3>
+<form method="post"><div class="form-row">
+<div><label>Plan</label><select name="plan_id" required>
+{% for p in plans %}<option value="{{ p.id }}">{{ p.name }} — ₹{{ p.price }} / {{ p.duration_days }} din</option>{% endfor %}
+</select></div>
+<div><label>Kitne vouchers? (1-100)</label><input name="count" type="number" value="1" min="1" max="100"></div>
+<div><label>Bonus Extra Days</label><input name="extra_days" type="number" value="0"></div>
+<div><label>Voucher Expiry (days, khali = kabhi nahi)</label><input name="expiry_days" type="number" placeholder="90"></div>
+</div><button class="btn btn-success"> Generate</button></form></div>
+<div class="card">
+<p style="margin-bottom:12px">
+<a href="{{ url_for('admin.vouchers') }}" class="btn btn-sm {% if not current_filter %}btn-primary{% endif %}">Sab</a>
+<a href="{{ url_for('admin.vouchers', filter='unused') }}" class="btn btn-sm {% if current_filter=='unused' %}btn-primary{% endif %}">Unused</a>
+<a href="{{ url_for('admin.vouchers', filter='used') }}" class="btn btn-sm {% if current_filter=='used' %}btn-primary{% endif %}">Redeemed</a></p>
+<table><tr><th>Code</th><th>Plan</th><th>Bonus</th><th>Expiry</th><th>Status</th><th>Redeemed By</th><th>Action</th></tr>
+{% for v in vouchers %}
+<tr><td class="code">{{ v.code }}</td><td>{{ v.plan.name }} ({{ v.plan.duration_days }}d)</td>
+<td>{{ v.extra_days }}d</td>
+<td>{{ v.expires_at.strftime('%d %b %Y') if v.expires_at else 'Kabhi nahi' }}</td>
+<td>{% if v.is_redeemed %}<span class="badge orange">Redeemed</span>{% else %}<span class="badge green">Available</span>{% endif %}</td>
+<td>{{ v.redeemed_by_shop.name if v.redeemed_by_shop else '—' }}
+{% if v.redeemed_at %}<br><small>{{ v.redeemed_at.strftime('%d %b %Y') }}</small>{% endif %}</td>
+<td>{% if not v.is_redeemed %}<form method="post" action="{{ url_for('admin.delete_voucher', vid=v.id) }}">
+<button class="btn btn-sm btn-danger">Delete</button></form>{% endif %}</td></tr>
+{% endfor %}</table></div>
+{% endblock %}

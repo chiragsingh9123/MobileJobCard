@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1>Dashboard</h1></div>
+<div class="stats">
+ <div class="stat-card"><div class="num">{{ stats.shops }}</div><div class="lbl">Total Shops</div></div>
+ <div class="stat-card"><div class="num">{{ stats.users }}</div><div class="lbl">Total Users</div></div>
+ <div class="stat-card"><div class="num">{{ stats.active_subs }}</div><div class="lbl">Active Subscriptions</div></div>
+ <div class="stat-card"><div class="num">{{ stats.vouchers_unused }}</div><div class="lbl">Unused Vouchers</div></div>
+ <div class="stat-card"><div class="num">{{ stats.vouchers_used }}</div><div class="lbl">Redeemed Vouchers</div></div>
+ <div class="stat-card"><div class="num">{{ stats.jobs }}</div><div class="lbl">Total Job Cards</div></div>
+ <div class="stat-card"><div class="num">{{ stats.customers }}</div><div class="lbl">Total Customers</div></div>
+ <div class="stat-card"><div class="num">₹{{ stats.revenue }}</div><div class="lbl">Total Revenue (sab shops)</div></div>
+ <div class="stat-card"><div class="num">{{ stats.pending_payments }}</div><div class="lbl">⏳ Pending Payment Requests</div></div>
+</div>
+<div class="card"><h3 style="margin-bottom:12px">🆕 Recent Shops</h3>
+<table><tr><th>Shop</th><th>City</th><th>Registered</th><th>Status</th></tr>
+{% for s in recent_shops %}
+<tr><td>{{ s.name }}</td><td>{{ s.city }}</td><td>{{ s.created_at.strftime('%d %b %Y') }}</td>
+<td>{% if s.is_active %}<span class="badge green">Active</span>{% else %}<span class="badge red">Blocked</span>{% endif %}</td></tr>
+{% endfor %}</table></div>
+{% endblock %}

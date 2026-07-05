@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> UPI Settings</h1></div>
+<div class="card">
+<p style="margin-bottom:12px;color:#757575">Yeh UPI ID aur QR code sabhi users ko subscription payment
+karte waqt dikhega. User yahan pay karke screenshot + UTR submit karega, jo aapko upar "Payment Requests" me dikhega.</p>
+<form method="post" enctype="multipart/form-data">
+<div class="form-row">
+<div><label>UPI ID</label><input name="upi_id" value="{{ settings.upi_id }}" placeholder="yourshop@upi" required></div>
+<div><label>Display Name</label><input name="upi_name" value="{{ settings.upi_name }}" placeholder="Mobile JobCard"></div>
+</div>
+<div class="form-row">
+<div><label>QR Code Image (naya upload karein to purana replace ho jaayega)</label>
+<input type="file" name="qr_image" accept="image/*"></div>
+</div>
+{% if settings.qr_image_path %}
+<p><b>Current QR:</b><br><img src="/uploads/qr/{{ settings.qr_image_path }}" style="max-width:200px;border-radius:8px;border:1px solid #ddd;margin-top:8px"></p>
+{% endif %}
+<button class="btn btn-primary" style="margin-top:12px">Save</button>
+</form>
+</div>
+{% endblock %}

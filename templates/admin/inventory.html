@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> Inventory (sab shops)</h1></div>
+<div class="card"><table>
+<tr><th>Product</th><th>Shop</th><th>Category</th><th>Purchase</th><th>Sale</th><th>Qty</th><th>Stock</th></tr>
+{% for p in products %}
+<tr><td><b>{{ p.name }}</b></td><td>{{ p.shop.name }}</td><td>{{ p.category }}</td>
+<td>₹{{ p.purchase_price }}</td><td>₹{{ p.sale_price }}</td><td>{{ p.quantity }}</td>
+<td>{% if p.stock_status == 'IN' %}<span class="badge green">In Stock</span>
+{% elif p.stock_status == 'LOW' %}<span class="badge orange">Low</span>
+{% else %}<span class="badge red">Out</span>{% endif %}</td></tr>
+{% endfor %}</table></div>
+{% endblock %}

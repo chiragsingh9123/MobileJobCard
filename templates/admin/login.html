@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Admin Login</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/style.css') }}"></head>
+<body>
+<div class="login-wrap"><div class="login-box">
+ <h1> Mobile JobCard</h1><p>Admin Panel Login</p>
+ {% with messages = get_flashed_messages(with_categories=true) %}
+ {% for cat, msg in messages %}<div class="flash {{ cat }}">{{ msg }}</div>{% endfor %}
+ {% endwith %}
+ <form method="post">
+ <input name="mobile" placeholder="Admin Mobile Number" required>
+ <input name="password" type="password" placeholder="Password" required>
+ <button class="btn btn-primary" style="width:100%">Login</button>
+ </form>
+</div></div>
+</body></html>

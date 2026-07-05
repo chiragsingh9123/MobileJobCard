@@ -1,0 +1,47 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> UPI Payment Requests</h1></div>
+<div class="card">
+<p style="margin-bottom:12px">
+<a href="{{ url_for('admin.payment_requests', filter='PENDING') }}" class="btn btn-sm {% if current_filter=='PENDING' %}btn-primary{% endif %}">Pending</a>
+<a href="{{ url_for('admin.payment_requests', filter='APPROVED') }}" class="btn btn-sm {% if current_filter=='APPROVED' %}btn-primary{% endif %}">Approved</a>
+<a href="{{ url_for('admin.payment_requests', filter='REJECTED') }}" class="btn btn-sm {% if current_filter=='REJECTED' %}btn-primary{% endif %}">Rejected</a>
+</p>
+{% for r in requests %}
+<div class="card" style="border:1px solid #eee">
+ <div class="form-row">
+ <div style="flex:2">
+ <b>{{ r.shop.name }}</b> ({{ r.shop.city }})<br>
+ Plan: <span class="badge blue">{{ r.plan.name }}</span> — ₹{{ r.amount }}<br>
+ UTR / Txn No: <span class="code">{{ r.utr_number }}</span><br>
+ Submitted: {{ r.created_at.strftime('%d %b %Y %H:%M') }}
+ {% if r.status != 'PENDING' %}<br>Status:
+ {% if r.status == 'APPROVED' %}<span class="badge green">Approved</span>
+ {% else %}<span class="badge red">Rejected</span>{% endif %}
+ {% if r.admin_note %} — {{ r.admin_note }}{% endif %}
+ {% endif %}
+ </div>
+ <div style="flex:1;text-align:center">
+ {% if r.screenshot_path %}
+ <a href="/uploads/screenshots/{{ r.screenshot_path }}" target="_blank">
+ <img src="/uploads/screenshots/{{ r.screenshot_path }}" style="max-width:160px;max-height:220px;border-radius:8px;border:1px solid #ddd">
+ </a>
+ {% else %}<i>Koi screenshot nahi</i>{% endif %}
+ </div>
+ {% if r.status == 'PENDING' %}
+ <div style="flex:1">
+ <form method="post" action="{{ url_for('admin.approve_payment_request', rid=r.id) }}" style="margin-bottom:8px">
+ <button class="btn btn-success" style="width:100%"> Approve</button>
+ </form>
+ <form method="post" action="{{ url_for('admin.reject_payment_request', rid=r.id) }}">
+ <input name="reason" placeholder="Reject reason (optional)" style="margin-bottom:6px">
+ <button class="btn btn-danger" style="width:100%"> Reject</button>
+ </form>
+ </div>
+ {% endif %}
+ </div>
+</div>
+{% else %}
+<p>Koi request nahi mili.</p>
+{% endfor %}
+</div>
+{% endblock %}

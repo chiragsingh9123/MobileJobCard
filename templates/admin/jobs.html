@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> Job Cards (sab shops)</h1></div>
+<div class="card"><table>
+<tr><th>Job ID</th><th>Shop</th><th>Customer</th><th>Device</th><th>Cost</th><th>Paid</th><th>Balance</th><th>Status</th><th>Date</th></tr>
+{% for j in jobs %}
+<tr><td class="code">{{ j.job_id }}</td><td>{{ j.shop.name }}</td>
+<td>{{ j.customer.name }}<br><small>{{ j.customer.mobile }}</small></td>
+<td>{{ j.device_brand }} {{ j.device_model }}</td>
+<td>₹{{ j.estimated_cost }}</td><td>₹{{ j.paid_amount }}</td><td>₹{{ j.balance_amount }}</td>
+<td><span class="badge blue">{{ j.status }}</span></td>
+<td>{{ j.created_at.strftime('%d %b') }}</td></tr>
+{% endfor %}</table></div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> Subscriptions</h1></div>
+<div class="card"><table>
+<tr><th>Shop</th><th>Plan</th><th>Start</th><th>End</th><th>Days Left</th><th>Type</th><th>Status</th></tr>
+{% for s in subs %}
+<tr><td>{{ s.shop.name }}</td><td>{{ s.plan.name }}</td>
+<td>{{ s.start_date.strftime('%d %b %Y') }}</td><td>{{ s.end_date.strftime('%d %b %Y') }}</td>
+<td>{{ s.days_remaining }}</td>
+<td>{% if s.is_trial %}<span class="badge orange">Trial</span>{% else %}<span class="badge blue">Paid</span>{% endif %}</td>
+<td>{% if s.end_date > now %}<span class="badge green">Active</span>{% else %}<span class="badge red">Expired</span>{% endif %}</td></tr>
+{% endfor %}</table></div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> Shops</h1></div>
+<div class="card"><table>
+<tr><th>#</th><th>Shop Name</th><th>City</th><th>Owner(s)</th><th>Subscription</th><th>Status</th><th>Action</th></tr>
+{% for s in shops %}
+{% set sub = s.subscriptions|sort(attribute='end_date')|last if s.subscriptions else None %}
+<tr><td>{{ s.id }}</td><td><b>{{ s.name }}</b><br><small>{{ s.address }}</small></td><td>{{ s.city }}</td>
+<td>{% for u in s.users %}{{ u.first_name }} ({{ u.mobile }})<br>{% endfor %}</td>
+<td>{% if sub and sub.end_date > now %}<span class="badge blue">{{ sub.plan.name }}</span> {{ sub.days_remaining }} din
+{% else %}<span class="badge red">Expired / None</span>{% endif %}</td>
+<td>{% if s.is_active %}<span class="badge green">Active</span>{% else %}<span class="badge red">Blocked</span>{% endif %}</td>
+<td><form method="post" action="{{ url_for('admin.toggle_shop', sid=s.id) }}">
+<button class="btn btn-sm {% if s.is_active %}btn-danger{% else %}btn-success{% endif %}">
+{% if s.is_active %}Block{% else %}Unblock{% endif %}</button></form></td></tr>
+{% endfor %}</table></div>
+{% endblock %}

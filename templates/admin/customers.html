@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> Customers (sab shops)</h1></div>
+<div class="card"><table>
+<tr><th>Name</th><th>Mobile</th><th>Shop</th><th>Type</th><th>Total Jobs</th><th>Khata Baaki</th></tr>
+{% for c in customers %}
+<tr><td>{{ c.name }}</td><td>{{ c.mobile }}</td><td>{{ c.shop.name }}</td>
+<td><span class="badge blue">{{ c.customer_type }}</span></td><td>{{ c.total_jobs }}</td>
+<td>{% if c.khata_balance > 0 %}<span class="badge red">₹{{ c.khata_balance }}</span>{% else %}₹0{% endif %}</td></tr>
+{% endfor %}</table></div>
+{% endblock %}

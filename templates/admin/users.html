@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1> Users</h1></div>
+<div class="card"><table>
+<tr><th>#</th><th>Name</th><th>Mobile</th><th>Role</th><th>Shop</th><th>Status</th><th>Action</th></tr>
+{% for u in users %}
+<tr><td>{{ u.id }}</td><td>{{ u.first_name }} {{ u.last_name }}</td><td>{{ u.mobile }}</td>
+<td><span class="badge blue">{{ u.role }}</span></td><td>{{ u.shop.name if u.shop else '—' }}</td>
+<td>{% if u.is_active %}<span class="badge green">Active</span>{% else %}<span class="badge red">Inactive</span>{% endif %}</td>
+<td><form method="post" action="{{ url_for('admin.toggle_user', uid=u.id) }}">
+<button class="btn btn-sm {% if u.is_active %}btn-danger{% else %}btn-success{% endif %}">
+{% if u.is_active %}Deactivate{% else %}Activate{% endif %}</button></form></td></tr>
+{% endfor %}</table></div>
+{% endblock %}
