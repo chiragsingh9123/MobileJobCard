@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class Config:
- SECRET_KEY = os.environ.get("SECRET_KEY", "change-this-secret-key-in-production")
+ SECRET_KEY = os.environ.get("SECRET_KEY", "")
  # SQLite database (file: revenue_account.db)
  SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR, "revenue_account.db")
  SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -23,8 +23,8 @@ class Config:
  # OTP via Telegram bot (temporary — real SMS gateway baad me lagayenge).
  # Filhaal SAARE OTP is ek Telegram chat par jaate hain (developer/owner ka apna bot),
  # taaki abhi SMS provider ke bina bhi OTP verification test kiya ja sake.
- TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8154256318:AAHXknJtIMSCUqLQawtckg9jaIqRD16oQIA")
- TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "7474379284")
+ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
  OTP_EXPIRY_MINUTES = 5
  OTP_MAX_ATTEMPTS = 5
  OTP_RESEND_COOLDOWN_SECONDS = 45
