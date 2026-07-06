@@ -207,27 +207,27 @@ class Voucher(db.Model):
 
 
 # ---------------- UPI PAYMENT VERIFICATION (manual) ----------------
-class PlatformSettings(db.Model):
-    """Singleton row: Admin ka UPI ID + QR code (poore platform ke liye ek hi)"""
-    __tablename__ = "platform_settings"
-    id = db.Column(db.Integer, primary_key=True)
-    upi_id = db.Column(db.String(120), default="")
-    upi_name = db.Column(db.String(120), default="")
-    qr_image_path = db.Column(db.String(255), default="")  # relative path under uploads/qr/
-    updated_at = db.Column(db.DateTime, default=now)
+# class PlatformSettings(db.Model):
+#     """Singleton row: Admin ka UPI ID + QR code (poore platform ke liye ek hi)"""
+#     __tablename__ = "platform_settings"
+#     id = db.Column(db.Integer, primary_key=True)
+#     upi_id = db.Column(db.String(120), default="")
+#     upi_name = db.Column(db.String(120), default="")
+#     qr_image_path = db.Column(db.String(255), default="")  # relative path under uploads/qr/
+#     updated_at = db.Column(db.DateTime, default=now)
 
-    @staticmethod
-    def get():
-        s = PlatformSettings.query.first()
-        if not s:
-            s = PlatformSettings()
-            db.session.add(s)
-            db.session.commit()
-        return s
+#     @staticmethod
+#     def get():
+#         s = PlatformSettings.query.first()
+#         if not s:
+#             s = PlatformSettings()
+#             db.session.add(s)
+#             db.session.commit()
+#         return s
 
-    def to_dict(self):
-        return {"upi_id": self.upi_id, "upi_name": self.upi_name,
-                "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None}
+    # def to_dict(self):
+    #     return {"upi_id": self.upi_id, "upi_name": self.upi_name,
+    #             "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None}
 
 
 class PaymentRequest(db.Model):
