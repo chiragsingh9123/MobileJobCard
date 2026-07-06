@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+ android:width="108dp" android:height="108dp"
+ android:viewportWidth="108" android:viewportHeight="108">
+ <!-- Clipboard/job-card body -->
+ <path android:fillColor="#FFFFFF" android:pathData="M34,28 h40 a6,6 0 0 1 6,6 v48 a6,6 0 0 1 -6,6 h-40 a6,6 0 0 1 -6,-6 v-48 a6,6 0 0 1 6,-6 z"/>
+ <path android:fillColor="#0D47A1" android:pathData="M44,24 h20 a4,4 0 0 1 4,4 v4 h-28 v-4 a4,4 0 0 1 4,-4 z"/>
+ <!-- Lines representing job details -->
+ <path android:fillColor="#B3E5FC" android:pathData="M34,50 h30 v4 h-30 z"/>
+ <path android:fillColor="#B3E5FC" android:pathData="M34,60 h30 v4 h-30 z"/>
+ <path android:fillColor="#B3E5FC" android:pathData="M34,70 h20 v4 h-20 z"/>
+ <!-- Wrench accent -->
+ <path android:fillColor="#FF9800" android:pathData="M72,66 L84,54 a6,6 0 1 0 -8,-8 L52,58 a5,5 0 1 0 4,4 L68,50 a6,6 0 1 0 4,16 z"/>
+</vector>

@@ -3301,6 +3301,7 @@ id btnSettle
 id btnSubmitPayment
 id btnTabUpi
 id btnTabVoucher
+id btnUpdate
 id btnUpdateStatus
 id btnVerify
 id buttonPanel
@@ -3825,6 +3826,7 @@ id tvKhata
 id tvKhataWarning
 id tvLabel
 id tvLastUpdated
+id tvMessage
 id tvMeta
 id tvMobile
 id tvName
@@ -4034,6 +4036,7 @@ layout activity_splash
 layout activity_staff
 layout activity_subscription
 layout activity_templates
+layout activity_update_required
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

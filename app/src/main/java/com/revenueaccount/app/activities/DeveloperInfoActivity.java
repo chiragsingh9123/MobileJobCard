@@ -15,8 +15,8 @@ import com.revenueaccount.app.R;
 public class DeveloperInfoActivity extends AppCompatActivity {
 
     // Replace these with your actual information before publishing
-    private static final String DEV_NAME = "Your Name / Company Name";
-    private static final String DEV_TAGLINE = "YOur ";
+    private static final String DEV_NAME = "Chirag Singh / Loopax";
+    private static final String DEV_TAGLINE = "Your Idea Our Innovation";
     private static final String SUPPORT_EMAIL = "chiragsingh9123@gmail.com";
     private static final String SUPPORT_PHONE = "+917453842945";
     private static final String WEBSITE = "https://chiragsingh.online";

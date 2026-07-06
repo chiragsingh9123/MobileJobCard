@@ -52,6 +52,7 @@
         <activity android:name=".activities.RolesInfoActivity" />
         <activity android:name=".activities.PrivacyPolicyActivity" />
         <activity android:name=".activities.DeveloperInfoActivity" />
+        <activity android:name=".activities.UpdateRequiredActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

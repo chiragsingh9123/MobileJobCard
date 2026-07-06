@@ -42,6 +42,9 @@ android {
             }
         }
     }
+    buildFeatures {
+        buildConfig true          // <-- yeh line add karo
+    }
 
     buildTypes {
         release {

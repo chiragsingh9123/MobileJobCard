@@ -12,12 +12,34 @@
  <LinearLayout
  android:layout_width="match_parent" android:layout_height="56dp"
  android:gravity="center_vertical" android:orientation="horizontal"
- android:paddingHorizontal="16dp">
- <TextView
- android:layout_width="0dp" android:layout_weight="1"
- android:layout_height="wrap_content" android:text="Mobile JobCard"
- android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold"
- android:letterSpacing="0.01"/>
+ android:paddingHorizontal="17dp">
+
+  <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:orientation="vertical">
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Mobile JobCard"
+       android:textColor="@color/white"
+       android:textSize="20sp"
+       android:textStyle="bold"
+       android:letterSpacing="0.01"/>
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Developed by Loopax.online"
+       android:textColor="#B3E5FC"
+       android:textSize="11sp"
+       android:layout_marginTop="2dp"/>
+
+  </LinearLayout>
+
+
  <ImageView
  android:id="@+id/btnNotification"
  android:layout_width="40dp" android:layout_height="40dp"

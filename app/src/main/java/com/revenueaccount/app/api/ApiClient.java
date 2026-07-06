@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     // Apne server ka IP daalein. Emulator ke liye 10.0.2.2 = aapka PC ka localhost
-    public static final String BASE_URL = "http://192.168.1.8:8000/";
+    public static final String BASE_URL = "http://187.127.186.197:8000/";
     private static Retrofit retrofit;
 
     public static ApiService get(Context context) {

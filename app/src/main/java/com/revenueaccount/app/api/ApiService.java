@@ -174,4 +174,7 @@ public interface ApiService {
 
     @GET("api/shop/export/")
     Call<JsonObject> exportBackup();
+
+    @GET("api/app/version-check/")
+    Call<JsonObject> versionCheck(@Query("version_code") int versionCode);
 }

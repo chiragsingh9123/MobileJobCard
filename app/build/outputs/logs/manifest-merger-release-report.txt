@@ -1,0 +1,516 @@
+-- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:56:9-64:20
+	android:grantUriPermissions
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:60:13-47
+	android:authorities
+		INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:58:13-64
+	android:exported
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:59:13-37
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:57:13-62
+manifest
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:2:1-66:12
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1426e8610580d9f6b8261a79910ac9a9\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\adbf91871f0bfa594c85c059ce6accb4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\b030bb78a0d3d82cd52f1b9bde58a047\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\53d03f74fecc451e722f509e370803bf\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\641c29bb14728b66e6a6a0e6b2c00fc0\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\0a6f9e994e5c65229ec4a50bc317c0ab\transformed\recyclerview-1.3.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ea82081a7beb49dac0a8662795576b19\transformed\swiperefreshlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\6196ff433b83cb2bb8a8bd22c76ee712\transformed\MPAndroidChart-v3.1.0\AndroidManifest.xml:2:1-20:12
+MERGED from [com.github.bumptech.glide:glide:4.16.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ecc825780ebb8299834abeee1d6b1799\transformed\glide-4.16.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:17:1-56:12
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\6c5a3063c14ea55d108904f91507f81b\transformed\fragment-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\03b6c4eed0bd4923ad6edb2c35f01f32\transformed\activity-1.8.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ebf473dcbb6ae620cdf2b0b500114b9a\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f78ff57c4e15c8aa364c0b2750a2947c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\23118caa6ebd82e7f31534ed31f2567d\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9516237138449cd4cfba3f74da780422\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2bb19459c3167d89d162791f322f7a47\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7713cbdec940350cf2f7b6db5c8c4b9\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\97eb35305d3a7a95025a136c88636522\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\543f08ee476d029336e41f1da0ee9a2f\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\b38970135d5d8cfa8abc3a27fc6744be\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\4206654d8115e82c52f3818112a83b5b\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9ec63f677557a51d1b5595abcf504538\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\fc1e423ba36f401272175f5b8a0d810f\transformed\lifecycle-livedata-core-2.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2b5aa8b2563f1f6c6b91baed9131bd80\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2ad483421999e92b30f7dd6d4d6cfa61\transformed\lifecycle-viewmodel-2.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9a341760af028a17b1c298a021ecd0f8\transformed\lifecycle-runtime-2.6.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\c11def47f398be27ae3621fa56edf9e2\transformed\lifecycle-viewmodel-savedstate-2.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1d8e017fa53e6bc31513abf96085f8d2\transformed\core-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1a260219b9ab7bea808da9392ec354be\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3ebf78fc026530945c6117dcb24ae678\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3735b1496bc94b5bbf0072b9aba461e8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9d55c34aa08c6e410e55f34242b5761a\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2edae3fc379ab58caa7cec2db01eee84\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\00999af003cd81aae5e2814176085eb8\transformed\gifdecoder-4.16.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3b6d43a6be91f09c6abd3d7f0e4f6b6c\transformed\exifinterface-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\c8b4026402e58adfed099d309a8b3ce2\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\5ff530499d607b62b64e25c9c04e51d3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\a1ddd16cd8c46fea0c36b9dfd510b459\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\259645634c089c0dfbbea8dd416210ce\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f938c862119c930f3e6ed553cee84ea8\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\79d214da5067848e35a6cea18cfa3366\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\792635365be0d0a76680e53a679a5ec4\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.CALL_PHONE
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:5:5-69
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:5:22-66
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:6:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:22:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:22:5-65
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:6:22-62
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:7:5-77
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:7:22-74
+uses-feature#android.hardware.camera
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:5-85
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
+	android:required
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:58-82
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:5-95
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
+	android:required
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:68-92
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:19-67
+application
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:11:5-65:19
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:11:5-65:19
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1426e8610580d9f6b8261a79910ac9a9\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1426e8610580d9f6b8261a79910ac9a9\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\adbf91871f0bfa594c85c059ce6accb4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\adbf91871f0bfa594c85c059ce6accb4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:46:5-54:19
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:46:5-54:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\5ff530499d607b62b64e25c9c04e51d3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\5ff530499d607b62b64e25c9c04e51d3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:16:9-39
+	android:roundIcon
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:15:9-54
+	android:icon
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:14:9-43
+	android:allowBackup
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:13:9-35
+	android:theme
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:17:9-52
+	android:usesCleartextTraffic
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:18:9-44
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:12:9-42
+activity#com.revenueaccount.app.activities.SplashActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:9-25:20
+	android:exported
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:61-84
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:19-60
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:21:13-24:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:22:17-69
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:22:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:23:27-74
+activity#com.revenueaccount.app.activities.LoginActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:26:9-62
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:26:19-59
+activity#com.revenueaccount.app.activities.RegisterActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:27:9-65
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:27:19-62
+activity#com.revenueaccount.app.activities.OtpVerifyActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:28:9-66
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:28:19-63
+activity#com.revenueaccount.app.activities.DashboardActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:29:9-66
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:29:19-63
+activity#com.revenueaccount.app.activities.NewJobCardActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:30:9-67
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:30:19-64
+activity#com.revenueaccount.app.activities.JobDetailsActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:31:9-67
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:31:19-64
+activity#com.revenueaccount.app.activities.EditJobActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:32:9-64
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:32:19-61
+activity#com.revenueaccount.app.activities.JobsActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:33:9-61
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:33:19-58
+activity#com.revenueaccount.app.activities.CustomersActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:34:9-66
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:34:19-63
+activity#com.revenueaccount.app.activities.CustomerDetailActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:35:9-71
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:35:19-68
+activity#com.revenueaccount.app.activities.InventoryActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:36:9-66
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:36:19-63
+activity#com.revenueaccount.app.activities.ReportsActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:37:9-64
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:37:19-61
+activity#com.revenueaccount.app.activities.SettingsActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:38:9-65
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:38:19-62
+activity#com.revenueaccount.app.activities.DeliveryActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:39:9-65
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:39:19-62
+activity#com.revenueaccount.app.activities.KhataActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:40:9-62
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:40:19-59
+activity#com.revenueaccount.app.activities.RedeemVoucherActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:41:9-70
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:41:19-67
+activity#com.revenueaccount.app.activities.StaffActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:42:9-62
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:42:19-59
+activity#com.revenueaccount.app.activities.SubscriptionActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:43:9-69
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:43:19-66
+activity#com.revenueaccount.app.activities.ShopProfileActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:44:9-68
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:44:19-65
+activity#com.revenueaccount.app.activities.PrintSettingsActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:45:9-70
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:45:19-67
+activity#com.revenueaccount.app.activities.TemplatesActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:46:9-66
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:46:19-63
+activity#com.revenueaccount.app.activities.NotificationSettingsActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:47:9-77
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:47:19-74
+activity#com.revenueaccount.app.activities.BackupActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:48:9-63
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:48:19-60
+activity#com.revenueaccount.app.activities.ChangePasswordActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:49:9-71
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:49:19-68
+activity#com.revenueaccount.app.activities.ActivityLogActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:50:9-68
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:50:19-65
+activity#com.revenueaccount.app.activities.AboutActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:51:9-62
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:51:19-59
+activity#com.revenueaccount.app.activities.RolesInfoActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:52:9-66
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:52:19-63
+activity#com.revenueaccount.app.activities.PrivacyPolicyActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:53:9-70
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:53:19-67
+activity#com.revenueaccount.app.activities.DeveloperInfoActivity
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:54:9-70
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:54:19-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:61:13-63:54
+	android:resource
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:63:17-51
+	android:name
+		ADDED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:62:17-67
+uses-sdk
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1426e8610580d9f6b8261a79910ac9a9\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1426e8610580d9f6b8261a79910ac9a9\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\adbf91871f0bfa594c85c059ce6accb4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\adbf91871f0bfa594c85c059ce6accb4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\b030bb78a0d3d82cd52f1b9bde58a047\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\b030bb78a0d3d82cd52f1b9bde58a047\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\53d03f74fecc451e722f509e370803bf\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\53d03f74fecc451e722f509e370803bf\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\641c29bb14728b66e6a6a0e6b2c00fc0\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\641c29bb14728b66e6a6a0e6b2c00fc0\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\0a6f9e994e5c65229ec4a50bc317c0ab\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\0a6f9e994e5c65229ec4a50bc317c0ab\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ea82081a7beb49dac0a8662795576b19\transformed\swiperefreshlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ea82081a7beb49dac0a8662795576b19\transformed\swiperefreshlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\6196ff433b83cb2bb8a8bd22c76ee712\transformed\MPAndroidChart-v3.1.0\AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\6196ff433b83cb2bb8a8bd22c76ee712\transformed\MPAndroidChart-v3.1.0\AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.bumptech.glide:glide:4.16.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ecc825780ebb8299834abeee1d6b1799\transformed\glide-4.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:glide:4.16.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ecc825780ebb8299834abeee1d6b1799\transformed\glide-4.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\6c5a3063c14ea55d108904f91507f81b\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\6c5a3063c14ea55d108904f91507f81b\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\03b6c4eed0bd4923ad6edb2c35f01f32\transformed\activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\03b6c4eed0bd4923ad6edb2c35f01f32\transformed\activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ebf473dcbb6ae620cdf2b0b500114b9a\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ebf473dcbb6ae620cdf2b0b500114b9a\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f78ff57c4e15c8aa364c0b2750a2947c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f78ff57c4e15c8aa364c0b2750a2947c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\23118caa6ebd82e7f31534ed31f2567d\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\23118caa6ebd82e7f31534ed31f2567d\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9516237138449cd4cfba3f74da780422\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9516237138449cd4cfba3f74da780422\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2bb19459c3167d89d162791f322f7a47\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2bb19459c3167d89d162791f322f7a47\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7713cbdec940350cf2f7b6db5c8c4b9\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7713cbdec940350cf2f7b6db5c8c4b9\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\97eb35305d3a7a95025a136c88636522\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\97eb35305d3a7a95025a136c88636522\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\543f08ee476d029336e41f1da0ee9a2f\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\543f08ee476d029336e41f1da0ee9a2f\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\b38970135d5d8cfa8abc3a27fc6744be\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\b38970135d5d8cfa8abc3a27fc6744be\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\4206654d8115e82c52f3818112a83b5b\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\4206654d8115e82c52f3818112a83b5b\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9ec63f677557a51d1b5595abcf504538\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9ec63f677557a51d1b5595abcf504538\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\fc1e423ba36f401272175f5b8a0d810f\transformed\lifecycle-livedata-core-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\fc1e423ba36f401272175f5b8a0d810f\transformed\lifecycle-livedata-core-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2b5aa8b2563f1f6c6b91baed9131bd80\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2b5aa8b2563f1f6c6b91baed9131bd80\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2ad483421999e92b30f7dd6d4d6cfa61\transformed\lifecycle-viewmodel-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2ad483421999e92b30f7dd6d4d6cfa61\transformed\lifecycle-viewmodel-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9a341760af028a17b1c298a021ecd0f8\transformed\lifecycle-runtime-2.6.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9a341760af028a17b1c298a021ecd0f8\transformed\lifecycle-runtime-2.6.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\c11def47f398be27ae3621fa56edf9e2\transformed\lifecycle-viewmodel-savedstate-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\c11def47f398be27ae3621fa56edf9e2\transformed\lifecycle-viewmodel-savedstate-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1d8e017fa53e6bc31513abf96085f8d2\transformed\core-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1d8e017fa53e6bc31513abf96085f8d2\transformed\core-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1a260219b9ab7bea808da9392ec354be\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1a260219b9ab7bea808da9392ec354be\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3ebf78fc026530945c6117dcb24ae678\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3ebf78fc026530945c6117dcb24ae678\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3735b1496bc94b5bbf0072b9aba461e8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3735b1496bc94b5bbf0072b9aba461e8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9d55c34aa08c6e410e55f34242b5761a\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9d55c34aa08c6e410e55f34242b5761a\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2edae3fc379ab58caa7cec2db01eee84\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2edae3fc379ab58caa7cec2db01eee84\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\00999af003cd81aae5e2814176085eb8\transformed\gifdecoder-4.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.16.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\00999af003cd81aae5e2814176085eb8\transformed\gifdecoder-4.16.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3b6d43a6be91f09c6abd3d7f0e4f6b6c\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\3b6d43a6be91f09c6abd3d7f0e4f6b6c\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\c8b4026402e58adfed099d309a8b3ce2\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\c8b4026402e58adfed099d309a8b3ce2\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\5ff530499d607b62b64e25c9c04e51d3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\5ff530499d607b62b64e25c9c04e51d3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\a1ddd16cd8c46fea0c36b9dfd510b459\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\a1ddd16cd8c46fea0c36b9dfd510b459\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\259645634c089c0dfbbea8dd416210ce\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\259645634c089c0dfbbea8dd416210ce\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f938c862119c930f3e6ed553cee84ea8\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f938c862119c930f3e6ed553cee84ea8\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\79d214da5067848e35a6cea18cfa3366\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\79d214da5067848e35a6cea18cfa3366\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\792635365be0d0a76680e53a679a5ec4\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\792635365be0d0a76680e53a679a5ec4\transformed\annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml
+uses-feature#android.hardware.camera.front
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
+uses-feature#android.hardware.camera.flash
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
+uses-feature#android.hardware.screen.landscape
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+uses-feature#android.hardware.wifi
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+activity#com.journeyapps.barcodescanner.CaptureActivity
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+	android:screenOrientation
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+	android:clearTaskOnLaunch
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+	android:stateNotNeeded
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+	android:windowSoftInputMode
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+	android:theme
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+permission#com.revenueaccount.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+uses-permission#com.revenueaccount.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92

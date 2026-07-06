@@ -3300,6 +3300,7 @@ int id btnSettle 0x7f080080
 int id btnSubmitPayment 0x7f080081
 int id btnTabUpi 0x7f080082
 int id btnTabVoucher 0x7f080083
+int id btnUpdate 0x7f0802d1
 int id btnUpdateStatus 0x7f080084
 int id btnVerify 0x7f080085
 int id buttonPanel 0x7f080086
@@ -3824,6 +3825,7 @@ int id tvKhata 0x7f08028c
 int id tvKhataWarning 0x7f08028d
 int id tvLabel 0x7f08028e
 int id tvLastUpdated 0x7f08028f
+int id tvMessage 0x7f0802d2
 int id tvMeta 0x7f080290
 int id tvMobile 0x7f080291
 int id tvName 0x7f080292
@@ -4033,6 +4035,7 @@ int layout activity_splash 0x7f0b0036
 int layout activity_staff 0x7f0b0037
 int layout activity_subscription 0x7f0b0038
 int layout activity_templates 0x7f0b0039
+int layout activity_update_required 0x7f0b0096
 int layout custom_dialog 0x7f0b003a
 int layout design_bottom_navigation_item 0x7f0b003b
 int layout design_bottom_sheet_dialog 0x7f0b003c
