@@ -1,5 +1,6 @@
-"""Job Cards: create, edit, list (search+date filter), update_status (khata + RWR),
-assign to staff, media (photo/video), message templates, full activity log."""
+"""Job Cards: create, edit, list (search+date filter), update_status (khata + RWR +
+technician attribution + final amount + discount + delivered-by), media, message
+templates, full activity log."""
 from datetime import datetime
 from flask import Blueprint, request, jsonify, current_app
 from extensions import db
@@ -12,7 +13,17 @@ job_bp = Blueprint("jobs", __name__, url_prefix="/api/jobs")
 EDITABLE_FIELDS = ["custom_name", "device_brand", "device_model", "imei1", "imei2",
                    "color", "storage", "lock_type", "device_password", "accessories",
                    "alternate_mobile", "problem", "diagnosis", "estimated_cost",
-                   "expected_delivery"]
+                   "expected_delivery", "discount_amount"]
+
+
+def _resolve_staff(shop_id, staff_id, fallback_user):
+    """staff_id se User dhoondo (isi shop ka ho); na mile to fallback (logged-in
+    user) use karo. Yeh 'kaun kar raha hai' popups ke liye common helper hai."""
+    if staff_id:
+        staff = User.query.filter_by(id=staff_id, shop_id=shop_id).first()
+        if staff:
+            return staff
+    return fallback_user
 
 
 @job_bp.post("/")
@@ -42,11 +53,9 @@ def create_job(user):
     if len(customer.jobs) >= 1 and customer.customer_type == "NORMAL":
         customer.customer_type = "REPEAT"
 
-    assigned_to_id = d.get("assigned_to_id")
-    if assigned_to_id:
-        staff = User.query.filter_by(id=assigned_to_id, shop_id=user.shop_id).first()
-        if not staff:
-            assigned_to_id = None
+    # Job Card kaun "save" kar raha hai (popup se chuna gaya staff/technician).
+    # Agar nahi bheja gaya to jo currently logged-in hai wahi credit hota hai.
+    creator = _resolve_staff(user.shop_id, d.get("created_by_staff_id"), user)
 
     job = JobCard(shop_id=user.shop_id, customer_id=customer.id,
                   job_id=JobCard.next_job_id(user.shop_id),
@@ -62,18 +71,13 @@ def create_job(user):
                   problem=d.get("problem", ""),
                   estimated_cost=float(d.get("estimated_cost") or 0),
                   expected_delivery=d.get("expected_delivery", ""),
-                  received_by_id=user.id, assigned_to_id=assigned_to_id)
+                  received_by_id=creator.id)
     db.session.add(job)
     db.session.flush()
     db.session.add(StatusHistory(job_id=job.id, status="RECEIVED",
-                                 by_user=user.first_name, note="Job card banaya"))
-    # Full audit trail
+                                 by_user=creator.first_name, note="Job card banaya"))
     JobActivityLog.log(user.shop_id, job.id, user.id, "CREATED",
-                       f"{user.first_name} ne job card banaya")
-    if assigned_to_id:
-        staff = User.query.get(assigned_to_id)
-        JobActivityLog.log(user.shop_id, job.id, user.id, "ASSIGNED",
-                           f"{staff.first_name} ko assign kiya gaya")
+                       f"{creator.first_name} ne job card banaya")
     db.session.commit()
     return jsonify(job.to_dict(full=True)), 201
 
@@ -136,7 +140,7 @@ def update_job(user, jid):
     for field in EDITABLE_FIELDS:
         if field in d:
             new_val = d[field]
-            if field == "estimated_cost":
+            if field in ("estimated_cost", "discount_amount"):
                 new_val = float(new_val or 0)
             elif field == "lock_type":
                 new_val = (new_val or "NONE").upper()
@@ -154,14 +158,31 @@ def update_job(user, jid):
 @job_bp.post("/<int:jid>/update_status/")
 @login_required
 def update_status(user, jid):
-    """DELIVERED (ya RWR jisme payment lagta ho) + balance baaki -> auto KHATA (DEBIT) entry.
-    BUG FIX: khata_debited flag se yeh sirf EK BAAR hi charge hota hai.
-    RWR: reason + payment-required capture karta hai."""
+    """Status update karta hai. Har baar "kaun badal raha hai" (changed_by_staff_id)
+    record hota hai. READY status ke liye final_amount zaroori hai. DELIVERED ke
+    liye discount_amount aur delivered_by_staff_id optional hote hain.
+    DELIVERED (ya RWR jisme payment lagta ho) + balance baaki -> auto KHATA (DEBIT).
+    BUG FIX: khata_debited flag se yeh sirf EK BAAR hi charge hota hai."""
     job = JobCard.query.filter_by(id=jid, shop_id=user.shop_id).first_or_404()
     d = request.get_json(force=True)
     status = (d.get("status") or "").upper()
     if status not in JOB_STATUSES:
         return jsonify({"detail": f"Status inme se ho: {JOB_STATUSES}"}), 400
+
+    # READY status ke liye Final Amount bharna zaroori hai - bina iske Ready nahi ho sakta
+    if status == "READY":
+        if "final_amount" not in d or d.get("final_amount") in (None, ""):
+            return jsonify({"detail": "Final Amount daalna zaroori hai jab job Ready ho"}), 400
+        try:
+            final_amount = float(d.get("final_amount"))
+        except (TypeError, ValueError):
+            return jsonify({"detail": "Final Amount sahi number hona chahiye"}), 400
+        if final_amount < 0:
+            return jsonify({"detail": "Final Amount 0 se kam nahi ho sakta"}), 400
+        job.estimated_cost = final_amount
+
+    # "Yeh status kaun badal raha hai" - technician/staff selection popup se aata hai
+    changer = _resolve_staff(user.shop_id, d.get("changed_by_staff_id"), user)
 
     old_status = job.status
     job.status = status
@@ -173,7 +194,13 @@ def update_status(user, jid):
         if "rwr_amount" in d:
             job.rwr_amount = float(d.get("rwr_amount") or 0)
 
-    # DELIVERED -> poora balance charge hota hai.
+    if status == "DELIVERED":
+        if "discount_amount" in d:
+            job.discount_amount = float(d.get("discount_amount") or 0)
+        delivered_by = _resolve_staff(user.shop_id, d.get("delivered_by_staff_id"), user)
+        job.delivered_by_id = delivered_by.id
+
+    # DELIVERED -> poora balance (discount ghata kar) charge hota hai.
     # RWR (payment required) -> sirf rwr_amount (diagnostic/inspection fee) charge hota hai,
     # poora estimated repair cost NAHI (kyunki repair actually hua hi nahi).
     # khata_debited flag guarantee karta hai ki yeh EK BAAR hi charge ho, chahe status
@@ -195,11 +222,19 @@ def update_status(user, jid):
         job.khata_debited = True
 
     db.session.add(StatusHistory(job_id=job.id, status=status,
-                                 by_user=user.first_name, note=d.get("note", "")))
+                                 by_user=changer.first_name, note=d.get("note", "")))
     if old_status != status:
         extra = f" (RWR reason: {job.rwr_reason})" if status == "RWR" and job.rwr_reason else ""
         JobActivityLog.log(user.shop_id, job.id, user.id, "STATUS",
-                           f"{user.first_name}: {old_status} -> {status}{extra}")
+                           f"{changer.first_name}: {old_status} -> {status}{extra}")
+        if status == "READY":
+            JobActivityLog.log(user.shop_id, job.id, user.id, "STATUS",
+                               f"Final Amount set: Rs. {job.estimated_cost} by {changer.first_name}")
+        if status == "DELIVERED":
+            delivered_by_name = job.delivered_by.first_name if job.delivered_by else changer.first_name
+            extra_note = f" (discount Rs. {job.discount_amount})" if job.discount_amount else ""
+            JobActivityLog.log(user.shop_id, job.id, user.id, "STATUS",
+                               f"Delivered by {delivered_by_name}{extra_note}")
     if d.get("note"):
         JobActivityLog.log(user.shop_id, job.id, user.id, "NOTE", d.get("note"))
 
@@ -216,7 +251,9 @@ def update_status(user, jid):
 @job_bp.post("/<int:jid>/assign/")
 @login_required
 def assign_job(user, jid):
-    """Job kisi staff member ko assign karo (kaun kaam kar raha hai - full tracking)"""
+    """Job kisi staff member ko assign karo. (Note: Job Details UI me is feature ka
+    button ab chhupa diya gaya hai per-action technician-selection ke pakshe me,
+    lekin endpoint backward-compatibility ke liye chalu rakha gaya hai.)"""
     job = JobCard.query.filter_by(id=jid, shop_id=user.shop_id).first_or_404()
     d = request.get_json(force=True)
     staff_id = d.get("staff_id")

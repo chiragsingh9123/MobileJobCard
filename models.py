@@ -225,9 +225,9 @@ class Voucher(db.Model):
 #             db.session.commit()
 #         return s
 
-    # def to_dict(self):
-    #     return {"upi_id": self.upi_id, "upi_name": self.upi_name,
-    #             "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None}
+#     def to_dict(self):
+#         return {"upi_id": self.upi_id, "upi_name": self.upi_name,
+#                 "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None}
 
 
 class PaymentRequest(db.Model):
@@ -336,14 +336,19 @@ class JobCard(db.Model):
     rwr_payment_required = db.Column(db.Boolean, default=False)
     rwr_amount = db.Column(db.Float, default=0)
 
-    # FULL TRACKING: kisne receive kiya, kisko assign hai, khata duplicate-guard
+    # Delivery-time discount (e.g. customer ko 50/100 rupaye ki chhoot di gayi)
+    discount_amount = db.Column(db.Float, default=0)
+
+    # FULL TRACKING: kisne receive kiya, kisko assign hai, kisne deliver kiya, khata duplicate-guard
     received_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     assigned_to_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    delivered_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     khata_debited = db.Column(db.Boolean, default=False)  # duplicate-DEBIT bug fix guard
 
     shop = db.relationship("Shop")
     received_by = db.relationship("User", foreign_keys=[received_by_id])
     assigned_to = db.relationship("User", foreign_keys=[assigned_to_id])
+    delivered_by = db.relationship("User", foreign_keys=[delivered_by_id])
     payments = db.relationship("Payment", backref="job", lazy=True)
     status_history = db.relationship("StatusHistory", backref="job", lazy=True,
                                      order_by="StatusHistory.created_at")
@@ -370,7 +375,8 @@ class JobCard(db.Model):
 
     @property
     def balance_amount(self):
-        return round(self.estimated_cost - self.paid_amount, 2)
+        """Discount ghata kar hi asli baaki nikalta hai"""
+        return round(self.estimated_cost - (self.discount_amount or 0) - self.paid_amount, 2)
 
     def to_dict(self, full=False):
         d = {"id": self.id, "job_id": self.job_id, "custom_name": self.custom_name,
@@ -378,9 +384,11 @@ class JobCard(db.Model):
              "customer": self.customer.to_dict(),
              "device_brand": self.device_brand, "device_model": self.device_model,
              "problem": self.problem, "estimated_cost": self.estimated_cost,
+             "discount_amount": self.discount_amount,
              "paid_amount": self.paid_amount, "balance_amount": self.balance_amount,
              "assigned_to": self.assigned_to.to_dict_staff() if self.assigned_to else None,
              "received_by_name": self.received_by.first_name if self.received_by else "",
+             "delivered_by_name": self.delivered_by.first_name if self.delivered_by else "",
              "created_at": self.created_at.isoformat()}
         if full:
             d.update({"imei1": self.imei1, "imei2": self.imei2, "color": self.color,

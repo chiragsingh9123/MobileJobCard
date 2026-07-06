@@ -274,7 +274,6 @@ def inventory():
     return render_template("inventory.html",
                            products=Product.query.order_by(Product.name).all())
 
-
 @admin_bp.route("/app-settings/", methods=["GET", "POST"])
 @admin_required
 def app_settings():

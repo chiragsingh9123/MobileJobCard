@@ -1,3 +1,5 @@
+"""Pehli baar setup: admin user + default plans banata hai.
+Chalayein: python seed.py"""
 from run import app
 from extensions import db
 from models import User, SubscriptionPlan
