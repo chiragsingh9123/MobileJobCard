@@ -601,3 +601,36 @@ class OTPCode(db.Model):
         self.is_used = True
         db.session.commit()
         return True, None
+
+
+
+class PlatformSettings(db.Model):
+    __tablename__ = "platform_settings"
+    id = db.Column(db.Integer, primary_key=True)
+    upi_id = db.Column(db.String(120), default="")
+    upi_name = db.Column(db.String(120), default="")
+    qr_image_path = db.Column(db.String(255), default="")
+    updated_at = db.Column(db.DateTime, default=now)
+
+    # NEW: force-update control
+    force_update_enabled = db.Column(db.Boolean, default=False)
+    min_version_code = db.Column(db.Integer, default=1)
+    update_message = db.Column(db.String(500), default="A new version is available. Please update to continue.")
+    play_store_url = db.Column(db.String(255), default="")
+
+    @staticmethod
+    def get():
+        s = PlatformSettings.query.first()
+        if not s:
+            s = PlatformSettings()
+            db.session.add(s)
+            db.session.commit()
+        return s
+
+    def to_dict(self):
+        return {"upi_id": self.upi_id, "upi_name": self.upi_name,
+                "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None,
+                "force_update_enabled": self.force_update_enabled,
+                "min_version_code": self.min_version_code,
+                "update_message": self.update_message,
+                "play_store_url": self.play_store_url}
