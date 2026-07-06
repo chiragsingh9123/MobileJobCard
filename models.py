@@ -603,16 +603,16 @@ class OTPCode(db.Model):
         return True, None
 
 
-
 class PlatformSettings(db.Model):
+    """Singleton row: Admin ka UPI ID + QR code (poore platform ke liye ek hi)"""
     __tablename__ = "platform_settings"
     id = db.Column(db.Integer, primary_key=True)
     upi_id = db.Column(db.String(120), default="")
     upi_name = db.Column(db.String(120), default="")
-    qr_image_path = db.Column(db.String(255), default="")
+    qr_image_path = db.Column(db.String(255), default="")  # relative path under uploads/qr/
     updated_at = db.Column(db.DateTime, default=now)
 
-    # NEW: force-update control
+    # Force-update control
     force_update_enabled = db.Column(db.Boolean, default=False)
     min_version_code = db.Column(db.Integer, default=1)
     update_message = db.Column(db.String(500), default="A new version is available. Please update to continue.")
