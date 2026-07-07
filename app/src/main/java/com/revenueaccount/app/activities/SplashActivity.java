@@ -1,30 +1,7 @@
-//package com.revenueaccount.app.activities;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.os.Handler;
-//import androidx.appcompat.app.AppCompatActivity;
-//import com.revenueaccount.app.R;
-//import com.revenueaccount.app.utils.SessionManager;
-//
-//public class SplashActivity extends AppCompatActivity {
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_splash);
-//        new Handler().postDelayed(() -> {
-//            SessionManager session = new SessionManager(this);
-//            Intent i = session.isLoggedIn()
-//            ? new Intent(this, DashboardActivity.class)
-//            : new Intent(this, LoginActivity.class);
-//            startActivity(i);
-//            finish();
-//        }, 1500);
-//    }
-//}
 package com.revenueaccount.app.activities;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -32,7 +9,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.JsonObject;
-import com.revenueaccount.app.BuildConfig;
 import com.revenueaccount.app.R;
 import com.revenueaccount.app.api.ApiClient;
 import com.revenueaccount.app.utils.SessionManager;
@@ -41,9 +17,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Screen 1: Splash — thoda dikhne ke baad version-check karta hai.
- * Agar force-update ON hai aur app purani hai, to UpdateRequiredActivity par bhej deta hai.
- * Warna login-state check karke Dashboard ya Login par navigate karta hai.
+ * Screen 1: Splash screen.
+ * Performs a version check against the server. If the shop owner has enabled
+ * force-update in the admin panel and this app build is older than the required
+ * version, the user is sent to UpdateRequiredActivity and blocked from proceeding.
+ * If the server is unreachable, the app does not block the user - it simply
+ * continues to the normal Login/Dashboard flow, so a temporary network issue
+ * never locks anyone out of the app.
  */
 public class SplashActivity extends AppCompatActivity {
 
@@ -61,8 +41,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Splash kam se kam itni der dikhe (branding ke liye), chahe version-check
-        // turant hi wapas aa jaaye
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             delayDone = true;
             proceedIfReady();
@@ -71,14 +49,16 @@ public class SplashActivity extends AppCompatActivity {
         checkAppVersion();
     }
 
-    /**
-     * Backend se check karta hai ki app ka current version chalega ya update zaroori hai.
-     * Agar server se koi response na aaye (network error, server down, etc.), to bhi
-     * user ko block nahi karte - normal flow continue hota hai. Yeh ek soft-fail design hai
-     * taaki backend down hone par bhi purane users app use kar sakein.
-     */
+    private int getCurrentVersionCode() {
+        try {
+            return getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            return 1;
+        }
+    }
+
     private void checkAppVersion() {
-        ApiClient.get(this).versionCheck(BuildConfig.VERSION_CODE).enqueue(new Callback<JsonObject>() {
+        ApiClient.get(this).versionCheck(getCurrentVersionCode()).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
                 try {
@@ -94,7 +74,6 @@ public class SplashActivity extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     Log.e(TAG, "Version check parse error", e);
-                    // parse fail ho to bhi block mat karo
                 }
                 versionCheckDone = true;
                 proceedIfReady();
@@ -103,14 +82,12 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
                 Log.e(TAG, "Version check failed", t);
-                // Network/server issue - user ko block mat karo, normal flow continue karo
                 versionCheckDone = true;
                 proceedIfReady();
             }
         });
     }
 
-    /** Dono conditions (min delay + version check) poori hone par hi aage badho */
     private synchronized void proceedIfReady() {
         if (!delayDone || !versionCheckDone) return;
         if (isFinishing()) return;
@@ -126,7 +103,6 @@ public class SplashActivity extends AppCompatActivity {
         finish();
     }
 
-    /** App ke normal entry flow - login state ke hisaab se Dashboard ya Login */
     private void goToNextScreen() {
         SessionManager session = new SessionManager(this);
         Class<?> target = session.isLoggedIn() ? DashboardActivity.class : LoginActivity.class;

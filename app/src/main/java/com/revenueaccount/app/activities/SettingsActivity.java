@@ -28,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         {R.drawable.ic_people, "Staff Management", StaffActivity.class},
         {R.drawable.ic_key, "Roles and Permissions", RolesInfoActivity.class},
         {R.drawable.ic_receipt, "Khata / Udhaar Ledger", KhataActivity.class},
+        {R.drawable.ic_expense, "Expenses", ExpensesActivity.class},
         {R.drawable.ic_print, "Print Settings", PrintSettingsActivity.class},
         {R.drawable.ic_chat, "Message Templates", TemplatesActivity.class},
         {R.drawable.ic_notification, "Notification Settings", NotificationSettingsActivity.class},

@@ -124,7 +124,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
                 swipe.setRefreshing(false);
-                AppToast.show(DashboardActivity.this, "Server se connect nahi hua");
+                AppToast.show(DashboardActivity.this, "Could not connect to the server");
             }
         });
     }

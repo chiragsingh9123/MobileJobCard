@@ -20,7 +20,7 @@
  <TextView
  android:layout_width="match_parent" android:layout_height="wrap_content"
  android:background="@color/primary_light" android:padding="12dp"
- android:text=" Poori shop ki har activity yahan track hoti hai — kisne kya kiya, kab"
+ android:text="Every activity across the shop is tracked here - who did what, and when"
  android:textColor="@color/primary_dark" android:textSize="12sp"/>
 
  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -34,7 +34,7 @@
  <TextView
  android:id="@+id/tvEmpty"
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:layout_gravity="center" android:text="Abhi koi activity nahi hui"
+ android:layout_gravity="center" android:text="No activity yet"
  android:textColor="@color/text_secondary" android:visibility="gone"/>
  </FrameLayout>
  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

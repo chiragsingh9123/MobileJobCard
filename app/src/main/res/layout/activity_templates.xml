@@ -23,7 +23,7 @@
 
  <TextView
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:text="Placeholders use karein: {customer}, {job_id}, {shop}"
+ android:text="Placeholders use : {customer}, {job_id}, {shop}"
  android:textColor="@color/primary" android:textSize="12sp" android:textStyle="bold"
  android:layout_marginBottom="12dp"/>
 

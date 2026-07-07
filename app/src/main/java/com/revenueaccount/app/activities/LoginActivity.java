@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> {
             String mobile = etMobile.getText().toString().trim();
             String password = etPassword.getText().toString();
-            if (mobile.length() != 10) { etMobile.setError("10 digit mobile number daalein"); return; }
+            if (mobile.length() != 10) { etMobile.setError("a 10-digit mobile number daalein"); return; }
             if (password.isEmpty()) { etPassword.setError("Password daalein"); return; }
 
             btnLogin.setEnabled(false);
@@ -56,13 +56,13 @@ public class LoginActivity extends AppCompatActivity {
                         i.putExtra("password", password);
                         startActivity(i);
                     } else {
-                        AppToast.show(LoginActivity.this, "Yeh mobile number registered nahi hai, ya server error hai");
+                        AppToast.show(LoginActivity.this, "This mobile number is not registered, or there was a server error");
                     }
                 }
                 @Override
                 public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
                     btnLogin.setEnabled(true);
-                    AppToast.show(LoginActivity.this, "Server se connect nahi ho paya. Internet/server check karein.");
+                    AppToast.show(LoginActivity.this, "Could not connect to the server. please check your internet connection or server.");
                 }
             });
         });

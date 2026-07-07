@@ -29,10 +29,10 @@ com.revenueaccount.app-emoji2-views-helper-1.2.0-27 C:\Users\Chirag\.gradle\cach
 com.revenueaccount.app-glide-4.16.0-28 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ecc825780ebb8299834abeee1d6b1799\transformed\glide-4.16.0\res
 com.revenueaccount.app-drawerlayout-1.1.1-29 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f78ff57c4e15c8aa364c0b2750a2947c\transformed\drawerlayout-1.1.1\res
 com.revenueaccount.app-lifecycle-livedata-core-2.6.1-30 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\fc1e423ba36f401272175f5b8a0d810f\transformed\lifecycle-livedata-core-2.6.1\res
-com.revenueaccount.app-pngs-31 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\generated\res\pngs\debug
-com.revenueaccount.app-resValues-32 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\generated\res\resValues\debug
-com.revenueaccount.app-packageDebugResources-33 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.revenueaccount.app-packageDebugResources-34 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.revenueaccount.app-debug-35 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.revenueaccount.app-debug-36 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\debug\res
-com.revenueaccount.app-main-37 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\res
+com.revenueaccount.app-pngs-31 C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\build\generated\res\pngs\debug
+com.revenueaccount.app-resValues-32 C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\build\generated\res\resValues\debug
+com.revenueaccount.app-packageDebugResources-33 C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.revenueaccount.app-packageDebugResources-34 C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.revenueaccount.app-debug-35 C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.revenueaccount.app-debug-36 C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\debug\res
+com.revenueaccount.app-main-37 C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\res

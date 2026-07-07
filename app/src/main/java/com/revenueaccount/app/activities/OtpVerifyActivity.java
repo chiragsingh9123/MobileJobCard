@@ -89,7 +89,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
                     AppToast.show(OtpVerifyActivity.this, " Naya OTP bhej diya");
                     startCooldown();
                 } else {
-                    AppToast.show(OtpVerifyActivity.this, "OTP dobara nahi bheja ja saka");
+                    AppToast.show(OtpVerifyActivity.this, "The OTP could not be resent");
                     tvResend.setEnabled(true);
                 }
             }
@@ -180,7 +180,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
             finishAffinity();
         } catch (Exception e) {
             Log.e(TAG, "Login success parse error", e);
-            AppToast.show(this, "Kuch galat ho gaya");
+            AppToast.show(this, "Something went wrong");
         }
     }
 
@@ -196,7 +196,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
             finishAffinity();
         } catch (Exception e) {
             Log.e(TAG, "Register success parse error", e);
-            AppToast.show(this, "Kuch galat ho gaya");
+            AppToast.show(this, "Something went wrong");
         }
     }
 

@@ -18,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/** Shop Profile — dukaan ki basic details dekhein/edit karein (sirf OWNER edit kar sakta hai) */
+/** Shop Profile — dukaan ki basic details dekhein/edit  (sirf OWNER edit kar sakta hai) */
 public class ShopProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "ShopProfileActivity";
@@ -70,7 +70,7 @@ public class ShopProfileActivity extends AppCompatActivity {
 
     private void save() {
         if (etName.getText().toString().trim().isEmpty()) {
-            etName.setError("Shop ka naam daalein");
+            etName.setError("Shop ka enter the name");
             return;
         }
         Map<String, String> body = new HashMap<>();
@@ -82,9 +82,9 @@ public class ShopProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
                 if (res.isSuccessful()) {
-                    AppToast.show(ShopProfileActivity.this, " Save ho gaya");
+                    AppToast.show(ShopProfileActivity.this, "Saved successfully");
                 } else {
-                    AppToast.show(ShopProfileActivity.this, "Save nahi hua");
+                    AppToast.show(ShopProfileActivity.this, "Save failed");
                 }
             }
             @Override

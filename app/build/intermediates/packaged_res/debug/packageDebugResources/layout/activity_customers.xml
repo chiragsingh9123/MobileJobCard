@@ -19,7 +19,7 @@
  android:layout_width="match_parent" android:layout_height="46dp"
  android:layout_margin="12dp" android:background="@color/white"
  android:drawableStart="@drawable/ic_search" android:drawablePadding="8dp"
- android:elevation="2dp" android:hint="Naam ya mobile se search karein"
+ android:elevation="2dp" android:hint="Naam ya mobile se search "
  android:inputType="text" android:paddingHorizontal="14dp" android:textSize="14sp"/>
 
  <com.google.android.material.chip.ChipGroup

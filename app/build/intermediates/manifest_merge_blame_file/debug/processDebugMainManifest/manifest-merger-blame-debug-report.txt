@@ -9,30 +9,30 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:4:5-67
-11-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:4:22-64
+11-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:4:22-64
 12    <uses-permission android:name="android.permission.CALL_PHONE" />
-12-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:5:5-69
-12-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:5:22-66
+12-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:5:5-69
+12-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:5:22-66
 13    <uses-permission android:name="android.permission.CAMERA" />
-13-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:6:5-65
-13-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:6:22-62
+13-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:6:5-65
+13-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:6:22-62
 14    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-14-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:7:5-77
-14-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:7:22-74
+14-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:7:5-77
+14-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:7:22-74
 15
 16    <uses-feature
-16-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:5-85
+16-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:5-85
 17        android:name="android.hardware.camera"
-17-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:19-57
+17-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:19-57
 18        android:required="false" />
-18-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:58-82
+18-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:8:58-82
 19    <uses-feature
-19-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:5-95
+19-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:5-95
 20        android:name="android.hardware.camera.autofocus"
-20-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:19-67
+20-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:19-67
 21        android:required="false" />
-21-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:68-92
+21-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:9:68-92
 22    <uses-feature
 22-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
 23        android:name="android.hardware.camera.front"
@@ -70,231 +70,246 @@
 39-->[androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 40
 41    <application
-41-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:11:5-66:19
+41-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:11:5-73:19
 42        android:name="com.revenueaccount.app.RevenueAccountApp"
-42-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:12:9-42
+42-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:12:9-42
 43        android:allowBackup="true"
-43-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:13:9-35
+43-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:13:9-35
 44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 44-->[androidx.core:core:1.9.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 45        android:debuggable="true"
 46        android:extractNativeLibs="false"
 47        android:icon="@mipmap/ic_launcher"
-47-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:14:9-43
+47-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:14:9-43
 48        android:label="Mobile JobCard"
-48-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:16:9-39
+48-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:16:9-39
 49        android:roundIcon="@mipmap/ic_launcher_round"
-49-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:15:9-54
+49-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:15:9-54
 50        android:testOnly="true"
 51        android:theme="@style/Theme.RevenueAccount"
-51-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:17:9-52
+51-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:17:9-52
 52        android:usesCleartextTraffic="true" >
-52-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:18:9-44
+52-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:18:9-44
 53        <activity
-53-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:9-25:20
+53-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:9-25:20
 54            android:name="com.revenueaccount.app.activities.SplashActivity"
-54-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:19-60
+54-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:19-60
 55            android:exported="true" >
-55-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:61-84
+55-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:20:61-84
 56            <intent-filter>
-56-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:21:13-24:29
+56-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:21:13-24:29
 57                <action android:name="android.intent.action.MAIN" />
-57-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:22:17-69
-57-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:22:25-66
+57-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:22:17-69
+57-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:22:25-66
 58
 59                <category android:name="android.intent.category.LAUNCHER" />
-59-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:23:17-77
-59-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:23:27-74
+59-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:23:17-77
+59-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:23:27-74
 60            </intent-filter>
 61        </activity>
-62        <activity android:name="com.revenueaccount.app.activities.LoginActivity" />
-62-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:26:9-62
-62-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:26:19-59
-63        <activity android:name="com.revenueaccount.app.activities.RegisterActivity" />
-63-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:27:9-65
-63-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:27:19-62
-64        <activity android:name="com.revenueaccount.app.activities.OtpVerifyActivity" />
-64-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:28:9-66
-64-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:28:19-63
-65        <activity android:name="com.revenueaccount.app.activities.DashboardActivity" />
-65-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:29:9-66
-65-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:29:19-63
-66        <activity android:name="com.revenueaccount.app.activities.NewJobCardActivity" />
-66-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:30:9-67
-66-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:30:19-64
-67        <activity android:name="com.revenueaccount.app.activities.JobDetailsActivity" />
-67-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:31:9-67
-67-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:31:19-64
-68        <activity android:name="com.revenueaccount.app.activities.EditJobActivity" />
-68-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:32:9-64
-68-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:32:19-61
-69        <activity android:name="com.revenueaccount.app.activities.JobsActivity" />
-69-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:33:9-61
-69-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:33:19-58
-70        <activity android:name="com.revenueaccount.app.activities.CustomersActivity" />
-70-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:34:9-66
-70-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:34:19-63
-71        <activity android:name="com.revenueaccount.app.activities.CustomerDetailActivity" />
-71-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:35:9-71
-71-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:35:19-68
-72        <activity android:name="com.revenueaccount.app.activities.InventoryActivity" />
-72-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:36:9-66
-72-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:36:19-63
-73        <activity android:name="com.revenueaccount.app.activities.ReportsActivity" />
-73-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:37:9-64
-73-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:37:19-61
-74        <activity android:name="com.revenueaccount.app.activities.SettingsActivity" />
-74-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:38:9-65
-74-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:38:19-62
-75        <activity android:name="com.revenueaccount.app.activities.DeliveryActivity" />
-75-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:39:9-65
-75-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:39:19-62
-76        <activity android:name="com.revenueaccount.app.activities.KhataActivity" />
-76-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:40:9-62
-76-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:40:19-59
-77        <activity android:name="com.revenueaccount.app.activities.RedeemVoucherActivity" />
-77-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:41:9-70
-77-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:41:19-67
-78        <activity android:name="com.revenueaccount.app.activities.StaffActivity" />
-78-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:42:9-62
-78-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:42:19-59
-79        <activity android:name="com.revenueaccount.app.activities.SubscriptionActivity" />
-79-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:43:9-69
-79-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:43:19-66
-80        <activity android:name="com.revenueaccount.app.activities.ShopProfileActivity" />
-80-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:44:9-68
-80-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:44:19-65
-81        <activity android:name="com.revenueaccount.app.activities.PrintSettingsActivity" />
-81-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:45:9-70
-81-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:45:19-67
-82        <activity android:name="com.revenueaccount.app.activities.TemplatesActivity" />
-82-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:46:9-66
-82-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:46:19-63
-83        <activity android:name="com.revenueaccount.app.activities.NotificationSettingsActivity" />
-83-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:47:9-77
-83-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:47:19-74
-84        <activity android:name="com.revenueaccount.app.activities.BackupActivity" />
-84-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:48:9-63
-84-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:48:19-60
-85        <activity android:name="com.revenueaccount.app.activities.ChangePasswordActivity" />
-85-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:49:9-71
-85-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:49:19-68
-86        <activity android:name="com.revenueaccount.app.activities.ActivityLogActivity" />
-86-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:50:9-68
-86-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:50:19-65
-87        <activity android:name="com.revenueaccount.app.activities.AboutActivity" />
-87-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:51:9-62
-87-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:51:19-59
-88        <activity android:name="com.revenueaccount.app.activities.RolesInfoActivity" />
-88-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:52:9-66
-88-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:52:19-63
-89        <activity android:name="com.revenueaccount.app.activities.PrivacyPolicyActivity" />
-89-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:53:9-70
-89-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:53:19-67
-90        <activity android:name="com.revenueaccount.app.activities.DeveloperInfoActivity" />
-90-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:54:9-70
-90-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:54:19-67
-91        <activity android:name="com.revenueaccount.app.activities.UpdateRequiredActivity" />
-91-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:55:9-71
-91-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:55:19-68
-92
-93        <provider
-94            android:name="androidx.core.content.FileProvider"
-94-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:58:13-62
-95            android:authorities="com.revenueaccount.app.fileprovider"
-95-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:59:13-64
-96            android:exported="false"
-96-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:60:13-37
-97            android:grantUriPermissions="true" >
-97-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:61:13-47
-98            <meta-data
-98-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:62:13-64:54
-99                android:name="android.support.FILE_PROVIDER_PATHS"
-99-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:63:17-67
-100                android:resource="@xml/file_paths" />
-100-->C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\AndroidManifest.xml:64:17-51
-101        </provider>
-102
-103        <activity
-103-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
-104            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-104-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
-105            android:clearTaskOnLaunch="true"
-105-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
-106            android:screenOrientation="sensorLandscape"
-106-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
-107            android:stateNotNeeded="true"
-107-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
-108            android:theme="@style/zxing_CaptureTheme"
-108-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
-109            android:windowSoftInputMode="stateAlwaysHidden" />
-109-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+62        <activity android:name="com.revenueaccount.app.activities.UpdateRequiredActivity" />
+62-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:26:9-71
+62-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:26:19-68
+63        <activity android:name="com.revenueaccount.app.activities.LoginActivity" />
+63-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:27:9-62
+63-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:27:19-59
+64        <activity android:name="com.revenueaccount.app.activities.RegisterActivity" />
+64-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:28:9-65
+64-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:28:19-62
+65        <activity android:name="com.revenueaccount.app.activities.OtpVerifyActivity" />
+65-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:29:9-66
+65-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:29:19-63
+66        <activity android:name="com.revenueaccount.app.activities.DashboardActivity" />
+66-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:30:9-66
+66-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:30:19-63
+67        <activity android:name="com.revenueaccount.app.activities.NewJobCardActivity" />
+67-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:31:9-67
+67-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:31:19-64
+68        <activity android:name="com.revenueaccount.app.activities.JobDetailsActivity" />
+68-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:32:9-67
+68-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:32:19-64
+69        <activity android:name="com.revenueaccount.app.activities.EditJobActivity" />
+69-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:33:9-64
+69-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:33:19-61
+70        <activity android:name="com.revenueaccount.app.activities.JobsActivity" />
+70-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:34:9-61
+70-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:34:19-58
+71        <activity android:name="com.revenueaccount.app.activities.CustomersActivity" />
+71-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:35:9-66
+71-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:35:19-63
+72        <activity android:name="com.revenueaccount.app.activities.CustomerDetailActivity" />
+72-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:36:9-71
+72-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:36:19-68
+73        <activity android:name="com.revenueaccount.app.activities.InventoryActivity" />
+73-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:37:9-66
+73-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:37:19-63
+74        <activity android:name="com.revenueaccount.app.activities.ReportsActivity" />
+74-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:38:9-64
+74-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:38:19-61
+75        <activity android:name="com.revenueaccount.app.activities.SettingsActivity" />
+75-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:39:9-65
+75-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:39:19-62
+76        <activity android:name="com.revenueaccount.app.activities.DeliveryActivity" />
+76-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:40:9-65
+76-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:40:19-62
+77        <activity android:name="com.revenueaccount.app.activities.KhataActivity" />
+77-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:41:9-62
+77-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:41:19-59
+78        <activity android:name="com.revenueaccount.app.activities.RedeemVoucherActivity" />
+78-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:42:9-70
+78-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:42:19-67
+79        <activity android:name="com.revenueaccount.app.activities.StaffActivity" />
+79-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:43:9-62
+79-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:43:19-59
+80        <activity android:name="com.revenueaccount.app.activities.SubscriptionActivity" />
+80-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:44:9-69
+80-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:44:19-66
+81        <activity android:name="com.revenueaccount.app.activities.ShopProfileActivity" />
+81-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:45:9-68
+81-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:45:19-65
+82        <activity android:name="com.revenueaccount.app.activities.PrintSettingsActivity" />
+82-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:46:9-70
+82-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:46:19-67
+83        <activity android:name="com.revenueaccount.app.activities.TemplatesActivity" />
+83-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:47:9-66
+83-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:47:19-63
+84        <activity android:name="com.revenueaccount.app.activities.NotificationSettingsActivity" />
+84-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:48:9-77
+84-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:48:19-74
+85        <activity android:name="com.revenueaccount.app.activities.BackupActivity" />
+85-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:49:9-63
+85-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:49:19-60
+86        <activity android:name="com.revenueaccount.app.activities.ChangePasswordActivity" />
+86-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:50:9-71
+86-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:50:19-68
+87        <activity android:name="com.revenueaccount.app.activities.ActivityLogActivity" />
+87-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:51:9-68
+87-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:51:19-65
+88        <activity android:name="com.revenueaccount.app.activities.AboutActivity" />
+88-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:52:9-62
+88-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:52:19-59
+89        <activity android:name="com.revenueaccount.app.activities.RolesInfoActivity" />
+89-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:53:9-66
+89-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:53:19-63
+90        <activity android:name="com.revenueaccount.app.activities.ExpensesActivity" />
+90-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:54:9-65
+90-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:54:19-62
+91
+92        <!-- Fixes barcode scanner rotating to landscape: forces portrait orientation -->
+93        <activity
+93-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:57:9-60:63
+94            android:name="com.revenueaccount.app.scanner.PortraitCaptureActivity"
+94-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:57:19-66
+95            android:screenOrientation="portrait"
+95-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:58:13-49
+96            android:theme="@style/zxing_CaptureTheme"
+96-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:59:13-54
+97            android:windowSoftInputMode="stateAlwaysHidden" />
+97-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:60:13-60
+98        <activity android:name="com.revenueaccount.app.activities.PrivacyPolicyActivity" />
+98-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:61:9-70
+98-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:61:19-67
+99        <activity android:name="com.revenueaccount.app.activities.DeveloperInfoActivity" />
+99-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:62:9-70
+99-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:62:19-67
+100
+101        <provider
+102            android:name="androidx.core.content.FileProvider"
+102-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:65:13-62
+103            android:authorities="com.revenueaccount.app.fileprovider"
+103-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:66:13-64
+104            android:exported="false"
+104-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:67:13-37
+105            android:grantUriPermissions="true" >
+105-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:68:13-47
+106            <meta-data
+106-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:69:13-71:54
+107                android:name="android.support.FILE_PROVIDER_PATHS"
+107-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:70:17-67
+108                android:resource="@xml/file_paths" />
+108-->C:\Users\Chirag\OneDrive\Desktop\android\RevenueAccount\app\src\main\AndroidManifest.xml:71:17-51
+109        </provider>
 110
-111        <provider
-111-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-112            android:name="androidx.startup.InitializationProvider"
-112-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-113            android:authorities="com.revenueaccount.app.androidx-startup"
-113-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-114            android:exported="false" >
-114-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-115            <meta-data
-115-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-116                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-116-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-117                android:value="androidx.startup" />
-117-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-118            <meta-data
-118-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-119                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-119-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
-120                android:value="androidx.startup" />
-120-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
-121            <meta-data
-121-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-122                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-122-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-123                android:value="androidx.startup" />
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-124        </provider>
-125
-126        <receiver
-126-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-127            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-127-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-128            android:directBootAware="false"
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-129            android:enabled="true"
-129-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-130            android:exported="true"
-130-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-131            android:permission="android.permission.DUMP" >
-131-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-132            <intent-filter>
-132-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-133                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-134            </intent-filter>
-135            <intent-filter>
-135-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-136                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-137            </intent-filter>
-138            <intent-filter>
-138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-139                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-140            </intent-filter>
-141            <intent-filter>
-141-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-142                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-143            </intent-filter>
-144        </receiver>
-145    </application>
-146
-147</manifest>
+111        <activity
+111-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+112            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+112-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+113            android:clearTaskOnLaunch="true"
+113-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+114            android:screenOrientation="sensorLandscape"
+114-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+115            android:stateNotNeeded="true"
+115-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+116            android:theme="@style/zxing_CaptureTheme"
+116-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+117            android:windowSoftInputMode="stateAlwaysHidden" />
+117-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+118
+119        <provider
+119-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+120            android:name="androidx.startup.InitializationProvider"
+120-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+121            android:authorities="com.revenueaccount.app.androidx-startup"
+121-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+122            android:exported="false" >
+122-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+123            <meta-data
+123-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+124                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+124-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+125                android:value="androidx.startup" />
+125-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+126            <meta-data
+126-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+127                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+127-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+128                android:value="androidx.startup" />
+128-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+129            <meta-data
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+130                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+131                android:value="androidx.startup" />
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+132        </provider>
+133
+134        <receiver
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+135            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+135-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+136            android:directBootAware="false"
+136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+137            android:enabled="true"
+137-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+138            android:exported="true"
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+139            android:permission="android.permission.DUMP" >
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+140            <intent-filter>
+140-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+141                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+141-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+141-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+142            </intent-filter>
+143            <intent-filter>
+143-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+144                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+145            </intent-filter>
+146            <intent-filter>
+146-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+147                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+148            </intent-filter>
+149            <intent-filter>
+149-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+150                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+151            </intent-filter>
+152        </receiver>
+153    </application>
+154
+155</manifest>

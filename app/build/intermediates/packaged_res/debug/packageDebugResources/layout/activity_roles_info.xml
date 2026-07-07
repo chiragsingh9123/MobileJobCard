@@ -29,7 +29,7 @@
  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
  android:text=" Owner" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/primary_dark"/>
  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
- android:text="Shop banane wala. Sab kuch dekh/edit kar sakta hai — staff add/remove, subscription, reports, settings, sab jobs, sab customers."
+ android:text="The person who created the shop. Can view/edit everything - add or remove staff, subscription, reports, settings, all jobs, and all customers."
  android:textSize="13sp" android:textColor="@color/text_primary"/>
  </LinearLayout>
  </com.google.android.material.card.MaterialCardView>
@@ -41,7 +41,7 @@
  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
  android:text=" Staff (Technician / Counter / Manager)" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
- android:text="Owner ke banaye hue staff members. Job cards bana/update kar sakte hain, customers manage kar sakte hain, khata/payment le sakte hain. Staff management, subscription, ya doosre staff ke password reset karne ki permission NAHI hoti — sirf Owner yeh kar sakta hai."
+ android:text="Staff members created by the Owner. They can create/update job cards, manage customers, and record khata payments. They do NOT have permission to manage staff, subscriptions, or reset other staff passwords - only the Owner can do that."
  android:textSize="13sp" android:textColor="@color/text_secondary"/>
  </LinearLayout>
  </com.google.android.material.card.MaterialCardView>
@@ -49,7 +49,7 @@
  <TextView
  android:layout_width="match_parent" android:layout_height="wrap_content"
  android:layout_marginTop="16dp" android:textColor="@color/text_secondary" android:textSize="12sp"
- android:text="Designation (Technician, Counter Staff, Delivery Boy, Manager) sirf label hai — job assignment aur tracking me use hota hai. Access-level control sirf Owner vs Staff ke through hota hai."/>
+ android:text="Designation (Technician, Counter Staff, Delivery Boy, Manager) is just a label used for job assignment and tracking. Access-level control is only determined by Owner vs Staff role."/>
 
  <Button android:id="@+id/btnManageStaff"
  android:layout_width="match_parent" android:layout_height="50dp"

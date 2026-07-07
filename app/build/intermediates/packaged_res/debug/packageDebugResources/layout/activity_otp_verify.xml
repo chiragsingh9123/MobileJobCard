@@ -54,7 +54,7 @@
  android:layout_marginTop="18dp" android:gravity="center" android:orientation="horizontal">
  <TextView
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:text="OTP nahi mila? " android:textColor="@color/text_secondary" android:textSize="13sp"/>
+ android:text="OTP not received? " android:textColor="@color/text_secondary" android:textSize="13sp"/>
  <TextView
  android:id="@+id/tvResend"
  android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
  android:layout_width="match_parent" android:layout_height="wrap_content"
  android:layout_marginTop="28dp" android:background="@color/primary_light"
  android:padding="12dp" android:textColor="@color/primary_dark" android:textSize="12sp"
- android:text="ℹ Filhaal OTP SMS ke bajaye ek Telegram bot par bheja jaata hai (testing ke liye) — jald hi SMS se bhi milega."/>
+ android:text="Note: the OTP is currently sent via a Telegram bot instead of SMS (for testing purposes). SMS delivery is coming soon."/>
  </LinearLayout>
  </ScrollView>
 </LinearLayout>

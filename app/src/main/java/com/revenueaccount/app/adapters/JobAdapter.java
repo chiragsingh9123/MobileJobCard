@@ -54,7 +54,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.VH> {
             h.jobId.setText(j.has("job_id") ? j.get("job_id").getAsString() : "—");
             h.status.setText(status.replace("_", " "));
             h.status.setTextColor(statusColor(status));
-            h.device.setText(str(j, "device_brand") + " " + str(j, "device_model"));
+            h.device.setText(str(j, "device_model"));
             h.customer.setText(str(c, "name") + " • " + str(c, "mobile"));
             h.problem.setText(str(j, "problem"));
             h.amount.setText("₹" + str(j, "estimated_cost"));

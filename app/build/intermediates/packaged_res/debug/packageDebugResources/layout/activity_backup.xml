@@ -34,7 +34,7 @@
  <TextView
  android:layout_width="wrap_content" android:layout_height="wrap_content"
  android:layout_marginTop="6dp"
- android:text="Apne shop ka poora data (customers, jobs, payments, inventory) ek JSON file me export karein aur kahin bhi safe rakhein."
+ android:text="Apne shop ka poora data (customers, jobs, payments, inventory) ek JSON file me export  aur kahin bhi safe rakhein."
  android:textSize="13sp" android:textColor="@color/text_secondary"/>
  <Button android:id="@+id/btnExport"
  android:layout_width="match_parent" android:layout_height="50dp"
@@ -46,7 +46,7 @@
  <TextView
  android:layout_width="match_parent" android:layout_height="wrap_content"
  android:layout_marginTop="16dp" android:background="@color/warning_light" android:padding="12dp"
- android:text=" Restore feature abhi available nahi hai — data safety ke liye isse carefully design kiya ja raha hai. Filhaal export karke apne paas rakhein; zaroorat padne par support se sampark karein."
+ android:text="The Restore feature is not yet available - it is being carefully designed for data safety. For now, please export and keep a copy; contact support if you need to restore data."
  android:textColor="#E65100" android:textSize="12sp"/>
  </LinearLayout>
 </LinearLayout>

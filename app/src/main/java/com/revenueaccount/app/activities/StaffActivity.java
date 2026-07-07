@@ -88,8 +88,8 @@ public class StaffActivity extends AppCompatActivity {
         if (!new SessionManager(this).isOwner()) return;
         PopupMenu menu = new PopupMenu(this, anchor);
         boolean active = !staff.has("is_active") || staff.get("is_active").getAsBoolean();
-        menu.getMenu().add(active ? "Deactivate karein" : "Activate karein");
-        menu.getMenu().add("Password reset karein");
+        menu.getMenu().add(active ? "Deactivate " : "Activate ");
+        menu.getMenu().add("Password reset ");
         long staffId = staff.get("id").getAsLong();
         menu.setOnMenuItemClickListener(item -> {
             String title = item.getTitle().toString();
@@ -121,7 +121,7 @@ public class StaffActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
                 if (res.isSuccessful()) {
-                    AppToast.show(StaffActivity.this, " Status update hua");
+                    AppToast.show(StaffActivity.this, "Status updated");
                     load();
                 }
             }
@@ -137,7 +137,7 @@ public class StaffActivity extends AppCompatActivity {
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         input.setHint("Naya password (kam se kam 4 characters)");
         new AlertDialog.Builder(this)
-        .setTitle(name + " ka password reset karein")
+        .setTitle(name + " ka password reset ")
         .setView(input)
         .setPositiveButton("Reset", (d, w) -> {
             String pw = input.getText().toString().trim();
@@ -150,7 +150,7 @@ public class StaffActivity extends AppCompatActivity {
             ApiClient.get(this).resetStaffPassword(staffId, body).enqueue(new Callback<JsonObject>() {
                 @Override
                 public void onResponse(@NonNull Call<JsonObject> c, @NonNull Response<JsonObject> r) {
-                    AppToast.show(StaffActivity.this, " Password reset ho gaya");
+                    AppToast.show(StaffActivity.this, "Password reset successfully");
                 }
                 @Override
                 public void onFailure(@NonNull Call<JsonObject> c, @NonNull Throwable t) {
@@ -188,7 +188,7 @@ public class StaffActivity extends AppCompatActivity {
             String name = etName.getText().toString().trim();
             String mobile = etMobile.getText().toString().trim();
             String password = etPassword.getText().toString();
-            if (name.isEmpty()) { AppToast.show(this, "Naam daalein"); return; }
+            if (name.isEmpty()) { AppToast.show(this, "Enter the name"); return; }
             if (mobile.length() != 10) { AppToast.show(this, "10 digit mobile daalein"); return; }
             if (password.length() < 4) { AppToast.show(this, "Password kam se kam 4 characters"); return; }
 
@@ -201,10 +201,10 @@ public class StaffActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(@NonNull Call<JsonObject> c, @NonNull Response<JsonObject> r) {
                     if (r.isSuccessful()) {
-                        AppToast.show(StaffActivity.this, " Staff add hua");
+                        AppToast.show(StaffActivity.this, "Staff member added");
                         load();
                     } else {
-                        AppToast.show(StaffActivity.this, "Save nahi hua — mobile pehle se registered ho sakta hai");
+                        AppToast.show(StaffActivity.this, "Save failed - this mobile number may already be registered");
                     }
                 }
                 @Override

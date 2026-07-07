@@ -179,7 +179,7 @@ public class InventoryActivity extends AppCompatActivity {
         .setView(sc)
         .setPositiveButton("Save", (d, w) -> {
             if (etName.length() == 0) {
-                AppToast.show(this, "Product name daalein");
+                AppToast.show(this, "Enter the product name");
                 return;
             }
             JsonObject b = new JsonObject();
@@ -193,10 +193,10 @@ public class InventoryActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(@NonNull Call<JsonObject> c, @NonNull Response<JsonObject> r) {
                     if (r.isSuccessful()) {
-                        AppToast.show(InventoryActivity.this, " Product add hua");
+                        AppToast.show(InventoryActivity.this, " Product added");
                         load();
                     } else {
-                        AppToast.show(InventoryActivity.this, "Product save nahi hua");
+                        AppToast.show(InventoryActivity.this, "The product could not be saved");
                     }
                 }
                 @Override

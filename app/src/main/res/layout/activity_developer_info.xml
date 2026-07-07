@@ -52,6 +52,12 @@
  android:layout_width="match_parent" android:layout_height="wrap_content"
  android:layout_marginTop="16dp" android:background="@color/primary_light"
  android:padding="12dp" android:textColor="@color/primary_dark" android:textSize="12sp"/>
+
+ <TextView android:id="@+id/tvDeveloperFooter"
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="20dp" android:gravity="center"
+ android:fontFamily="sans-serif-medium"
+ android:textColor="@color/text_secondary" android:textSize="12sp"/>
  </LinearLayout>
  </ScrollView>
 </LinearLayout>

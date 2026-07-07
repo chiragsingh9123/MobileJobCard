@@ -30,7 +30,7 @@
  <TextView
  android:id="@+id/tvEmpty"
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:layout_gravity="center" android:text="Koi staff nahi — + se add karein"
+ android:layout_gravity="center" android:text="Koi staff nahi — + se add "
  android:textColor="@color/text_secondary" android:visibility="gone"/>
  </FrameLayout>
  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

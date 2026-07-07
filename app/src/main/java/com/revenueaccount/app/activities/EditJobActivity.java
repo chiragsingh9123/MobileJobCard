@@ -26,17 +26,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/** Job Details kabhi bhi edit kiye ja sakte hain — device info, problem, cost, lock, sab kuch */
+/** Job Details kabhi bhi edit kiye ja sakte hain - device info (single Model field),
+ * problem, cost, lock (None/PIN/Password/Pattern), sab kuch */
 public class EditJobActivity extends AppCompatActivity {
 
     private static final String TAG = "EditJobActivity";
     private static final int CAMERA_PERMISSION_REQUEST = 502;
 
     private long jobPk;
-    private EditText etCustomName, etBrand, etModel, etImei1, etImei2, etColor, etStorage,
-    etPassword, etAccessories, etAlternateMobile, etProblem, etDiagnosis, etCost, etDelivery;
+    private EditText etModel, etImei1, etImei2,
+            etPassword, etPasswordText, etAccessories, etAlternateMobile,
+            etProblem, etDiagnosis, etCost, etDelivery;
     private RadioGroup rgLockType;
-    private View tilPin, patternContainer;
+    private View tilPin, tilPasswordText, patternContainer;
     private PatternLockView patternLockView;
     private TextView tvPatternStatus;
     private String patternCode = "";
@@ -49,11 +51,11 @@ public class EditJobActivity extends AppCompatActivity {
         jobPk = getIntent().getLongExtra("job_pk", -1);
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
-        etCustomName = findViewById(R.id.etCustomName);
-        etBrand = findViewById(R.id.etBrand); etModel = findViewById(R.id.etModel);
+        etModel = findViewById(R.id.etModel);
         etImei1 = findViewById(R.id.etImei1); etImei2 = findViewById(R.id.etImei2);
-        etColor = findViewById(R.id.etColor); etStorage = findViewById(R.id.etStorage);
-        etPassword = findViewById(R.id.etPassword); etAccessories = findViewById(R.id.etAccessories);
+        etPassword = findViewById(R.id.etPassword);
+        etPasswordText = findViewById(R.id.etPasswordText);
+        etAccessories = findViewById(R.id.etAccessories);
         etAlternateMobile = findViewById(R.id.etAlternateMobile);
         etProblem = findViewById(R.id.etProblem); etDiagnosis = findViewById(R.id.etDiagnosis);
         etCost = findViewById(R.id.etCost); etDelivery = findViewById(R.id.etDelivery);
@@ -75,7 +77,7 @@ public class EditJobActivity extends AppCompatActivity {
                         populate(res.body());
                     } catch (Exception e) {
                         Log.e(TAG, "Populate error", e);
-                        AppToast.error(EditJobActivity.this, "Data load karne me dikkat aayi");
+                        AppToast.error(EditJobActivity.this, "There was a problem loading the data");
                     }
                 }
             }
@@ -87,13 +89,9 @@ public class EditJobActivity extends AppCompatActivity {
     }
 
     private void populate(JsonObject job) {
-        etCustomName.setText(str(job, "custom_name"));
-        etBrand.setText(str(job, "device_brand"));
         etModel.setText(str(job, "device_model"));
         etImei1.setText(str(job, "imei1"));
         etImei2.setText(str(job, "imei2"));
-        etColor.setText(str(job, "color"));
-        etStorage.setText(str(job, "storage"));
         etAccessories.setText(str(job, "accessories"));
         etAlternateMobile.setText(str(job, "alternate_mobile"));
         etProblem.setText(str(job, "problem"));
@@ -106,11 +104,14 @@ public class EditJobActivity extends AppCompatActivity {
         if ("PIN".equals(lockType)) {
             rgLockType.check(R.id.rbLockPin);
             etPassword.setText(lockValue);
+        } else if ("PASSWORD".equals(lockType)) {
+            rgLockType.check(R.id.rbLockPassword);
+            etPasswordText.setText(lockValue);
         } else if ("PATTERN".equals(lockType)) {
             rgLockType.check(R.id.rbLockPattern);
             patternCode = lockValue;
             patternLockView.setPatternCode(lockValue);
-            tvPatternStatus.setText("Saved pattern (dobara draw karke badlein)");
+            tvPatternStatus.setText("Saved pattern (draw again to change it)");
         } else {
             rgLockType.check(R.id.rbLockNone);
         }
@@ -121,22 +122,18 @@ public class EditJobActivity extends AppCompatActivity {
     }
 
     private void save() {
-        if (etBrand.length() == 0 || etModel.length() == 0) {
-            AppToast.warning(this, "Brand aur Model daalna zaroori hai");
+        if (etModel.length() == 0) {
+            AppToast.warning(this, "Device Model daalna is required");
             return;
         }
         if (etProblem.length() == 0) {
-            AppToast.warning(this, "Problem daalna zaroori hai");
+            AppToast.warning(this, "Problem daalna is required");
             return;
         }
         JsonObject body = new JsonObject();
-        body.addProperty("custom_name", etCustomName.getText().toString().trim());
-        body.addProperty("device_brand", etBrand.getText().toString().trim());
         body.addProperty("device_model", etModel.getText().toString().trim());
         body.addProperty("imei1", etImei1.getText().toString().trim());
         body.addProperty("imei2", etImei2.getText().toString().trim());
-        body.addProperty("color", etColor.getText().toString().trim());
-        body.addProperty("storage", etStorage.getText().toString().trim());
         body.addProperty("lock_type", currentLockType());
         body.addProperty("device_password", currentLockValue());
         body.addProperty("accessories", etAccessories.getText().toString().trim());
@@ -153,11 +150,11 @@ public class EditJobActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
                 btn.setEnabled(true);
                 if (res.isSuccessful()) {
-                    AppToast.success(EditJobActivity.this, " Job details update ho gaye");
+                    AppToast.success(EditJobActivity.this, "Job details update ho gaye");
                     setResult(RESULT_OK);
                     finish();
                 } else {
-                    AppToast.error(EditJobActivity.this, "Update nahi hua, dubara try karein");
+                    AppToast.error(EditJobActivity.this, "The update failed, please try again");
                 }
             }
             @Override
@@ -168,45 +165,40 @@ public class EditJobActivity extends AppCompatActivity {
         });
     }
 
-    // ================= LOCK TYPE (shared logic with NewJobCardActivity) =================
+    // ================= LOCK TYPE (None / PIN / Password / Pattern) =================
 
     private void setupLockTypeUI() {
         rgLockType = findViewById(R.id.rgLockType);
         tilPin = findViewById(R.id.tilPin);
+        tilPasswordText = findViewById(R.id.tilPasswordText);
         patternContainer = findViewById(R.id.patternContainer);
         patternLockView = findViewById(R.id.patternLockView);
         tvPatternStatus = findViewById(R.id.tvPatternStatus);
 
         rgLockType.setOnCheckedChangeListener((group, checkedId) -> {
-            if (checkedId == R.id.rbLockPin) {
-                tilPin.setVisibility(View.VISIBLE);
-                patternContainer.setVisibility(View.GONE);
-            } else if (checkedId == R.id.rbLockPattern) {
-                tilPin.setVisibility(View.GONE);
-                patternContainer.setVisibility(View.VISIBLE);
-            } else {
-                tilPin.setVisibility(View.GONE);
-                patternContainer.setVisibility(View.GONE);
-            }
+            tilPin.setVisibility(checkedId == R.id.rbLockPin ? View.VISIBLE : View.GONE);
+            tilPasswordText.setVisibility(checkedId == R.id.rbLockPassword ? View.VISIBLE : View.GONE);
+            patternContainer.setVisibility(checkedId == R.id.rbLockPattern ? View.VISIBLE : View.GONE);
         });
 
         patternLockView.setOnPatternChangeListener(code -> {
             patternCode = code;
             int dots = code.isEmpty() ? 0 : code.split("-").length;
             tvPatternStatus.setText(dots >= 4 ? "Pattern set (" + dots + " dots)"
-            : "Kam se kam 4 dots milayein");
+                    : "Connect at least 4 dots");
         });
 
         findViewById(R.id.btnClearPattern).setOnClickListener(v -> {
             patternLockView.clear();
             patternCode = "";
-            tvPatternStatus.setText("Pattern draw karein");
+            tvPatternStatus.setText("Draw your pattern");
         });
     }
 
     private String currentLockType() {
         int id = rgLockType.getCheckedRadioButtonId();
         if (id == R.id.rbLockPin) return "PIN";
+        if (id == R.id.rbLockPassword) return "PASSWORD";
         if (id == R.id.rbLockPattern) return "PATTERN";
         return "NONE";
     }
@@ -214,6 +206,7 @@ public class EditJobActivity extends AppCompatActivity {
     private String currentLockValue() {
         String type = currentLockType();
         if ("PIN".equals(type)) return etPassword.getText().toString().trim();
+        if ("PASSWORD".equals(type)) return etPasswordText.getText().toString().trim();
         if ("PATTERN".equals(type)) return patternCode;
         return "";
     }
@@ -223,9 +216,9 @@ public class EditJobActivity extends AppCompatActivity {
     private void startScan(EditText target) {
         scanTargetField = target;
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-        != PackageManager.PERMISSION_GRANTED) {
+                != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-            new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST);
+                    new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST);
             return;
         }
         launchScanner();
@@ -238,23 +231,23 @@ public class EditJobActivity extends AppCompatActivity {
             integrator.setPrompt("IMEI barcode ko frame ke andar rakhein");
             integrator.setBeepEnabled(true);
             integrator.setOrientationLocked(true);
-            integrator.setCaptureActivity(com.journeyapps.barcodescanner.CaptureActivity.class);
+            integrator.setCaptureActivity(com.revenueaccount.app.scanner.PortraitCaptureActivity.class);
             integrator.initiateScan();
         } catch (Exception e) {
             Log.e(TAG, "Scanner launch failed", e);
-            AppToast.error(this, "Scanner start nahi ho paya");
+            AppToast.error(this, "Could not start the scanner");
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-    @NonNull int[] grantResults) {
+                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == CAMERA_PERMISSION_REQUEST) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 launchScanner();
             } else {
-                AppToast.warning(this, "IMEI scan karne ke liye camera permission chahiye");
+                AppToast.warning(this, "Camera permission is required to scan the IMEI");
             }
         }
     }
@@ -268,7 +261,7 @@ public class EditJobActivity extends AppCompatActivity {
                 String scanned = result.getContents().replaceAll("[^0-9]", "");
                 if (!scanned.isEmpty()) {
                     scanTargetField.setText(scanned.length() > 15 ? scanned.substring(0, 15) : scanned);
-                    AppToast.success(this, " IMEI scan ho gaya");
+                    AppToast.success(this, "IMEI scanned successfully");
                 }
             }
         } catch (Exception e) {

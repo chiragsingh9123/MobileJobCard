@@ -40,12 +40,12 @@ public class RegisterActivity extends AppCompatActivity {
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString();
 
-            if (shop.isEmpty()) { etShop.setError("Shop ka naam daalein"); return; }
-            if (owner.isEmpty()) { etOwner.setError("Apna naam daalein"); return; }
-            if (mobile.length() != 10) { etMobile.setError("10 digit mobile number"); return; }
-            if (password.length() < 6) { etPassword.setError("Kam se kam 6 characters"); return; }
+            if (shop.isEmpty()) { etShop.setError("Shop ka enter the name"); return; }
+            if (owner.isEmpty()) { etOwner.setError("Apna enter the name"); return; }
+            if (mobile.length() != 10) { etMobile.setError("a 10-digit mobile number"); return; }
+            if (password.length() < 6) { etPassword.setError("At least 6 characters"); return; }
             if (!password.equals(etConfirm.getText().toString())) {
-                etConfirm.setError("Password match nahi kar raha"); return;
+                etConfirm.setError("Passwords do not match"); return;
             }
 
             btnRegister.setEnabled(false);
@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                         i.putExtra("email", email);
                         startActivity(i);
                     } else {
-                        AppToast.show(RegisterActivity.this, "Yeh mobile number pehle se registered hai, ya server error hai");
+                        AppToast.show(RegisterActivity.this, "This mobile number is already registered, or there was a server error");
                     }
                 }
                 @Override

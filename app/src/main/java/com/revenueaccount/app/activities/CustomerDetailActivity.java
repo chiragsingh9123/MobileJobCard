@@ -82,7 +82,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
             tvKhata.setText(" Khata Baaki: ₹" + khataBalance);
             btnSettle.setVisibility(View.VISIBLE);
         } else {
-            tvKhata.setText(" Koi udhaar baaki nahi");
+            tvKhata.setText("No outstanding balance");
             tvKhata.setTextColor(Color.parseColor("#2E7D32"));
             btnSettle.setVisibility(View.GONE);
         }
@@ -93,10 +93,10 @@ public class CustomerDetailActivity extends AppCompatActivity {
         if (jArr.size() == 0) addLine(jobs, "Koi job nahi", "#757575");
         for (int i = 0; i < jArr.size(); i++) {
             JsonObject j = jArr.get(i).getAsJsonObject();
-            addLine(jobs, j.get("job_id").getAsString() + " • "
-            + j.get("device_brand").getAsString() + " " + j.get("device_model").getAsString()
-            + " • ₹" + j.get("estimated_cost").getAsDouble()
-            + " • " + j.get("status").getAsString(), "#212121");
+            addLine(jobs, j.get("job_id").getAsString() + " - "
+            + j.get("device_model").getAsString()
+            + " - Rs. " + j.get("estimated_cost").getAsDouble()
+            + " - " + j.get("status").getAsString(), "#212121");
         }
 
         LinearLayout khata = findViewById(R.id.khataContainer);
@@ -135,7 +135,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         .setPositiveButton("Save", (d, w) -> {
             double amt = com.revenueaccount.app.utils.NumUtils.parseDouble(input.getText().toString());
             if (amt <= 0) {
-                AppToast.show(this, "Sahi amount daalein");
+                AppToast.show(this, "Enter a valid amount");
                 return;
             }
             JsonObject p = new JsonObject();
@@ -146,7 +146,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
             ApiClient.get(this).createPayment(p).enqueue(new Callback<JsonObject>() {
                 @Override
                 public void onResponse(@NonNull Call<JsonObject> c, @NonNull Response<JsonObject> r) {
-                    AppToast.show(CustomerDetailActivity.this, " Payment save hui");
+                    AppToast.show(CustomerDetailActivity.this, "Payment saved");
                     load();
                 }
                 @Override

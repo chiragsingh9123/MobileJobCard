@@ -35,7 +35,7 @@
  <TextView
  android:layout_width="wrap_content" android:layout_height="wrap_content"
  android:layout_marginTop="12dp" android:gravity="center"
- android:text="Mobile Repair Shop Management System\nJob tracking, khata, staff, aur reports — sab ek jagah."
+ android:text="Mobile Repair Shop Management System\nJob tracking, khata, staff management, and reports - all in one place."
  android:textColor="@color/text_secondary" android:textSize="13sp" android:lineSpacingExtra="4dp"/>
  </LinearLayout>
 
@@ -44,7 +44,7 @@
  android:layout_marginHorizontal="18dp" app:cardCornerRadius="14dp" app:cardElevation="1dp">
  <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="18dp">
  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:text=" Features" android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
+ android:text="Features" android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
  <TextView
  android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
  android:lineSpacingExtra="6dp" android:textColor="@color/text_secondary" android:textSize="13sp"
@@ -55,6 +55,6 @@
  <TextView
  android:layout_width="match_parent" android:layout_height="wrap_content"
  android:layout_marginTop="20dp" android:gravity="center"
- android:text="Made with for mobile repair shops"
+ android:text="Developed and Managed by Loopax.Online"
  android:textColor="@color/text_secondary" android:textSize="12sp"/>
 </LinearLayout>

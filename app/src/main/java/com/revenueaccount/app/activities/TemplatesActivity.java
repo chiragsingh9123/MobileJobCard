@@ -16,7 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/** WhatsApp/SMS Templates — customer ko bheje jaane wale messages customize karein */
+/** WhatsApp/SMS Templates — customer ko bheje jaane wale messages customize  */
 public class TemplatesActivity extends AppCompatActivity {
 
     private static final String TAG = "TemplatesActivity";
@@ -65,7 +65,7 @@ public class TemplatesActivity extends AppCompatActivity {
         ApiClient.get(this).updateTemplates(body).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
-                AppToast.show(TemplatesActivity.this, res.isSuccessful() ? " Templates save hue" : "Save nahi hua");
+                AppToast.show(TemplatesActivity.this, res.isSuccessful() ? "Templates saved successfully" : "Save failed");
             }
             @Override
             public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {

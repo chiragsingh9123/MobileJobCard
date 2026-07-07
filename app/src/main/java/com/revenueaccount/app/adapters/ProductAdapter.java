@@ -84,7 +84,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
         .setPositiveButton("Add", (d, w) -> {
             int qty = com.revenueaccount.app.utils.NumUtils.parseInt(input.getText().toString());
             if (qty <= 0) {
-                AppToast.show(ctx, "Sahi quantity daalein");
+                AppToast.show(ctx, "Enter a valid quantity");
                 return;
             }
             Map<String, Integer> body = new HashMap<>();
@@ -92,7 +92,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
             ApiClient.get(ctx).addStock(productId, body).enqueue(new Callback<JsonObject>() {
                 @Override
                 public void onResponse(@NonNull Call<JsonObject> c, @NonNull Response<JsonObject> r) {
-                    AppToast.show(ctx, " Stock update hua");
+                    AppToast.show(ctx, " Stock updated");
                     onChanged.refresh();
                 }
                 @Override

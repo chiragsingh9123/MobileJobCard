@@ -65,7 +65,7 @@ public class PrintSettingsActivity extends AppCompatActivity {
         ApiClient.get(this).updatePrintSettings(body).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
-                AppToast.show(PrintSettingsActivity.this, res.isSuccessful() ? " Save ho gaya" : "Save nahi hua");
+                AppToast.show(PrintSettingsActivity.this, res.isSuccessful() ? "Saved successfully" : "Save failed");
             }
             @Override
             public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {

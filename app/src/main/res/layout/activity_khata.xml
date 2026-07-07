@@ -27,7 +27,7 @@
  android:textSize="18sp" android:textStyle="bold"/>
  <TextView
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:text="Jin customers ka paisa baaki hai" android:textColor="#FFF3E0"
+ android:text="Customers with an outstanding balance" android:textColor="#FFF3E0"
  android:textSize="12sp"/>
  </LinearLayout>
 
@@ -42,7 +42,7 @@
  <TextView
  android:id="@+id/tvEmpty"
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:layout_gravity="center" android:text=" Kisi ka khata baaki nahi!"
+ android:layout_gravity="center" android:text="No outstanding balances!"
  android:textColor="@color/text_secondary" android:visibility="gone"/>
  </FrameLayout>
  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

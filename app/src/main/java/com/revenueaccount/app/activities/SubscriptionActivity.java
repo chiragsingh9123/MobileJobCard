@@ -89,9 +89,9 @@ public class SubscriptionActivity extends AppCompatActivity {
                         JsonObject sub = res.body().getAsJsonObject("subscription");
                         String plan = sub.getAsJsonObject("plan").get("name").getAsString();
                         int days = sub.get("days_remaining").getAsInt();
-                        tv.setText(" Current Plan: " + plan + " — " + days + " din baaki hai");
+                        tv.setText("Current Plan: " + plan + " - " + days + " days remaining");
                     } else {
-                        tv.setText(" Koi active plan nahi hai — voucher redeem karein ya UPI se pay karein");
+                        tv.setText("No active plan - redeem a voucher or pay via UPI");
                     }
                 } catch (Exception e) {
                     Log.e(TAG, "Plan render error", e);
@@ -99,7 +99,7 @@ public class SubscriptionActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
-                tv.setText(" Server se connect nahi hua");
+                tv.setText("Could not connect to the server");
             }
         });
     }
@@ -122,7 +122,7 @@ public class SubscriptionActivity extends AppCompatActivity {
                     loadCurrentPlan();
                     etCode.setText("");
                 } else {
-                    AppToast.show(SubscriptionActivity.this, " Voucher galat hai ya use ho chuka hai");
+                    AppToast.show(SubscriptionActivity.this, "This voucher is invalid or has already been used");
                 }
             }
             @Override
@@ -158,7 +158,7 @@ public class SubscriptionActivity extends AppCompatActivity {
                             selectedPlanId = id;
                             selectedPlanPrice = price;
                             findViewById(R.id.tvAmount).setVisibility(View.VISIBLE);
-                            ((TextView) findViewById(R.id.tvAmount)).setText("₹" + price + " pay karein");
+                            ((TextView) findViewById(R.id.tvAmount)).setText("₹" + price + " pay ");
                         });
                         planRadioGroup.addView(rb);
                         if (i == 0) rb.performClick();
@@ -252,13 +252,13 @@ public class SubscriptionActivity extends AppCompatActivity {
          public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
          btnSubmit.setEnabled(true);
          if (res.isSuccessful() && res.body() != null) {
-         AppToast.show(SubscriptionActivity.this, " Submit ho gaya! Admin verify karega.");
+         AppToast.show(SubscriptionActivity.this, "Submitted! The admin will verify it.");
          etUtr.setText("");
          screenshotUri = null;
          ivScreenshotPreview.setVisibility(View.GONE);
          loadMyRequests();
          } else {
-         AppToast.show(SubscriptionActivity.this, "Submit nahi hua, dubara try karein");
+         AppToast.show(SubscriptionActivity.this, "Submission failed, please try again");
          }
          }
          @Override
@@ -270,7 +270,7 @@ public class SubscriptionActivity extends AppCompatActivity {
          } catch (Exception e) {
          btnSubmit.setEnabled(true);
          Log.e(TAG, "Submit payment error", e);
-         AppToast.show(this, "Screenshot process nahi ho paya");
+         AppToast.show(this, "Could not process the screenshot");
          }
          }
 

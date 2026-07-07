@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<paths xmlns:android="http://schemas.android.com/apk/res/android">
- <cache-path name="backups" path="backups/"/>
- <cache-path name="media_capture" path="media_capture/"/>
-</paths>

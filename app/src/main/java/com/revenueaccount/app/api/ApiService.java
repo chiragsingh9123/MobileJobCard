@@ -83,14 +83,27 @@ public interface ApiService {
     Call<JsonObject> uploadJobMedia(@Path("id") long id, @Part("caption") RequestBody caption,
     @Part MultipartBody.Part file);
 
+    @Multipart
+    @POST("api/jobs/{id}/media/")
+    Call<JsonObject> uploadJobMediaWithCategory(@Path("id") long id,
+    @Part("caption") RequestBody caption, @Part("category") RequestBody category,
+    @Part MultipartBody.Part file);
+
     @GET("api/jobs/{id}/media/")
     Call<JsonObject> listJobMedia(@Path("id") long id);
+
+    @GET("api/jobs/{id}/media/")
+    Call<JsonObject> listJobMediaByCategory(@Path("id") long id, @Query("category") String category);
 
     @POST("api/jobs/{id}/media/{mediaId}/delete/")
     Call<JsonObject> deleteJobMedia(@Path("id") long id, @Path("mediaId") long mediaId);
 
     @GET("api/jobs/{id}/message/{type}/")
     Call<JsonObject> getJobMessage(@Path("id") long id, @Path("type") String type);
+
+    // ---------- APP VERSION CHECK (force update) ----------
+    @GET("api/app/version-check/")
+    Call<JsonObject> versionCheck(@Query("version_code") int versionCode);
 
     // ---------- PAYMENTS & KHATA ----------
     @POST("api/payments/payments/")
@@ -101,6 +114,12 @@ public interface ApiService {
 
     @GET("api/payments/khata/jobs/{customerId}/")
     Call<JsonObject> khataJobsForCustomer(@Path("customerId") long customerId);
+
+    @POST("api/payments/expenses/")
+    Call<JsonObject> createExpense(@Body JsonObject body);
+
+    @GET("api/payments/expenses/")
+    Call<JsonObject> listExpenses();
 
     // ---------- INVENTORY ----------
     @GET("api/inventory/products/")
@@ -174,7 +193,4 @@ public interface ApiService {
 
     @GET("api/shop/export/")
     Call<JsonObject> exportBackup();
-
-    @GET("api/app/version-check/")
-    Call<JsonObject> versionCheck(@Query("version_code") int versionCode);
 }

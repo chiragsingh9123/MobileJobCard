@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/** Backup & Restore — shop ka poora data JSON export karke share karein */
+/** Backup & Restore — shop ka poora data JSON export karke share  */
 public class BackupActivity extends AppCompatActivity {
 
     private static final String TAG = "BackupActivity";
@@ -47,10 +47,10 @@ public class BackupActivity extends AppCompatActivity {
                         saveAndShare(res.body().toString());
                     } catch (Exception e) {
                         Log.e(TAG, "Export save error", e);
-                        AppToast.show(BackupActivity.this, "File save nahi hui");
+                        AppToast.show(BackupActivity.this, "The file could not be saved");
                     }
                 } else {
-                    AppToast.show(BackupActivity.this, "Backup export nahi hua");
+                    AppToast.show(BackupActivity.this, "Backup export failed");
                 }
             }
             @Override
@@ -75,6 +75,6 @@ public class BackupActivity extends AppCompatActivity {
         share.setType("application/json");
         share.putExtra(Intent.EXTRA_STREAM, uri);
         share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(Intent.createChooser(share, "Backup kahan save/share karein?"));
+        startActivity(Intent.createChooser(share, "Backup kahan save/share ?"));
     }
 }

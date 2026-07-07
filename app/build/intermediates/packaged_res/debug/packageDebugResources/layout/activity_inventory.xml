@@ -39,7 +39,7 @@
  android:layout_width="match_parent" android:layout_height="46dp"
  android:layout_marginHorizontal="12dp" android:background="@color/white"
  android:drawableStart="@drawable/ic_search" android:drawablePadding="8dp"
- android:elevation="2dp" android:hint="Product search karein"
+ android:elevation="2dp" android:hint="Product search "
  android:inputType="text" android:paddingHorizontal="14dp" android:textSize="14sp"/>
 
  <HorizontalScrollView
@@ -66,7 +66,7 @@
  <TextView
  android:id="@+id/tvEmpty"
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:layout_gravity="center" android:text="Koi product nahi — + se add karein"
+ android:layout_gravity="center" android:text="Koi product nahi — + se add "
  android:textColor="@color/text_secondary" android:visibility="gone"/>
  </FrameLayout>
  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

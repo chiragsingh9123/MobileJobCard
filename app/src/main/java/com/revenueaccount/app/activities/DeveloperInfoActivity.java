@@ -11,14 +11,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.revenueaccount.app.R;
 
-
+/**
+ * Developer / Support Info — the fields below are PLACEHOLDERS.
+ * Replace them with your actual developer/company/support details
+ * so customers can reach you directly.
+ */
 public class DeveloperInfoActivity extends AppCompatActivity {
 
-    // Replace these with your actual information before publishing
     private static final String DEV_NAME = "Chirag Singh / Loopax";
     private static final String DEV_TAGLINE = "Your Idea Our Innovation";
     private static final String SUPPORT_EMAIL = "chiragsingh9123@gmail.com";
-    private static final String SUPPORT_PHONE = "+917453842945";
+    private static final String SUPPORT_PHONE = "+9194514 25124";
     private static final String WEBSITE = "https://chiragsingh.online";
 
     @Override
@@ -44,6 +47,9 @@ public class DeveloperInfoActivity extends AppCompatActivity {
         addDivider(container);
         addRow(container, R.drawable.ic_globe, "Website", WEBSITE, v ->
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE))));
+
+        TextView tvFooter = findViewById(R.id.tvDeveloperFooter);
+        if (tvFooter != null) tvFooter.setText("Developed and Managed by Loopax.Online");
     }
 
     private void addRow(LinearLayout parent, int icon, String label, String value, View.OnClickListener onClick) {

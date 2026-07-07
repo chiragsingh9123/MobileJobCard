@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
- <color name="primary">#5177B1</color>
- <color name="primary_dark">#175CC1</color>
+ <color name="primary">#1565C0</color>
+ <color name="primary_dark">#0D47A1</color>
  <color name="primary_light">#E3F2FD</color>
  <color name="success">#4CAF50</color>
  <color name="success_light">#E8F5E9</color>
@@ -9,17 +9,17 @@
  <color name="warning_light">#FFF3E0</color>
  <color name="error">#F44336</color>
  <color name="error_light">#FFEBEE</color>
- <color name="purple">#C161EF</color>
+ <color name="purple">#7B1FA2</color>
  <color name="teal">#00897B</color>
  <color name="background">#F5F5F5</color>
  <color name="white">#FFFFFF</color>
  <color name="text_primary">#212121</color>
- <color name="text_secondary">#757575</color>
+ <color name="text_secondary">#616161</color>
  <color name="divider">#E0E0E0</color>
- <color name="status_received">#3183E6</color>
- <color name="status_repairing">#E0A552</color>
- <color name="status_waiting">#9F45CE</color>
+ <color name="status_received">#1565C0</color>
+ <color name="status_repairing">#FF9800</color>
+ <color name="status_waiting">#7B1FA2</color>
  <color name="status_ready">#4CAF50</color>
- <color name="status_delivered">#10BAA6</color>
+ <color name="status_delivered">#00897B</color>
  <color name="status_rwr">#F44336</color>
 </resources>

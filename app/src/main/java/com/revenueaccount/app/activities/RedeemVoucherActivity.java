@@ -42,9 +42,9 @@ public class RedeemVoucherActivity extends AppCompatActivity {
                         JsonObject sub = res.body().getAsJsonObject("subscription");
                         String plan = sub.getAsJsonObject("plan").get("name").getAsString();
                         int days = sub.get("days_remaining").getAsInt();
-                        tvCurrentPlan.setText("Current Plan: " + plan + "\n" + days + " din baaki");
+                        tvCurrentPlan.setText("Current Plan: " + plan + "\n" + days + " days remaining");
                     } else {
-                        tvCurrentPlan.setText(" Koi active plan nahi hai");
+                        tvCurrentPlan.setText("No active plan");
                     }
                 } catch (Exception e) {
                     Log.e(TAG, "Plan render error", e);
@@ -53,7 +53,7 @@ public class RedeemVoucherActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
-                tvCurrentPlan.setText(" Server se connect nahi hua");
+                tvCurrentPlan.setText("Could not connect to the server");
             }
         });
 
@@ -72,7 +72,7 @@ public class RedeemVoucherActivity extends AppCompatActivity {
                         AppToast.show(RedeemVoucherActivity.this, res.body().get("message").getAsString());
                         finish();
                     } else {
-                        AppToast.show(RedeemVoucherActivity.this, " Voucher galat hai ya use ho chuka hai");
+                        AppToast.show(RedeemVoucherActivity.this, "This voucher is invalid or has already been used");
                     }
                 }
                 @Override

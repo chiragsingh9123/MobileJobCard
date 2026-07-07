@@ -15,7 +15,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/** Security: Password change karein */
+/** Security: Password change  */
 public class ChangePasswordActivity extends AppCompatActivity {
 
     @Override
@@ -47,10 +47,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
                     if (res.isSuccessful() && res.body() != null) {
-                        AppToast.show(ChangePasswordActivity.this, " Password change ho gaya");
+                        AppToast.show(ChangePasswordActivity.this, " Password changed successfully");
                         finish();
                     } else {
-                        AppToast.show(ChangePasswordActivity.this, " Purana password galat hai");
+                        AppToast.show(ChangePasswordActivity.this, " Purana password is incorrect");
                     }
                 }
                 @Override

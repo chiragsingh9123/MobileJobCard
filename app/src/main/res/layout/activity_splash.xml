@@ -39,8 +39,6 @@
  android:layout_marginTop="56dp"
  android:indeterminateTint="@color/white" />
 
-
-
  <TextView
  android:layout_width="wrap_content"
  android:layout_height="wrap_content"
@@ -48,13 +46,4 @@
  android:text="Version 1.0.0"
  android:textColor="#80FFFFFF"
  android:textSize="11sp" />
- <TextView
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_marginTop="6dp"
-     android:text="Developed by Loopax.online"
-     android:textColor="#B3E5FC"
-     android:textSize="15sp"
-     android:fontFamily="@string/define_zxingandroidembedded"
-     />
 </LinearLayout>

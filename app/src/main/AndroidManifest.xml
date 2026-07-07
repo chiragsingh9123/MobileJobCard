@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.UpdateRequiredActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.OtpVerifyActivity" />
@@ -50,9 +51,15 @@
         <activity android:name=".activities.ActivityLogActivity" />
         <activity android:name=".activities.AboutActivity" />
         <activity android:name=".activities.RolesInfoActivity" />
+        <activity android:name=".activities.ExpensesActivity" />
+
+        <!-- Fixes barcode scanner rotating to landscape: forces portrait orientation -->
+        <activity android:name=".scanner.PortraitCaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".activities.PrivacyPolicyActivity" />
         <activity android:name=".activities.DeveloperInfoActivity" />
-        <activity android:name=".activities.UpdateRequiredActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
