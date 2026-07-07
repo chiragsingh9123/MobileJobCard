@@ -6,7 +6,7 @@
     <div>
       <label>
         <input type="checkbox" name="force_update_enabled" {% if settings.force_update_enabled %}checked{% endif %}>
-        Force Update ON (toggle)
+        Force Update Enabled
       </label>
     </div>
   </div>
@@ -17,7 +17,7 @@
       <input name="play_store_url" value="{{ settings.play_store_url }}"></div>
   </div>
   <div class="form-row">
-    <div><label>Update Message shown to user</label>
+    <div><label>Update Message Shown to User</label>
       <input name="update_message" value="{{ settings.update_message }}"></div>
   </div>
   <button class="btn btn-primary">Save</button>

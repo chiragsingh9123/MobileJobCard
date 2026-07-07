@@ -13,7 +13,7 @@ job_bp = Blueprint("jobs", __name__, url_prefix="/api/jobs")
 EDITABLE_FIELDS = ["custom_name", "device_brand", "device_model", "imei1", "imei2",
                    "color", "storage", "lock_type", "device_password", "accessories",
                    "alternate_mobile", "problem", "diagnosis", "estimated_cost",
-                   "expected_delivery", "discount_amount"]
+                   "expected_delivery", "discount_amount", "aadhaar_number", "bill_number"]
 
 
 def _resolve_staff(shop_id, staff_id, fallback_user):
@@ -47,7 +47,7 @@ def create_job(user):
             db.session.add(customer)
             db.session.flush()
     if not customer:
-        return jsonify({"detail": "Customer info required hai"}), 400
+        return jsonify({"detail": "Customer information is required"}), 400
 
     # 2nd job -> REPEAT customer
     if len(customer.jobs) >= 1 and customer.customer_type == "NORMAL":
@@ -71,6 +71,8 @@ def create_job(user):
                   problem=d.get("problem", ""),
                   estimated_cost=float(d.get("estimated_cost") or 0),
                   expected_delivery=d.get("expected_delivery", ""),
+                  aadhaar_number=d.get("aadhaar_number", ""),
+                  bill_number=d.get("bill_number", ""),
                   received_by_id=creator.id)
     db.session.add(job)
     db.session.flush()
@@ -109,7 +111,7 @@ def list_jobs(user):
                 d1 = datetime.strptime(date_to, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
                 q = q.filter(JobCard.created_at <= d1)
     except ValueError:
-        return jsonify({"detail": "Date format YYYY-MM-DD hona chahiye"}), 400
+        return jsonify({"detail": "Date must be in YYYY-MM-DD format"}), 400
 
     # Search: job_id, custom_name, customer name/mobile - sab cover karta hai
     search = request.args.get("search", "").strip()
@@ -167,18 +169,18 @@ def update_status(user, jid):
     d = request.get_json(force=True)
     status = (d.get("status") or "").upper()
     if status not in JOB_STATUSES:
-        return jsonify({"detail": f"Status inme se ho: {JOB_STATUSES}"}), 400
+        return jsonify({"detail": f"Status must be one of: {JOB_STATUSES}"}), 400
 
     # READY status ke liye Final Amount bharna zaroori hai - bina iske Ready nahi ho sakta
     if status == "READY":
         if "final_amount" not in d or d.get("final_amount") in (None, ""):
-            return jsonify({"detail": "Final Amount daalna zaroori hai jab job Ready ho"}), 400
+            return jsonify({"detail": "Final Amount is required when marking a job Ready"}), 400
         try:
             final_amount = float(d.get("final_amount"))
         except (TypeError, ValueError):
-            return jsonify({"detail": "Final Amount sahi number hona chahiye"}), 400
+            return jsonify({"detail": "Final Amount must be a valid number"}), 400
         if final_amount < 0:
-            return jsonify({"detail": "Final Amount 0 se kam nahi ho sakta"}), 400
+            return jsonify({"detail": "Final Amount cannot be less than 0"}), 400
         job.estimated_cost = final_amount
 
     # "Yeh status kaun badal raha hai" - technician/staff selection popup se aata hai
@@ -287,12 +289,14 @@ def upload_media(user, jid):
     file = request.files.get("file")
     filename, media_type = save_uploaded_media(file, current_app.config["JOB_MEDIA_FOLDER"])
     if not filename:
-        return jsonify({"detail": "Sirf photo (jpg/png/webp) ya video (mp4/3gp/mkv/webm) allowed hai"}), 400
+        return jsonify({"detail": "Only photo (jpg/png/webp) or video (mp4/3gp/mkv/webm) files are allowed"}), 400
+    category = (request.form.get("category") or "GENERAL").upper()
     media = JobMedia(job_card_id=job.id, media_type=media_type, file_path=filename,
-                     caption=request.form.get("caption", ""), uploaded_by_id=user.id)
+                     caption=request.form.get("caption", ""), category=category,
+                     uploaded_by_id=user.id)
     db.session.add(media)
     JobActivityLog.log(user.shop_id, job.id, user.id, "EDITED",
-                       f"{'Photo' if media_type == 'PHOTO' else 'Video'} add hui")
+                       f"{'Photo' if media_type == 'PHOTO' else 'Video'} added ({category})")
     db.session.commit()
     return jsonify(media.to_dict()), 201
 
@@ -301,7 +305,11 @@ def upload_media(user, jid):
 @login_required
 def list_media(user, jid):
     job = JobCard.query.filter_by(id=jid, shop_id=user.shop_id).first_or_404()
-    return jsonify({"results": [m.to_dict() for m in job.media]})
+    category = request.args.get("category", "").upper()
+    media = job.media
+    if category:
+        media = [m for m in media if m.category == category]
+    return jsonify({"results": [m.to_dict() for m in media]})
 
 
 @job_bp.post("/<int:jid>/media/<int:mid>/delete/")
@@ -311,7 +319,7 @@ def delete_media(user, jid, mid):
     media = JobMedia.query.filter_by(id=mid, job_card_id=job.id).first_or_404()
     db.session.delete(media)
     db.session.commit()
-    return jsonify({"message": "Media delete ho gaya"})
+    return jsonify({"message": "Media deleted"})
 
 
 # ---------------- CUSTOMER MESSAGE (WhatsApp/SMS templates) ----------------
@@ -324,7 +332,7 @@ def get_message(user, jid, msg_type):
                "delivered": "template_delivered", "rwr": "template_rwr"}
     key = key_map.get(msg_type)
     if not key:
-        return jsonify({"detail": "message type received/ready/delivered/rwr me se ho"}), 400
+        return jsonify({"detail": "message type must be one of received/ready/delivered/rwr"}), 400
     text = user.shop.format_message(key, job)
     return jsonify({"message": text, "customer_mobile": job.customer.mobile})
 
@@ -339,12 +347,12 @@ def use_part(user, jid):
                                       shop_id=user.shop_id).first_or_404()
     qty = int(d.get("quantity", 1))
     if product.quantity < qty:
-        return jsonify({"detail": f"Stock kam hai (sirf {product.quantity} bache)"}), 400
+        return jsonify({"detail": f"Not enough stock (only {product.quantity} left)"}), 400
     product.quantity -= qty
     db.session.add(UsedPart(job_card_id=job.id, product_id=product.id,
                             quantity=qty, price=product.sale_price))
     JobActivityLog.log(user.shop_id, job.id, user.id, "EDITED",
                        f"Part use hua: {product.name} x{qty}")
     db.session.commit()
-    return jsonify({"message": "Part add hua, stock update",
+    return jsonify({"message": "Part added, stock updated",
                     "product": product.to_dict()})

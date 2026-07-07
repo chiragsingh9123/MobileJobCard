@@ -22,18 +22,18 @@ class Shop(db.Model):
 
     # Print / receipt settings
     receipt_header = db.Column(db.String(255), default="")
-    receipt_footer = db.Column(db.String(255), default="Dhanyawad! Phir aayiye.")
+    receipt_footer = db.Column(db.String(255), default="Thank you! Please visit again.")
     show_gst_on_receipt = db.Column(db.Boolean, default=False)
 
     # WhatsApp / SMS message templates (placeholders: {customer}, {job_id}, {shop})
-    template_received = db.Column(db.Text, default="Namaste {customer}, aapka {job_id} job card "
-                                                     "{shop} par receive ho gaya hai. Hum jald hi update denge.")
-    template_ready = db.Column(db.Text, default="Namaste {customer}, aapka device ({job_id}) "
-                                                 "ready hai! Kripya {shop} aakar collect karein.")
-    template_delivered = db.Column(db.Text, default="Namaste {customer}, aapka device ({job_id}) "
-                                                      "deliver ho gaya. Dhanyawad {shop} par aane ke liye!")
-    template_rwr = db.Column(db.Text, default="Namaste {customer}, aapke device ({job_id}) ko hum "
-                                               "repair nahi kar paaye. Kripya {shop} se sampark karein.")
+    template_received = db.Column(db.Text, default="Hello {customer}, your job card {job_id} has been "
+                                                     "received at {shop}. We will update you shortly.")
+    template_ready = db.Column(db.Text, default="Hello {customer}, your device ({job_id}) is "
+                                                 "ready! Please visit {shop} to collect it.")
+    template_delivered = db.Column(db.Text, default="Hello {customer}, your device ({job_id}) has been "
+                                                      "delivered. Thank you for visiting {shop}!")
+    template_rwr = db.Column(db.Text, default="Hello {customer}, we were unable to repair your "
+                                               "device ({job_id}). Please contact {shop} for more details.")
 
     users = db.relationship("User", backref="shop", lazy=True)
 
@@ -194,9 +194,9 @@ class Voucher(db.Model):
     def redeem(self, shop):
         """Voucher redeem karo -> subscription banao/extend karo"""
         if self.is_redeemed:
-            return None, "Yeh voucher pehle hi use ho chuka hai"
+            return None, "This voucher has already been used"
         if self.expires_at and self.expires_at < now():
-            return None, "Yeh voucher expire ho chuka hai"
+            return None, "This voucher has expired"
 
         sub = Subscription.activate(shop, self.plan, self.extra_days)
         self.is_redeemed = True
@@ -207,27 +207,38 @@ class Voucher(db.Model):
 
 
 # ---------------- UPI PAYMENT VERIFICATION (manual) ----------------
-# class PlatformSettings(db.Model):
-#     """Singleton row: Admin ka UPI ID + QR code (poore platform ke liye ek hi)"""
-#     __tablename__ = "platform_settings"
-#     id = db.Column(db.Integer, primary_key=True)
-#     upi_id = db.Column(db.String(120), default="")
-#     upi_name = db.Column(db.String(120), default="")
-#     qr_image_path = db.Column(db.String(255), default="")  # relative path under uploads/qr/
-#     updated_at = db.Column(db.DateTime, default=now)
+class PlatformSettings(db.Model):
+    """Singleton row: platform-wide settings (UPI payment details + app update control)"""
+    __tablename__ = "platform_settings"
+    id = db.Column(db.Integer, primary_key=True)
+    upi_id = db.Column(db.String(120), default="")
+    upi_name = db.Column(db.String(120), default="")
+    qr_image_path = db.Column(db.String(255), default="")  # relative path under uploads/qr/
+    updated_at = db.Column(db.DateTime, default=now)
 
-#     @staticmethod
-#     def get():
-#         s = PlatformSettings.query.first()
-#         if not s:
-#             s = PlatformSettings()
-#             db.session.add(s)
-#             db.session.commit()
-#         return s
+    # Force-update control
+    force_update_enabled = db.Column(db.Boolean, default=False)
+    min_version_code = db.Column(db.Integer, default=1)
+    update_message = db.Column(db.String(500),
+                               default="A new version is available. Please update to continue.")
+    play_store_url = db.Column(db.String(255), default="")
 
-#     def to_dict(self):
-#         return {"upi_id": self.upi_id, "upi_name": self.upi_name,
-#                 "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None}
+    @staticmethod
+    def get():
+        s = PlatformSettings.query.first()
+        if not s:
+            s = PlatformSettings()
+            db.session.add(s)
+            db.session.commit()
+        return s
+
+    def to_dict(self):
+        return {"upi_id": self.upi_id, "upi_name": self.upi_name,
+                "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None,
+                "force_update_enabled": self.force_update_enabled,
+                "min_version_code": self.min_version_code,
+                "update_message": self.update_message,
+                "play_store_url": self.play_store_url}
 
 
 class PaymentRequest(db.Model):
@@ -339,6 +350,10 @@ class JobCard(db.Model):
     # Delivery-time discount (e.g. customer ko 50/100 rupaye ki chhoot di gayi)
     discount_amount = db.Column(db.Float, default=0)
 
+    # Identity/ownership documentation (Aadhaar + Bill/Box details)
+    aadhaar_number = db.Column(db.String(20), default="")
+    bill_number = db.Column(db.String(60), default="")
+
     # FULL TRACKING: kisne receive kiya, kisko assign hai, kisne deliver kiya, khata duplicate-guard
     received_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     assigned_to_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
@@ -400,6 +415,8 @@ class JobCard(db.Model):
                       "rwr_reason": self.rwr_reason,
                       "rwr_payment_required": self.rwr_payment_required,
                       "rwr_amount": self.rwr_amount,
+                      "aadhaar_number": self.aadhaar_number,
+                      "bill_number": self.bill_number,
                       "status_history": [h.to_dict() for h in self.status_history],
                       "activity_log": [a.to_dict() for a in self.activity_log],
                       "media": [m.to_dict() for m in self.media]})
@@ -489,13 +506,18 @@ class UsedPart(db.Model):
 
 # ---------------- JOB PHOTOS / VIDEOS ----------------
 class JobMedia(db.Model):
-    """Device ki photo/video (damage proof, condition, owner ID, etc.)"""
+    """Device photo/video (damage proof, condition, ownership documentation, etc.)"""
     __tablename__ = "job_media"
     id = db.Column(db.Integer, primary_key=True)
     job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False)
     media_type = db.Column(db.String(10), default="PHOTO")  # PHOTO / VIDEO
     file_path = db.Column(db.String(255), default="")  # relative path under uploads/job_media/
     caption = db.Column(db.String(120), default="")
+    # Category tags used by the Aadhaar/Bill documentation feature. GENERAL is used
+    # for the regular Photos & Videos section on the Job Details screen.
+    # Other values: AADHAAR_FRONT, AADHAAR_BACK, AADHAAR_STATEMENT,
+    # BILL_PHOTO, BOX_PHOTO, BILL_STATEMENT
+    category = db.Column(db.String(30), default="GENERAL")
     uploaded_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     created_at = db.Column(db.DateTime, default=now)
 
@@ -504,7 +526,7 @@ class JobMedia(db.Model):
     def to_dict(self):
         return {"id": self.id, "media_type": self.media_type,
                 "url": f"/uploads/job_media/{self.file_path}" if self.file_path else None,
-                "caption": self.caption,
+                "caption": self.caption, "category": self.category,
                 "uploaded_by": self.uploaded_by.first_name if self.uploaded_by else "",
                 "created_at": self.created_at.isoformat()}
 
@@ -597,48 +619,15 @@ class OTPCode(db.Model):
     def verify(self, submitted_code, max_attempts=5):
         """Code check karo. Galat code baar-baar try karne par lock ho jaata hai."""
         if self.is_used:
-            return False, "Yeh OTP already use ho chuka hai"
+            return False, "This OTP has already been used"
         if self.expires_at < now():
-            return False, "OTP expire ho gaya, naya mangwayein"
+            return False, "This OTP has expired, please request a new one"
         if self.attempts >= max_attempts:
-            return False, "Bahut baar galat OTP try hua, naya OTP mangwayein"
+            return False, "Too many incorrect attempts, please request a new OTP"
         self.attempts += 1
         if self.code != str(submitted_code).strip():
             db.session.commit()
-            return False, f"Galat OTP ({max_attempts - self.attempts} try baaki)"
+            return False, f"Incorrect OTP ({max_attempts - self.attempts} attempts remaining)"
         self.is_used = True
         db.session.commit()
         return True, None
-
-
-class PlatformSettings(db.Model):
-    """Singleton row: Admin ka UPI ID + QR code (poore platform ke liye ek hi)"""
-    __tablename__ = "platform_settings"
-    id = db.Column(db.Integer, primary_key=True)
-    upi_id = db.Column(db.String(120), default="")
-    upi_name = db.Column(db.String(120), default="")
-    qr_image_path = db.Column(db.String(255), default="")  # relative path under uploads/qr/
-    updated_at = db.Column(db.DateTime, default=now)
-
-    # Force-update control
-    force_update_enabled = db.Column(db.Boolean, default=False)
-    min_version_code = db.Column(db.Integer, default=1)
-    update_message = db.Column(db.String(500), default="A new version is available. Please update to continue.")
-    play_store_url = db.Column(db.String(255), default="")
-
-    @staticmethod
-    def get():
-        s = PlatformSettings.query.first()
-        if not s:
-            s = PlatformSettings()
-            db.session.add(s)
-            db.session.commit()
-        return s
-
-    def to_dict(self):
-        return {"upi_id": self.upi_id, "upi_name": self.upi_name,
-                "qr_image_url": f"/uploads/qr/{self.qr_image_path}" if self.qr_image_path else None,
-                "force_update_enabled": self.force_update_enabled,
-                "min_version_code": self.min_version_code,
-                "update_message": self.update_message,
-                "play_store_url": self.play_store_url}

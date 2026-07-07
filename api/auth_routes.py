@@ -16,15 +16,15 @@ def send_otp():
     mobile = (d.get("mobile") or "").strip()
     purpose = (d.get("purpose") or "").upper()
     if len(mobile) != 10 or not mobile.isdigit():
-        return jsonify({"detail": "10 digit sahi mobile number daalein"}), 400
+        return jsonify({"detail": "Enter a valid 10-digit mobile number"}), 400
     if purpose not in ("REGISTER", "LOGIN"):
-        return jsonify({"detail": "purpose REGISTER ya LOGIN hona chahiye"}), 400
+        return jsonify({"detail": "purpose must be REGISTER or LOGIN"}), 400
 
     existing_user = User.query.filter_by(mobile=mobile).first()
     if purpose == "REGISTER" and existing_user:
-        return jsonify({"detail": "Yeh mobile number pehle se registered hai - Login karein"}), 400
+        return jsonify({"detail": "This mobile number is already registered - please log in"}), 400
     if purpose == "LOGIN" and not existing_user:
-        return jsonify({"detail": "Yeh mobile number registered nahi hai - pehle Register karein"}), 400
+        return jsonify({"detail": "This mobile number is not registered - please register first"}), 400
 
     # Resend cooldown - spam se bachne ke liye
     cooldown = current_app.config["OTP_RESEND_COOLDOWN_SECONDS"]
@@ -32,12 +32,12 @@ def send_otp():
              .order_by(OTPCode.created_at.desc()).first())
     if recent and (now() - recent.created_at).total_seconds() < cooldown:
         wait = int(cooldown - (now() - recent.created_at).total_seconds())
-        return jsonify({"detail": f"Thoda ruko, {wait} second baad dobara OTP mangwayein"}), 429
+        return jsonify({"detail": f"Please wait {wait} seconds before requesting another OTP"}), 429
 
     otp = OTPCode.generate(mobile, purpose, current_app.config["OTP_EXPIRY_MINUTES"])
     sent = send_telegram_otp(mobile, otp.code, purpose)
     return jsonify({
-        "message": "OTP bhej diya gaya hai" if sent else
+        "message": "OTP has been sent" if sent else
                    "OTP generate ho gaya (Telegram abhi nahi bheja ja saka, console/admin se check karein)",
         "expires_in_minutes": current_app.config["OTP_EXPIRY_MINUTES"]
     })
@@ -59,9 +59,9 @@ def register():
     d = request.get_json(force=True)
     for f in ["mobile", "password", "first_name", "shop_name", "otp"]:
         if not d.get(f):
-            return jsonify({"detail": f"{f} required hai"}), 400
+            return jsonify({"detail": f"{f} is required"}), 400
     if User.query.filter_by(mobile=d["mobile"]).first():
-        return jsonify({"detail": "Yeh mobile number pehle se registered hai"}), 400
+        return jsonify({"detail": "This mobile number is already registered"}), 400
 
     # OTP verify karo pehle
     err = _verify_otp(d["mobile"], "REGISTER", d["otp"])
@@ -92,7 +92,7 @@ def register():
                                 end_date=now() + timedelta(days=current_app.config["TRIAL_DAYS"])))
     db.session.commit()
     return jsonify({"tokens": make_tokens(user), "user": user.to_dict(),
-                    "message": "Registration successful! 7 din ka free trial active."}), 201
+                    "message": "Registration successful! Your 7-day free trial is now active."}), 201
 
 
 @auth_bp.post("/login/")
@@ -100,14 +100,14 @@ def login():
     d = request.get_json(force=True)
     user = User.query.filter_by(mobile=d.get("mobile", "")).first()
     if not user or not user.check_password(d.get("password", "")):
-        return jsonify({"detail": "Mobile ya password galat hai"}), 401
+        return jsonify({"detail": "Mobile number or password is incorrect"}), 401
     if not user.is_active:
-        return jsonify({"detail": "Account deactivate hai"}), 403
+        return jsonify({"detail": "This account has been deactivated"}), 403
 
     # OTP verify karo (password sahi hone ke baad)
     otp = d.get("otp")
     if not otp:
-        return jsonify({"detail": "OTP required hai - pehle 'Send OTP' dabayein"}), 400
+        return jsonify({"detail": "OTP is required - please tap 'Send OTP' first"}), 400
     err = _verify_otp(user.mobile, "LOGIN", otp)
     if err:
         return jsonify({"detail": err}), 400
@@ -133,10 +133,10 @@ def redeem_voucher(user):
     code = (request.get_json(force=True).get("code") or "").strip().upper()
     v = Voucher.query.filter_by(code=code).first()
     if not v:
-        return jsonify({"detail": "Voucher code galat hai"}), 404
+        return jsonify({"detail": "The voucher code is incorrect"}), 404
     sub, err = v.redeem(user.shop)
     if err:
         return jsonify({"detail": err}), 400
-    return jsonify({"message": f"{sub.plan.name} plan activate ho gaya! "
-                               f"{sub.days_remaining + 1} din valid.",
+    return jsonify({"message": f"{sub.plan.name} plan activated! "
+                               f"Valid for {sub.days_remaining + 1} days.",
                     "subscription": sub.to_dict()})

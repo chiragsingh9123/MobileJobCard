@@ -243,6 +243,22 @@ def upi_settings():
     return render_template("upi_settings.html", settings=settings)
 
 
+# ---------- APP UPDATE SETTINGS (force-update control) ----------
+@admin_bp.route("/app-settings/", methods=["GET", "POST"])
+@admin_required
+def app_settings():
+    settings = PlatformSettings.get()
+    if request.method == "POST":
+        settings.force_update_enabled = "force_update_enabled" in request.form
+        settings.min_version_code = int(request.form.get("min_version_code") or 1)
+        settings.update_message = request.form.get("update_message", "")
+        settings.play_store_url = request.form.get("play_store_url", "")
+        db.session.commit()
+        flash("App update settings saved", "success")
+        return redirect(url_for("admin.app_settings"))
+    return render_template("app_settings.html", settings=settings)
+
+
 # ---------- JOBS / CUSTOMERS / PAYMENTS / INVENTORY (view) ----------
 @admin_bp.get("/jobs/")
 @admin_required
@@ -273,17 +289,3 @@ def payments():
 def inventory():
     return render_template("inventory.html",
                            products=Product.query.order_by(Product.name).all())
-
-@admin_bp.route("/app-settings/", methods=["GET", "POST"])
-@admin_required
-def app_settings():
-    settings = PlatformSettings.get()
-    if request.method == "POST":
-        settings.force_update_enabled = "force_update_enabled" in request.form
-        settings.min_version_code = int(request.form.get("min_version_code") or 1)
-        settings.update_message = request.form.get("update_message", "")
-        settings.play_store_url = request.form.get("play_store_url", "")
-        db.session.commit()
-        flash("App settings updated", "success")
-        return redirect(url_for("admin.app_settings"))
-    return render_template("app_settings.html", settings=settings)

@@ -1,4 +1,4 @@
-"""App version check - force-update control"""
+"""App version check - force-update control from the admin panel"""
 from flask import Blueprint, request, jsonify
 from models import PlatformSettings
 

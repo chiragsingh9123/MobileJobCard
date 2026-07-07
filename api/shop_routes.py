@@ -12,7 +12,7 @@ shop_bp = Blueprint("shop", __name__, url_prefix="/api/shop")
 @login_required
 def get_profile(user):
     if not user.shop:
-        return jsonify({"detail": "Shop nahi mila"}), 404
+        return jsonify({"detail": "Shop not found"}), 404
     return jsonify(user.shop.to_dict_full())
 
 
@@ -64,12 +64,12 @@ def change_password(user):
     old = d.get("old_password", "")
     new = d.get("new_password", "")
     if not user.check_password(old):
-        return jsonify({"detail": "Purana password galat hai"}), 400
+        return jsonify({"detail": "Current password is incorrect"}), 400
     if len(new) < 4:
-        return jsonify({"detail": "Naya password kam se kam 4 characters ka ho"}), 400
+        return jsonify({"detail": "New password must be at least 4 characters"}), 400
     user.set_password(new)
     db.session.commit()
-    return jsonify({"message": "Password change ho gaya"})
+    return jsonify({"message": "Password changed successfully"})
 
 
 @shop_bp.get("/activity-log/")

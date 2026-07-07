@@ -38,9 +38,9 @@ def list_customers(user):
 def create_customer(user):
     d = request.get_json(force=True)
     if not d.get("name") or not d.get("mobile"):
-        return jsonify({"detail": "Name aur mobile required hai"}), 400
+        return jsonify({"detail": "Name and mobile number are required"}), 400
     if Customer.query.filter_by(shop_id=user.shop_id, mobile=d["mobile"]).first():
-        return jsonify({"detail": "Is mobile ka customer pehle se hai"}), 400
+        return jsonify({"detail": "A customer with this mobile number already exists"}), 400
     c = Customer(shop_id=user.shop_id, name=d["name"], mobile=d["mobile"],
                  email=d.get("email", ""), address=d.get("address", ""),
                  city=d.get("city", ""), notes=d.get("notes", ""))

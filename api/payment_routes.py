@@ -74,7 +74,7 @@ def create_payment(user):
     d = request.get_json(force=True)
     amount = float(d.get("amount") or 0)
     if amount <= 0:
-        return jsonify({"detail": "Amount sahi daalein"}), 400
+        return jsonify({"detail": "Enter a valid amount"}), 400
 
     p = Payment(shop_id=user.shop_id, amount=amount,
                 customer_id=d.get("customer_id"),

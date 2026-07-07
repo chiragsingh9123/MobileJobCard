@@ -23,9 +23,9 @@ def create_staff(user):
     d = request.get_json(force=True)
     mobile = (d.get("mobile") or "").strip()
     if not mobile or not d.get("password") or not d.get("first_name"):
-        return jsonify({"detail": "Naam, mobile, password sab required hai"}), 400
+        return jsonify({"detail": "Name, mobile number, and password are all required"}), 400
     if User.query.filter_by(mobile=mobile).first():
-        return jsonify({"detail": "Yeh mobile number pehle se registered hai"}), 400
+        return jsonify({"detail": "This mobile number is already registered"}), 400
 
     staff = User(mobile=mobile, first_name=d.get("first_name", ""),
                 last_name=d.get("last_name", ""), role="STAFF",
@@ -56,10 +56,10 @@ def reset_staff_password(user, sid):
     d = request.get_json(force=True)
     new_password = d.get("password", "")
     if len(new_password) < 4:
-        return jsonify({"detail": "Password kam se kam 4 characters ka ho"}), 400
+        return jsonify({"detail": "Password must be at least 4 characters"}), 400
     staff.set_password(new_password)
     db.session.commit()
-    return jsonify({"message": f"{staff.first_name} ka password reset ho gaya"})
+    return jsonify({"message": f"Password reset successfully for {staff.first_name}"})
 
 
 @staff_bp.get("/<int:sid>/jobs/")

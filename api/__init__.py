@@ -7,8 +7,7 @@ from api.report_routes import report_bp
 from api.staff_routes import staff_bp
 from api.subscription_routes import subscription_bp
 from api.shop_routes import shop_bp
-
 from api.app_routes import app_bp
 
 ALL_BLUEPRINTS = [auth_bp, customer_bp, job_bp, inventory_bp, payment_bp, report_bp,
- staff_bp, subscription_bp, shop_bp,app_bp]
+                  staff_bp, subscription_bp, shop_bp, app_bp]
