@@ -21,8 +21,8 @@ class Config:
         DB_HOST = os.environ.get("DB_HOST", "localhost")
         DB_PORT = os.environ.get("DB_PORT", "3306")
         DB_NAME = os.environ.get("DB_NAME", "revenue_account")
-        DB_USER = os.environ.get("DB_USER", "root")
-        DB_PASSWORD = os.environ.get("DB_PASSWORD", "root")
+        DB_USER = os.environ.get("DB_USER", "myuser")
+        DB_PASSWORD = os.environ.get("DB_PASSWORD", "StrongPassword123!")
         SQLALCHEMY_DATABASE_URI = (
             f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
             f"?charset=utf8mb4"
