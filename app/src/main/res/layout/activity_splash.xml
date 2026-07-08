@@ -46,4 +46,12 @@
  android:text="Version 1.0.0"
  android:textColor="#80FFFFFF"
  android:textSize="11sp" />
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="7dp"
+     android:text="Developed by Loopax.Online"
+     android:textColor="#80FFFFFF"
+     android:textSize="11sp" />
 </LinearLayout>
