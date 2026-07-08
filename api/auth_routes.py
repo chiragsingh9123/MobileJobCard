@@ -17,16 +17,16 @@ def send_otp():
     purpose = (d.get("purpose") or "").upper()
     if len(mobile) != 10 or not mobile.isdigit():
         return jsonify({"detail": "Enter a valid 10-digit mobile number"}), 400
-    if purpose not in ("REGISTER", "LOGIN"):
-        return jsonify({"detail": "purpose must be REGISTER or LOGIN"}), 400
+    if purpose not in ("REGISTER", "LOGIN", "RESET_PASSWORD"):
+        return jsonify({"detail": "purpose must be REGISTER, LOGIN, or RESET_PASSWORD"}), 400
 
     existing_user = User.query.filter_by(mobile=mobile).first()
     if purpose == "REGISTER" and existing_user:
         return jsonify({"detail": "This mobile number is already registered - please log in"}), 400
-    if purpose == "LOGIN" and not existing_user:
+    if purpose in ("LOGIN", "RESET_PASSWORD") and not existing_user:
         return jsonify({"detail": "This mobile number is not registered - please register first"}), 400
 
-    # Resend cooldown - spam se bachne ke liye
+    # Resend cooldown - prevents OTP spam
     cooldown = current_app.config["OTP_RESEND_COOLDOWN_SECONDS"]
     recent = (OTPCode.query.filter_by(mobile=mobile, purpose=purpose)
              .order_by(OTPCode.created_at.desc()).first())
@@ -38,16 +38,16 @@ def send_otp():
     sent = send_telegram_otp(mobile, otp.code, purpose)
     return jsonify({
         "message": "OTP has been sent" if sent else
-                   "OTP generate ho gaya (Telegram abhi nahi bheja ja saka, console/admin se check karein)",
+                   "OTP generated (could not be sent via Telegram - please check the admin console)",
         "expires_in_minutes": current_app.config["OTP_EXPIRY_MINUTES"]
     })
 
 
 def _verify_otp(mobile, purpose, submitted_otp):
-    """Register/Login se pehle OTP check karne ka common helper"""
+    """Shared helper used before register/login/password-reset can proceed"""
     otp_row = OTPCode.latest_pending(mobile, purpose)
     if not otp_row:
-        return "OTP nahi mila - pehle 'Send OTP' dabayein"
+        return "OTP not found - please tap 'Send OTP' first"
     ok, err = otp_row.verify(submitted_otp, current_app.config["OTP_MAX_ATTEMPTS"])
     return None if ok else err
 
@@ -113,6 +113,33 @@ def login():
         return jsonify({"detail": err}), 400
 
     return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
+
+
+@auth_bp.post("/reset-password/")
+def reset_password():
+    """Forgot Password flow: mobile + OTP (purpose=RESET_PASSWORD) + new password.
+    Uses the same OTP infrastructure as register/login, so no separate delivery
+    channel is needed."""
+    d = request.get_json(force=True)
+    mobile = (d.get("mobile") or "").strip()
+    otp = d.get("otp")
+    new_password = d.get("new_password") or ""
+
+    user = User.query.filter_by(mobile=mobile).first()
+    if not user:
+        return jsonify({"detail": "This mobile number is not registered"}), 404
+    if not otp:
+        return jsonify({"detail": "OTP is required - please tap 'Send OTP' first"}), 400
+    if len(new_password) < 4:
+        return jsonify({"detail": "New password must be at least 4 characters"}), 400
+
+    err = _verify_otp(mobile, "RESET_PASSWORD", otp)
+    if err:
+        return jsonify({"detail": err}), 400
+
+    user.set_password(new_password)
+    db.session.commit()
+    return jsonify({"message": "Password reset successfully - please log in with your new password"})
 
 
 @auth_bp.get("/me/")

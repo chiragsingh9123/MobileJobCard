@@ -1,0 +1,45 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1>Notifications</h1></div>
+
+<div class="card">
+  <h3 style="margin-top:0">Send a New Notification</h3>
+  <p style="color:#757575;font-size:13px">This will be visible to every user across every shop the next time they open the app.</p>
+  <form method="post">
+    <div class="form-row">
+      <div><label>Title</label>
+        <input name="title" placeholder="e.g. New feature available" required></div>
+    </div>
+    <div class="form-row">
+      <div><label>Message</label>
+        <textarea name="message" rows="3" placeholder="Write the notification message..." required></textarea></div>
+    </div>
+    <button class="btn btn-primary">Send to All Users</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">Sent Notifications</h3>
+  <table>
+    <thead><tr><th>Title</th><th>Message</th><th>Sent At</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+      {% for n in sent %}
+      <tr>
+        <td>{{ n.title }}</td>
+        <td>{{ n.message }}</td>
+        <td>{{ n.created_at.strftime('%d %b %Y, %I:%M %p') }}</td>
+        <td>{% if n.is_active %}<span class="badge green">Active</span>{% else %}<span class="badge red">Retracted</span>{% endif %}</td>
+        <td>
+          {% if n.is_active %}
+          <form method="post" action="{{ url_for('admin.retract_notification', nid=n.id) }}" style="display:inline">
+            <button class="btn btn-sm btn-danger" onclick="return confirm('Retract this notification?')">Retract</button>
+          </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" style="text-align:center;color:#757575">No notifications sent yet</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

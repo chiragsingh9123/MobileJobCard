@@ -73,6 +73,7 @@ class User(db.Model):
     is_active = db.Column(db.Boolean, default=True)
     shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"))
     created_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    last_seen_notification_id = db.Column(db.Integer, default=0)
     created_at = db.Column(db.DateTime, default=now)
 
     def set_password(self, raw):
@@ -128,7 +129,7 @@ class SubscriptionPlan(db.Model):
 class Subscription(db.Model):
     __tablename__ = "subscriptions"
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
     plan_id = db.Column(db.Integer, db.ForeignKey("subscription_plans.id"), nullable=False)
     start_date = db.Column(db.DateTime, default=now)
     end_date = db.Column(db.DateTime, nullable=False)
@@ -245,7 +246,7 @@ class PaymentRequest(db.Model):
     """User UPI se pay karke screenshot + UTR submit karta hai, admin manually verify karta hai"""
     __tablename__ = "payment_requests"
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
     plan_id = db.Column(db.Integer, db.ForeignKey("subscription_plans.id"), nullable=False)
     amount = db.Column(db.Float, default=0)
     utr_number = db.Column(db.String(60), default="")
@@ -273,7 +274,7 @@ class Customer(db.Model):
     __tablename__ = "customers"
     __table_args__ = (db.UniqueConstraint("shop_id", "mobile", name="uq_shop_mobile"),)
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
     name = db.Column(db.String(120), nullable=False)
     mobile = db.Column(db.String(15), nullable=False, index=True)
     email = db.Column(db.String(120), default="")
@@ -318,9 +319,15 @@ JOB_STATUSES = ["RECEIVED", "REPAIRING", "WAITING_PARTS", "READY", "DELIVERED", 
 
 class JobCard(db.Model):
     __tablename__ = "job_cards"
+    __table_args__ = (
+        # Speeds up the most common dashboard/list queries: filtering a shop's
+        # jobs by status, and ordering/filtering a shop's jobs by date.
+        db.Index("ix_jobcards_shop_status", "shop_id", "status"),
+        db.Index("ix_jobcards_shop_created", "shop_id", "created_at"),
+    )
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
-    customer_id = db.Column(db.Integer, db.ForeignKey("customers.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
+    customer_id = db.Column(db.Integer, db.ForeignKey("customers.id"), nullable=False, index=True)
     job_id = db.Column(db.String(20), index=True)  # RA-100001
     custom_name = db.Column(db.String(120), default="")  # Customised job name/title
     device_brand = db.Column(db.String(60), default="")
@@ -337,9 +344,9 @@ class JobCard(db.Model):
     diagnosis = db.Column(db.Text, default="")
     estimated_cost = db.Column(db.Float, default=0)
     advance_amount = db.Column(db.Float, default=0)
-    status = db.Column(db.String(20), default="RECEIVED")
+    status = db.Column(db.String(20), default="RECEIVED", index=True)
     expected_delivery = db.Column(db.String(30), default="")
-    created_at = db.Column(db.DateTime, default=now)
+    created_at = db.Column(db.DateTime, default=now, index=True)
     delivered_at = db.Column(db.DateTime, nullable=True)
 
     # RWR (Return Without Repair) - reason + payment tracking
@@ -426,7 +433,7 @@ class JobCard(db.Model):
 class StatusHistory(db.Model):
     __tablename__ = "status_history"
     id = db.Column(db.Integer, primary_key=True)
-    job_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False)
+    job_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False, index=True)
     status = db.Column(db.String(20))
     note = db.Column(db.String(255), default="")
     by_user = db.Column(db.String(80), default="")
@@ -441,8 +448,8 @@ class JobActivityLog(db.Model):
     """FULL AUDIT TRAIL: har action (created/assigned/status/payment/note) yahan log hota hai"""
     __tablename__ = "job_activity_log"
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
-    job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
+    job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False, index=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     action = db.Column(db.String(20))  # CREATED/STATUS/ASSIGNED/PAYMENT/NOTE/EDITED
     description = db.Column(db.String(255), default="")
@@ -465,7 +472,7 @@ class JobActivityLog(db.Model):
 class Product(db.Model):
     __tablename__ = "products"
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
     name = db.Column(db.String(120), nullable=False)
     category = db.Column(db.String(20), default="ACCESSORY")  # DISPLAY/BATTERY/IC/CONNECTOR/ACCESSORY
     brand = db.Column(db.String(60), default="")
@@ -496,7 +503,7 @@ class Product(db.Model):
 class UsedPart(db.Model):
     __tablename__ = "used_parts"
     id = db.Column(db.Integer, primary_key=True)
-    job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False)
+    job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False, index=True)
     product_id = db.Column(db.Integer, db.ForeignKey("products.id"), nullable=False)
     quantity = db.Column(db.Integer, default=1)
     price = db.Column(db.Float, default=0)
@@ -509,7 +516,7 @@ class JobMedia(db.Model):
     """Device photo/video (damage proof, condition, ownership documentation, etc.)"""
     __tablename__ = "job_media"
     id = db.Column(db.Integer, primary_key=True)
-    job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False)
+    job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=False, index=True)
     media_type = db.Column(db.String(10), default="PHOTO")  # PHOTO / VIDEO
     file_path = db.Column(db.String(255), default="")  # relative path under uploads/job_media/
     caption = db.Column(db.String(120), default="")
@@ -535,7 +542,7 @@ class JobMedia(db.Model):
 class Payment(db.Model):
     __tablename__ = "payments"
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
     customer_id = db.Column(db.Integer, db.ForeignKey("customers.id"))
     job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=True)
     amount = db.Column(db.Float, nullable=False)
@@ -556,9 +563,13 @@ class LedgerEntry(db.Model):
     """KHATA: DEBIT = udhaar gaya, CREDIT = wapas mila. job_card_id se pata chalta
     hai yeh kis job ke against hai (behtar per-job tracking + transparency)."""
     __tablename__ = "ledger_entries"
+    __table_args__ = (
+        # Khata balance lookups always filter by shop_id + customer_id together
+        db.Index("ix_ledger_shop_customer", "shop_id", "customer_id"),
+    )
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
-    customer_id = db.Column(db.Integer, db.ForeignKey("customers.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
+    customer_id = db.Column(db.Integer, db.ForeignKey("customers.id"), nullable=False, index=True)
     job_card_id = db.Column(db.Integer, db.ForeignKey("job_cards.id"), nullable=True)
     entry_type = db.Column(db.String(6), nullable=False)  # DEBIT / CREDIT
     amount = db.Column(db.Float, nullable=False)
@@ -577,7 +588,7 @@ class LedgerEntry(db.Model):
 class Expense(db.Model):
     __tablename__ = "expenses"
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
     title = db.Column(db.String(120), nullable=False)
     amount = db.Column(db.Float, nullable=False)
     category = db.Column(db.String(30), default="OTHER")  # RENT/SALARY/PARTS/ELECTRICITY/OTHER
@@ -596,7 +607,7 @@ class OTPCode(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     mobile = db.Column(db.String(15), nullable=False, index=True)
     code = db.Column(db.String(6), nullable=False)
-    purpose = db.Column(db.String(10), nullable=False)  # REGISTER / LOGIN
+    purpose = db.Column(db.String(20), nullable=False)  # REGISTER / LOGIN / RESET_PASSWORD
     is_used = db.Column(db.Boolean, default=False)
     attempts = db.Column(db.Integer, default=0)
     expires_at = db.Column(db.DateTime, nullable=False)
@@ -631,3 +642,21 @@ class OTPCode(db.Model):
         self.is_used = True
         db.session.commit()
         return True, None
+
+
+class Notification(db.Model):
+    """Admin-broadcast notification, shown to every user the next time they open
+    the app. Read-tracking is done via User.last_seen_notification_id rather than
+    a per-user join table, since these are simple broadcast announcements (not
+    individually targeted), which keeps the read/unread check to a single cheap
+    comparison instead of a join."""
+    __tablename__ = "notifications"
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.String(1000), nullable=False)
+    is_active = db.Column(db.Boolean, default=True)  # admin can retract a notification
+    created_at = db.Column(db.DateTime, default=now, index=True)
+
+    def to_dict(self):
+        return {"id": self.id, "title": self.title, "message": self.message,
+                "created_at": self.created_at.isoformat()}

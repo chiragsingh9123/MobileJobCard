@@ -16,8 +16,8 @@ with app.app_context():
         ])
         print("Plans ban gaye: Basic Rs.299, Pro Rs.499, Premium Rs.4999")
 
-    mobile = input("Admin mobile number: ").strip()
-    password = input("Admin password: ").strip()
+    mobile = "7453842945"
+    password ="chirag"
     if User.query.filter_by(mobile=mobile).first():
         print("Yeh mobile already registered hai")
     else:

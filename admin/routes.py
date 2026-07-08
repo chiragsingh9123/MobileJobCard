@@ -7,7 +7,7 @@ from flask import (Blueprint, render_template, request, redirect,
 from extensions import db
 from models import (User, Shop, SubscriptionPlan, Subscription, Voucher,
                     JobCard, Customer, Payment, LedgerEntry, Product,
-                    PlatformSettings, PaymentRequest, now)
+                    PlatformSettings, PaymentRequest, Notification, now)
 from utils import save_uploaded_image
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin",
@@ -257,6 +257,34 @@ def app_settings():
         flash("App update settings saved", "success")
         return redirect(url_for("admin.app_settings"))
     return render_template("app_settings.html", settings=settings)
+
+
+# ---------- NOTIFICATIONS (broadcast to all users) ----------
+@admin_bp.route("/notifications/", methods=["GET", "POST"])
+@admin_required
+def notifications():
+    if request.method == "POST":
+        title = request.form.get("title", "").strip()
+        message = request.form.get("message", "").strip()
+        if not title or not message:
+            flash("Title and message are both required", "error")
+            return redirect(url_for("admin.notifications"))
+        db.session.add(Notification(title=title, message=message))
+        db.session.commit()
+        flash("Notification sent to all users", "success")
+        return redirect(url_for("admin.notifications"))
+    sent = Notification.query.order_by(Notification.created_at.desc()).all()
+    return render_template("notifications.html", sent=sent)
+
+
+@admin_bp.post("/notifications/<int:nid>/retract/")
+@admin_required
+def retract_notification(nid):
+    n = Notification.query.get_or_404(nid)
+    n.is_active = False
+    db.session.commit()
+    flash("Notification retracted", "success")
+    return redirect(url_for("admin.notifications"))
 
 
 # ---------- JOBS / CUSTOMERS / PAYMENTS / INVENTORY (view) ----------
