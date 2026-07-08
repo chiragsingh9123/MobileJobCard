@@ -110,8 +110,8 @@
  <TextView
  android:id="@+id/tvKhataWarning"
  android:layout_width="match_parent" android:layout_height="wrap_content"
- android:layout_marginTop="8dp" android:background="#FFF3E0"
- android:padding="12dp" android:textColor="#E65100"
+ android:layout_marginTop="8dp" android:background="#FBF2E6"
+ android:padding="12dp" android:textColor="#8F5416"
  android:visibility="gone" />
 
  <Button

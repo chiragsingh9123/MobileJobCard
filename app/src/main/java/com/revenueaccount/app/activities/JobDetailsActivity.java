@@ -198,7 +198,7 @@ public class JobDetailsActivity extends AppCompatActivity {
                     + TIMELINE[i].substring(1).toLowerCase());
             dot.setTextSize(11f);
             dot.setGravity(Gravity.CENTER);
-            dot.setTextColor(i <= reached ? Color.parseColor("#4CAF50") : Color.parseColor("#9E9E9E"));
+            dot.setTextColor(i <= reached ? Color.parseColor("#357A54") : Color.parseColor("#9E9E9E"));
             LinearLayout.LayoutParams lp =
                     new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
             dot.setLayoutParams(lp);

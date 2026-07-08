@@ -30,15 +30,18 @@ public class LoginActivity extends AppCompatActivity {
         EditText etPassword = findViewById(R.id.etPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView tvRegister = findViewById(R.id.tvRegister);
+        TextView tvForgotPassword = findViewById(R.id.tvForgotPassword);
 
         tvRegister.setOnClickListener(v ->
         startActivity(new Intent(this, RegisterActivity.class)));
+        tvForgotPassword.setOnClickListener(v ->
+        startActivity(new Intent(this, ForgotPasswordActivity.class)));
 
         btnLogin.setOnClickListener(v -> {
             String mobile = etMobile.getText().toString().trim();
             String password = etPassword.getText().toString();
-            if (mobile.length() != 10) { etMobile.setError("a 10-digit mobile number daalein"); return; }
-            if (password.isEmpty()) { etPassword.setError("Password daalein"); return; }
+            if (mobile.length() != 10) { etMobile.setError("Enter a valid 10-digit mobile number"); return; }
+            if (password.isEmpty()) { etPassword.setError("Enter your password"); return; }
 
             btnLogin.setEnabled(false);
             // Pehle OTP bhejo (backend verify karega ki mobile registered hai)
@@ -62,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
                     btnLogin.setEnabled(true);
-                    AppToast.show(LoginActivity.this, "Could not connect to the server. please check your internet connection or server.");
+                    AppToast.show(LoginActivity.this, "Could not connect to the server. Please check your internet connection.");
                 }
             });
         });

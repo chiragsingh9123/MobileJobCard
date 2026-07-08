@@ -8,7 +8,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    public static final String BASE_URL = "http://187.127.186.197:8000/";
+    // Apne server ka IP daalein. Emulator ke liye 10.0.2.2 = aapka PC ka localhost
+    public static final String BASE_URL = "https://api.mobilejobcard.com/";
     private static Retrofit retrofit;
 
     public static ApiService get(Context context) {

@@ -129,10 +129,10 @@ public class ReportsActivity extends AppCompatActivity {
     }
 
     private void render(JsonObject d) {
-        setStatValue(R.id.statSales, "₹" + safeStr(d, "total_sales"), "#1565C0");
-        setStatValue(R.id.statCollection, "₹" + safeStr(d, "total_collection"), "#4CAF50");
-        setStatValue(R.id.statExpense, "₹" + safeStr(d, "total_expense"), "#F44336");
-        setStatValue(R.id.statProfit, "₹" + safeStr(d, "profit"), "#7B1FA2");
+        setStatValue(R.id.statSales, "₹" + safeStr(d, "total_sales"), "#2F6690");
+        setStatValue(R.id.statCollection, "₹" + safeStr(d, "total_collection"), "#357A54");
+        setStatValue(R.id.statExpense, "₹" + safeStr(d, "total_expense"), "#BB4B4B");
+        setStatValue(R.id.statProfit, "₹" + safeStr(d, "profit"), "#7A5C93");
 
         if (!chartsReady) return;
 
@@ -149,12 +149,12 @@ public class ReportsActivity extends AppCompatActivity {
         }
         if (entries.isEmpty()) entries.add(new Entry(0, 0));
         LineDataSet set = new LineDataSet(entries, "Revenue");
-        set.setColor(Color.parseColor("#1565C0"));
+        set.setColor(Color.parseColor("#2F6690"));
         set.setLineWidth(2.5f);
-        set.setCircleColor(Color.parseColor("#1565C0"));
+        set.setCircleColor(Color.parseColor("#2F6690"));
         set.setCircleRadius(4f);
         set.setDrawFilled(true);
-        set.setFillColor(Color.parseColor("#1565C0"));
+        set.setFillColor(Color.parseColor("#2F6690"));
         set.setFillAlpha(30);
         set.setValueTextSize(0f);
         set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
@@ -170,7 +170,7 @@ public class ReportsActivity extends AppCompatActivity {
         List<Integer> colors = new ArrayList<>();
         pieLegend.removeAllViews();
         String[] order = {"RECEIVED", "REPAIRING", "WAITING_PARTS", "READY", "DELIVERED", "RWR"};
-        String[] colorHex = {"#1565C0", "#FF9800", "#7B1FA2", "#4CAF50", "#00897B", "#F44336"};
+        String[] colorHex = {"#2F6690", "#A66418", "#7A5C93", "#357A54", "#2F7770", "#BB4B4B"};
         boolean any = false;
         for (int i = 0; i < order.length; i++) {
             if (byStatus.has(order[i])) {

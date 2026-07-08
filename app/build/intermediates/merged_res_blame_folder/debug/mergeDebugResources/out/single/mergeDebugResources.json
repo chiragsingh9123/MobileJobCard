@@ -128,6 +128,10 @@
         "source": "com.revenueaccount.app-main-37:/layout/activity_new_job_card.xml"
     },
     {
+        "merged": "com.revenueaccount.app-debug-35:/layout_activity_forgot_password.xml.flat",
+        "source": "com.revenueaccount.app-main-37:/layout/activity_forgot_password.xml"
+    },
+    {
         "merged": "com.revenueaccount.app-debug-35:/drawable_ic_backup_cloud.xml.flat",
         "source": "com.revenueaccount.app-main-37:/drawable/ic_backup_cloud.xml"
     },

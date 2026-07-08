@@ -83,7 +83,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
             btnSettle.setVisibility(View.VISIBLE);
         } else {
             tvKhata.setText("No outstanding balance");
-            tvKhata.setTextColor(Color.parseColor("#2E7D32"));
+            tvKhata.setTextColor(Color.parseColor("#2A6B45"));
             btnSettle.setVisibility(View.GONE);
         }
 
@@ -107,7 +107,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
             JsonObject e = kArr.get(i).getAsJsonObject();
             boolean debit = e.get("entry_type").getAsString().equals("DEBIT");
             addLine(khata, (debit ? " Udhaar +₹" : " Jama -₹") + e.get("amount").getAsDouble()
-            + " " + e.get("note").getAsString(), debit ? "#C62828" : "#2E7D32");
+            + " " + e.get("note").getAsString(), debit ? "#A83E3E" : "#2A6B45");
         }
     }
 

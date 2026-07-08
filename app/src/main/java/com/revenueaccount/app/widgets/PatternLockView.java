@@ -44,11 +44,11 @@ public class PatternLockView extends View {
         dotPaint.setStyle(Paint.Style.FILL);
 
         selectedDotPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        selectedDotPaint.setColor(Color.parseColor("#1565C0"));
+        selectedDotPaint.setColor(Color.parseColor("#2F6690"));
         selectedDotPaint.setStyle(Paint.Style.FILL);
 
         linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        linePaint.setColor(Color.parseColor("#1565C0"));
+        linePaint.setColor(Color.parseColor("#2F6690"));
         linePaint.setStrokeWidth(8f);
         linePaint.setStyle(Paint.Style.STROKE);
         linePaint.setStrokeCap(Paint.Cap.ROUND);

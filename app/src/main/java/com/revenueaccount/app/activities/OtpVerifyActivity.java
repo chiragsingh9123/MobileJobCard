@@ -51,7 +51,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
         email = getIntent().getStringExtra("email");
 
         ((TextView) findViewById(R.id.tvSubtitle)).setText(
-        "Hamne " + mobile + " ke liye ek 6-digit OTP bheja hai. Neeche daalein.");
+        "We have sent a 6-digit OTP to " + mobile + ". Enter it below.");
 
         etOtp = findViewById(R.id.etOtp);
         btnVerify = findViewById(R.id.btnVerify);
@@ -86,7 +86,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
                 if (res.isSuccessful()) {
-                    AppToast.show(OtpVerifyActivity.this, " Naya OTP bhej diya");
+                    AppToast.show(OtpVerifyActivity.this, "A new OTP has been sent");
                     startCooldown();
                 } else {
                     AppToast.show(OtpVerifyActivity.this, "The OTP could not be resent");
@@ -103,7 +103,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
 
     private void verify() {
         String otp = etOtp.getText().toString().trim();
-        if (otp.length() != 6) { etOtp.setError("6-digit OTP daalein"); return; }
+        if (otp.length() != 6) { etOtp.setError("Enter the 6-digit OTP"); return; }
         btnVerify.setEnabled(false);
 
         if ("LOGIN".equals(purpose)) {
@@ -118,7 +118,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
                     if (res.isSuccessful() && res.body() != null) {
                         onLoginSuccess(res.body());
                     } else {
-                        showError(res, "OTP galat hai");
+                        showError(res, "Incorrect OTP");
                     }
                 }
                 @Override
@@ -142,7 +142,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
                     if (res.isSuccessful() && res.body() != null) {
                         onRegisterSuccess(res.body());
                     } else {
-                        showError(res, "OTP galat hai ya registration fail hui");
+                        showError(res, "Incorrect OTP, or registration failed");
                     }
                 }
                 @Override
@@ -191,7 +191,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
             session.saveTokens(tokens.get("access").getAsString(), tokens.get("refresh").getAsString());
             session.saveUser(ownerName, mobile, shopName);
             session.saveRole("OWNER");
-            AppToast.show(this, " Account ban gaya! 7 din ka FREE trial shuru");
+            AppToast.show(this, "Account created! Your 7-day FREE trial has started");
             startActivity(new Intent(this, DashboardActivity.class));
             finishAffinity();
         } catch (Exception e) {

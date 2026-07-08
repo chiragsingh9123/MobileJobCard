@@ -50,7 +50,7 @@ public class StaffAdapter extends RecyclerView.Adapter<StaffAdapter.VH> {
             h.stats.setText(jobsAssigned + " jobs assigned");
             boolean active = !s.has("is_active") || s.get("is_active").getAsBoolean();
             h.status.setText(active ? "Active" : "Inactive");
-            h.status.setTextColor(active ? Color.parseColor("#2E7D32") : Color.parseColor("#C62828"));
+            h.status.setTextColor(active ? Color.parseColor("#2A6B45") : Color.parseColor("#A83E3E"));
             boolean isOwnerRole = "OWNER".equals(role);
             h.btnMore.setVisibility(isOwnerRole ? View.GONE : View.VISIBLE);
             h.btnMore.setOnClickListener(v -> { if (listener != null) listener.onMoreClick(s, v); });

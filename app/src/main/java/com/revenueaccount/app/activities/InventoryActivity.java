@@ -123,10 +123,10 @@ public class InventoryActivity extends AppCompatActivity {
                 if (res.isSuccessful() && res.body() != null) {
                     try {
                         JsonObject s = res.body();
-                        setStatValue(R.id.statTotal, safeStr(s, "total_products"), "#1565C0");
-                        setStatValue(R.id.statInStock, safeStr(s, "in_stock"), "#4CAF50");
-                        setStatValue(R.id.statLow, safeStr(s, "low_stock"), "#FF9800");
-                        setStatValue(R.id.statOut, safeStr(s, "out_of_stock"), "#F44336");
+                        setStatValue(R.id.statTotal, safeStr(s, "total_products"), "#2F6690");
+                        setStatValue(R.id.statInStock, safeStr(s, "in_stock"), "#357A54");
+                        setStatValue(R.id.statLow, safeStr(s, "low_stock"), "#A66418");
+                        setStatValue(R.id.statOut, safeStr(s, "out_of_stock"), "#BB4B4B");
                     } catch (Exception e) {
                         Log.e(TAG, "Summary render error", e);
                     }

@@ -27,7 +27,7 @@
  android:textSize="18sp" android:textStyle="bold"/>
  <TextView
  android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:text="Customers with an outstanding balance" android:textColor="#FFF3E0"
+ android:text="Customers with an outstanding balance" android:textColor="#FBF2E6"
  android:textSize="12sp"/>
  </LinearLayout>
 

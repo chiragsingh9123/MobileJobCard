@@ -25,8 +25,14 @@ public interface ApiService {
     @POST("api/auth/login/")
     Call<JsonObject> login(@Body Map<String, String> body);
 
+    @POST("api/auth/reset-password/")
+    Call<JsonObject> resetPassword(@Body Map<String, String> body);
+
     @GET("api/auth/me/")
     Call<JsonObject> me();
+
+    @GET("api/notifications/check/")
+    Call<JsonObject> checkNotifications();
 
     @GET("api/auth/plans/")
     Call<JsonObject> plans();

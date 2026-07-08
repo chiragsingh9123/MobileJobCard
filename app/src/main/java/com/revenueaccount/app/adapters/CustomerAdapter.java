@@ -43,10 +43,10 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.VH> {
             double khata = c.has("khata_balance") ? c.get("khata_balance").getAsDouble() : 0;
             if (khata > 0) {
                 h.khata.setText("Baaki\n₹" + khata);
-                h.khata.setTextColor(Color.parseColor("#F44336"));
+                h.khata.setTextColor(Color.parseColor("#BB4B4B"));
             } else {
                 h.khata.setText(" Clear");
-                h.khata.setTextColor(Color.parseColor("#4CAF50"));
+                h.khata.setTextColor(Color.parseColor("#357A54"));
             }
             long id = c.has("id") ? c.get("id").getAsLong() : -1;
             h.itemView.setOnClickListener(v -> {

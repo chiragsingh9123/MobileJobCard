@@ -3295,10 +3295,12 @@ id btnPickScreenshot
 id btnPrev
 id btnRedeem
 id btnRegister
+id btnResetPassword
 id btnSave
 id btnScanImei1
 id btnScanImei2
 id btnSendMessage
+id btnSendOtp
 id btnSettle
 id btnSubmitPayment
 id btnTabAadhaar
@@ -3419,6 +3421,7 @@ id etMobile
 id etModel
 id etName
 id etNew
+id etNewPassword
 id etOld
 id etOtp
 id etOwnerName
@@ -3748,6 +3751,8 @@ id statValue
 id staticLayout
 id staticPostLayout
 id stepIndicator
+id stepMobile
+id stepReset
 id stop
 id stretch
 id submenuarrow
@@ -3841,6 +3846,7 @@ id tvDeveloperFooter
 id tvDevice
 id tvDeviceInfo
 id tvEmpty
+id tvForgotPassword
 id tvGreeting
 id tvIcon
 id tvInfo
@@ -3855,6 +3861,7 @@ id tvMobile
 id tvName
 id tvNoMedia
 id tvNote
+id tvOtpSentTo
 id tvPatternStatus
 id tvPayInfo
 id tvPlan
@@ -3865,6 +3872,7 @@ id tvPrompt
 id tvQty
 id tvRegister
 id tvResend
+id tvResendOtp
 id tvShop
 id tvShopName
 id tvSlotLabel
@@ -4044,6 +4052,7 @@ layout activity_delivery
 layout activity_developer_info
 layout activity_edit_job
 layout activity_expenses
+layout activity_forgot_password
 layout activity_inventory
 layout activity_job_details
 layout activity_jobs
@@ -4687,6 +4696,9 @@ style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
 style SectionTitle
+style ShapeAppearance_App_Large
+style ShapeAppearance_App_Medium
+style ShapeAppearance_App_Small
 style ShapeAppearance_M3_Comp_Badge_Large_Shape
 style ShapeAppearance_M3_Comp_Badge_Shape
 style ShapeAppearance_M3_Comp_BottomAppBar_Container_Shape
@@ -5096,6 +5108,7 @@ style ThemeOverlay_MaterialComponents_TimePicker_Display_TextInputEditText
 style ThemeOverlay_MaterialComponents_Toolbar_Popup_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
+style Widget_App_Button
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

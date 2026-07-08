@@ -5,9 +5,9 @@
  <dimen name="space_md">12dp</dimen>
  <dimen name="space_lg">16dp</dimen>
  <dimen name="space_xl">24dp</dimen>
- <dimen name="radius_card">14dp</dimen>
+ <dimen name="radius_card">16dp</dimen>
  <dimen name="radius_tile">18dp</dimen>
- <dimen name="elevation_card">1.5dp</dimen>
+ <dimen name="elevation_card">1dp</dimen>
  <dimen name="text_caption">12sp</dimen>
  <dimen name="text_body">14sp</dimen>
  <dimen name="text_subtitle">16sp</dimen>

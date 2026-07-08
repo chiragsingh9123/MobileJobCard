@@ -111,10 +111,12 @@ id btnPickScreenshot
 id btnPrev
 id btnRedeem
 id btnRegister
+id btnResetPassword
 id btnSave
 id btnScanImei1
 id btnScanImei2
 id btnSendMessage
+id btnSendOtp
 id btnSettle
 id btnSubmitPayment
 id btnTabAadhaar
@@ -155,6 +157,7 @@ id etMobile
 id etModel
 id etName
 id etNew
+id etNewPassword
 id etOld
 id etOtp
 id etOwnerName
@@ -239,6 +242,8 @@ id statTodaysJobs
 id statTotal
 id statValue
 id stepIndicator
+id stepMobile
+id stepReset
 id swKhata
 id swLowStock
 id swSubscription
@@ -281,6 +286,7 @@ id tvDeveloperFooter
 id tvDevice
 id tvDeviceInfo
 id tvEmpty
+id tvForgotPassword
 id tvGreeting
 id tvIcon
 id tvInfo
@@ -295,6 +301,7 @@ id tvMobile
 id tvName
 id tvNoMedia
 id tvNote
+id tvOtpSentTo
 id tvPatternStatus
 id tvPayInfo
 id tvPlan
@@ -305,6 +312,7 @@ id tvPrompt
 id tvQty
 id tvRegister
 id tvResend
+id tvResendOtp
 id tvShop
 id tvShopName
 id tvSlotLabel
@@ -334,6 +342,7 @@ layout activity_delivery
 layout activity_developer_info
 layout activity_edit_job
 layout activity_expenses
+layout activity_forgot_password
 layout activity_inventory
 layout activity_job_details
 layout activity_jobs
@@ -381,6 +390,9 @@ string app_name
 style ActionTile
 style Input
 style SectionTitle
+style ShapeAppearance.App.Large
+style ShapeAppearance.App.Medium
+style ShapeAppearance.App.Small
 style StatCard
 style StatLabel
 style StatValue
@@ -392,4 +404,5 @@ style TextAppearance.App.Caption
 style TextAppearance.App.Subtitle
 style TextAppearance.App.Title
 style Theme.RevenueAccount
+style Widget.App.Button
 xml file_paths

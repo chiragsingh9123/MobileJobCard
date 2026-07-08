@@ -61,6 +61,7 @@
         </activity>
         <activity android:name="com.revenueaccount.app.activities.UpdateRequiredActivity" />
         <activity android:name="com.revenueaccount.app.activities.LoginActivity" />
+        <activity android:name="com.revenueaccount.app.activities.ForgotPasswordActivity" />
         <activity android:name="com.revenueaccount.app.activities.RegisterActivity" />
         <activity android:name="com.revenueaccount.app.activities.OtpVerifyActivity" />
         <activity android:name="com.revenueaccount.app.activities.DashboardActivity" />

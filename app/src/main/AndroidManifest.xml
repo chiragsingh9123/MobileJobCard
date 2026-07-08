@@ -25,6 +25,7 @@
         </activity>
         <activity android:name=".activities.UpdateRequiredActivity" />
         <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.ForgotPasswordActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.OtpVerifyActivity" />
         <activity android:name=".activities.DashboardActivity" />

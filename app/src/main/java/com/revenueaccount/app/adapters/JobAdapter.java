@@ -30,12 +30,12 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.VH> {
 
     public static int statusColor(String status) {
         switch (status) {
-            case "REPAIRING": return Color.parseColor("#FF9800");
-            case "WAITING_PARTS": return Color.parseColor("#7B1FA2");
-            case "READY": return Color.parseColor("#4CAF50");
-            case "DELIVERED": return Color.parseColor("#00897B");
-            case "RWR": return Color.parseColor("#F44336");
-            default: return Color.parseColor("#1565C0");
+            case "REPAIRING": return Color.parseColor("#A66418");
+            case "WAITING_PARTS": return Color.parseColor("#7A5C93");
+            case "READY": return Color.parseColor("#357A54");
+            case "DELIVERED": return Color.parseColor("#2F7770");
+            case "RWR": return Color.parseColor("#BB4B4B");
+            default: return Color.parseColor("#2F6690");
         }
     }
 
@@ -60,7 +60,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.VH> {
             h.amount.setText("₹" + str(j, "estimated_cost"));
             double bal = j.has("balance_amount") ? j.get("balance_amount").getAsDouble() : 0;
             h.balance.setText(bal > 0 ? "Baaki: ₹" + bal : " Paid");
-            h.balance.setTextColor(bal > 0 ? Color.parseColor("#F44336") : Color.parseColor("#4CAF50"));
+            h.balance.setTextColor(bal > 0 ? Color.parseColor("#BB4B4B") : Color.parseColor("#357A54"));
             long id = j.has("id") ? j.get("id").getAsLong() : -1;
             h.itemView.setOnClickListener(v -> {
                 if (id < 0) return;

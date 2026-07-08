@@ -46,8 +46,8 @@
                 <TextView
                     android:id="@+id/tvCustomerFound"
                     android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp" android:background="#E8F5E9" android:padding="10dp"
-                    android:textColor="#2E7D32" android:textSize="13sp" android:visibility="gone"/>
+                    android:layout_marginTop="4dp" android:background="#E9F5EE" android:padding="10dp"
+                    android:textColor="#2A6B45" android:textSize="13sp" android:visibility="gone"/>
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Input" android:hint="Alternate Mobile (Optional)"
                     android:layout_width="match_parent" android:layout_height="wrap_content">

@@ -58,9 +58,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
             h.qty.setText(String.valueOf(qty));
             String stock = prod.has("stock_status") ? prod.get("stock_status").getAsString() : "IN";
             switch (stock) {
-                case "IN": h.stock.setText("In Stock"); h.stock.setTextColor(Color.parseColor("#2E7D32")); break;
-                case "LOW": h.stock.setText("Low Stock"); h.stock.setTextColor(Color.parseColor("#E65100")); break;
-                default: h.stock.setText("Out"); h.stock.setTextColor(Color.parseColor("#C62828"));
+                case "IN": h.stock.setText("In Stock"); h.stock.setTextColor(Color.parseColor("#2A6B45")); break;
+                case "LOW": h.stock.setText("Low Stock"); h.stock.setTextColor(Color.parseColor("#8F5416")); break;
+                default: h.stock.setText("Out"); h.stock.setTextColor(Color.parseColor("#A83E3E"));
             }
             h.qty.setTextColor(h.stock.getCurrentTextColor());
             long id = prod.has("id") ? prod.get("id").getAsLong() : -1;

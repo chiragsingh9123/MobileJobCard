@@ -82,7 +82,7 @@
  android:orientation="vertical" android:gravity="center" android:padding="16dp">
  <ImageView android:id="@+id/ivQr"
  android:layout_width="200dp" android:layout_height="200dp"
- android:background="#F5F5F5" android:scaleType="fitCenter"/>
+ android:background="#F7F8FA" android:scaleType="fitCenter"/>
  <TextView android:id="@+id/tvUpiId"
  android:layout_width="wrap_content" android:layout_height="wrap_content"
  android:layout_marginTop="10dp" android:textColor="@color/text_primary"
@@ -112,7 +112,7 @@
  <ImageView android:id="@+id/ivScreenshotPreview"
  android:layout_width="120dp" android:layout_height="120dp"
  android:layout_marginTop="10dp" android:scaleType="centerCrop"
- android:visibility="gone" android:background="#F5F5F5"/>
+ android:visibility="gone" android:background="#F7F8FA"/>
  <Button android:id="@+id/btnSubmitPayment"
  android:layout_width="match_parent" android:layout_height="52dp"
  android:layout_marginTop="14dp" android:backgroundTint="@color/success"

@@ -39,15 +39,14 @@ public class DashboardActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tvShopName)).setText(session.getShopName());
         ((TextView) findViewById(R.id.tvAvatar)).setText(name.isEmpty() ? "R" : name.substring(0, 1).toUpperCase());
 
-        findViewById(R.id.btnNotification).setOnClickListener(v ->
-        AppToast.show(this, "Koi nayi notification nahi"));
+        findViewById(R.id.btnNotification).setOnClickListener(v -> checkNotifications(true));
 
-        setupTile(R.id.tileNewJob, R.drawable.ic_add, "New Job Card", "#1565C0", NewJobCardActivity.class);
-        setupTile(R.id.tileCustomers, R.drawable.ic_people, "Customers", "#4CAF50", CustomersActivity.class);
-        setupTile(R.id.tileJobs, R.drawable.ic_wrench, "Repair Jobs", "#FF9800", JobsActivity.class);
-        setupTile(R.id.tileCollection, R.drawable.ic_rupee, "Collection", "#7B1FA2", KhataActivity.class);
-        setupTile(R.id.tileInventory, R.drawable.ic_box, "Inventory", "#00897B", InventoryActivity.class);
-        setupTile(R.id.tileReports, R.drawable.ic_chart, "Reports", "#F44336", ReportsActivity.class);
+        setupTile(R.id.tileNewJob, R.drawable.ic_add, "New Job Card", "#2F6690", NewJobCardActivity.class);
+        setupTile(R.id.tileCustomers, R.drawable.ic_people, "Customers", "#357A54", CustomersActivity.class);
+        setupTile(R.id.tileJobs, R.drawable.ic_wrench, "Repair Jobs", "#A66418", JobsActivity.class);
+        setupTile(R.id.tileCollection, R.drawable.ic_rupee, "Collection", "#7A5C93", KhataActivity.class);
+        setupTile(R.id.tileInventory, R.drawable.ic_box, "Inventory", "#2F7770", InventoryActivity.class);
+        setupTile(R.id.tileReports, R.drawable.ic_chart, "Reports", "#BB4B4B", ReportsActivity.class);
 
         setupStatLabels();
 
@@ -56,6 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
         swipe.setOnRefreshListener(this::loadStats);
 
         BottomNavHelper.setup(this, R.id.nav_home);
+        checkNotifications(false);
     }
 
     @Override
@@ -65,6 +65,56 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     /** Static tile: icon + color + label + click target — kabhi crash nahi karta */
+    /** Checks for admin-broadcast notifications. On app open (manualCheck=false) this
+     * runs silently and only shows a dialog if something new has arrived. From the
+     * bell icon (manualCheck=true) it always gives visible feedback, including
+     * when there is nothing new. */
+    private void checkNotifications(boolean manualCheck) {
+        ApiClient.get(this).checkNotifications().enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> res) {
+                if (!res.isSuccessful() || res.body() == null) {
+                    if (manualCheck) AppToast.error(DashboardActivity.this, "Could not check for notifications");
+                    return;
+                }
+                try {
+                    com.google.gson.JsonArray list = res.body().getAsJsonArray("notifications");
+                    if (list.size() == 0) {
+                        if (manualCheck) AppToast.show(DashboardActivity.this, "No new notifications");
+                        return;
+                    }
+                    showNotificationsDialog(list, 0);
+                } catch (Exception e) {
+                    Log.e(TAG, "Notification parse error", e);
+                }
+            }
+            @Override
+            public void onFailure(@NonNull Call<JsonObject> call, @NonNull Throwable t) {
+                if (manualCheck) AppToast.error(DashboardActivity.this, "Network error");
+            }
+        });
+    }
+
+    /** Shows notifications one at a time so multiple broadcasts don't get lost in a
+     * single wall of text - tapping "OK" advances to the next one, if any. */
+    private void showNotificationsDialog(com.google.gson.JsonArray list, int index) {
+        if (index >= list.size()) return;
+        try {
+            JsonObject n = list.get(index).getAsJsonObject();
+            String title = n.has("title") ? n.get("title").getAsString() : "Notification";
+            String message = n.has("message") ? n.get("message").getAsString() : "";
+            boolean hasMore = index < list.size() - 1;
+            new androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle(title)
+                    .setMessage(message)
+                    .setCancelable(false)
+                    .setPositiveButton(hasMore ? "Next" : "OK", (d, w) -> showNotificationsDialog(list, index + 1))
+                    .show();
+        } catch (Exception e) {
+            Log.e(TAG, "Notification dialog error", e);
+        }
+    }
+
     private void setupTile(int includeId, int iconRes, String label, String colorHex, Class<?> target) {
         View tile = findViewById(includeId);
         if (tile == null) return;

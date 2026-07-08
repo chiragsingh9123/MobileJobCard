@@ -289,8 +289,8 @@ public class SubscriptionActivity extends AppCompatActivity {
          for (int i = 0; i < results.size(); i++) {
          JsonObject r = results.get(i).getAsJsonObject();
          String status = r.get("status").getAsString();
-         String color = status.equals("APPROVED") ? "#2E7D32"
-         : status.equals("REJECTED") ? "#C62828" : "#E65100";
+         String color = status.equals("APPROVED") ? "#2A6B45"
+         : status.equals("REJECTED") ? "#A83E3E" : "#8F5416";
          String text = r.getAsJsonObject("plan").get("name").getAsString()
          + " — ₹" + r.get("amount").getAsDouble()
          + "\nUTR: " + r.get("utr_number").getAsString()

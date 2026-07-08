@@ -511,11 +511,11 @@ public class NewJobCardActivity extends AppCompatActivity {
         btnNext.setText(NEXT_LABELS[step]);
         btnPrev.setVisibility(step == 0 ? View.INVISIBLE : View.VISIBLE);
         btnNext.setBackgroundTintList(android.content.res.ColorStateList.valueOf(
-                Color.parseColor(step == 3 ? "#4CAF50" : "#1565C0")));
+                Color.parseColor(step == 3 ? "#357A54" : "#2F6690")));
         for (int i = 0; i < stepIndicator.getChildCount(); i++) {
             TextView tv = (TextView) stepIndicator.getChildAt(i);
             boolean active = i == step;
-            tv.setTextColor(Color.parseColor(active ? "#1565C0" : (i < step ? "#4CAF50" : "#9E9E9E")));
+            tv.setTextColor(Color.parseColor(active ? "#2F6690" : (i < step ? "#357A54" : "#9E9E9E")));
             tv.setTypeface(null, active ? Typeface.BOLD : Typeface.NORMAL);
         }
     }

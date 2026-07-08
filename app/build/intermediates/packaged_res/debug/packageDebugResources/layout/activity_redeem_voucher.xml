@@ -13,7 +13,7 @@
 
  <com.google.android.material.card.MaterialCardView
  android:layout_width="match_parent" android:layout_height="wrap_content"
- android:layout_marginTop="16dp" app:cardBackgroundColor="#E3F2FD"
+ android:layout_marginTop="16dp" app:cardBackgroundColor="#EAF2F8"
  app:cardCornerRadius="12dp">
  <TextView
  android:id="@+id/tvCurrentPlan"

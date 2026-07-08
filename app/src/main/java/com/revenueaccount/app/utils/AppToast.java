@@ -45,9 +45,9 @@ public class AppToast {
 
             int bgColor;
             switch (type) {
-                case SUCCESS: bgColor = Color.parseColor("#2E7D32"); break;
-                case ERROR: bgColor = Color.parseColor("#C62828"); break;
-                case WARNING: bgColor = Color.parseColor("#E65100"); break;
+                case SUCCESS: bgColor = Color.parseColor("#2A6B45"); break;
+                case ERROR: bgColor = Color.parseColor("#A83E3E"); break;
+                case WARNING: bgColor = Color.parseColor("#8F5416"); break;
                 default: bgColor = Color.parseColor("#323232");
             }
             GradientDrawable bg = new GradientDrawable();

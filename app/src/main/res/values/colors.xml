@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
- <color name="primary">#1565C0</color>
- <color name="primary_dark">#0D47A1</color>
- <color name="primary_light">#E3F2FD</color>
- <color name="success">#4CAF50</color>
- <color name="success_light">#E8F5E9</color>
- <color name="warning">#FF9800</color>
- <color name="warning_light">#FFF3E0</color>
- <color name="error">#F44336</color>
- <color name="error_light">#FFEBEE</color>
- <color name="purple">#7B1FA2</color>
- <color name="teal">#00897B</color>
- <color name="background">#F5F5F5</color>
+ <!-- Softer, more muted professional palette. Every accent color is tuned to pass
+      WCAG AA (4.5:1) contrast against white when used as text, while reading as
+      calmer and less saturated than stock Material colors. -->
+ <color name="primary">#2F6690</color>
+ <color name="primary_dark">#204A6B</color>
+ <color name="primary_light">#EAF2F8</color>
+ <color name="success">#357A54</color>
+ <color name="success_light">#E9F5EE</color>
+ <color name="warning">#A66418</color>
+ <color name="warning_light">#FBF2E6</color>
+ <color name="error">#BB4B4B</color>
+ <color name="error_light">#FBEDED</color>
+ <color name="purple">#7A5C93</color>
+ <color name="teal">#2F7770</color>
+ <color name="background">#F7F8FA</color>
  <color name="white">#FFFFFF</color>
- <color name="text_primary">#212121</color>
+ <color name="text_primary">#26282B</color>
  <color name="text_secondary">#616161</color>
- <color name="divider">#E0E0E0</color>
- <color name="status_received">#1565C0</color>
- <color name="status_repairing">#FF9800</color>
- <color name="status_waiting">#7B1FA2</color>
- <color name="status_ready">#4CAF50</color>
- <color name="status_delivered">#00897B</color>
- <color name="status_rwr">#F44336</color>
+ <color name="divider">#E7E8EC</color>
+ <color name="status_received">#2F6690</color>
+ <color name="status_repairing">#A66418</color>
+ <color name="status_waiting">#7A5C93</color>
+ <color name="status_ready">#357A54</color>
+ <color name="status_delivered">#2F7770</color>
+ <color name="status_rwr">#BB4B4B</color>
 </resources>
