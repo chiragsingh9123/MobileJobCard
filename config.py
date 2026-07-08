@@ -18,6 +18,7 @@ class Config:
         SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR, "revenue_account.db")
         SQLALCHEMY_ENGINE_OPTIONS = {}
     else:
+        
         DB_HOST = os.environ.get("DB_HOST", "localhost")
         DB_PORT = os.environ.get("DB_PORT", "3306")
         DB_NAME = os.environ.get("DB_NAME", "revenue_account")
