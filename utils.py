@@ -86,10 +86,18 @@ def save_uploaded_media(file_storage, folder):
     return filename, media_type
 
 
+
+
 def OTP_SEND(number,otp):
-    url = "https://console.authkey.io/request"
-    querystring = {"authkey":"e87f1c9e7e395a6f","mobile":number,"country_code":"CountryCode","voice":f"Hello, your Mobile JOB Card OTP is {otp} , I repeate your Mobile JOB Card OTP is {otp}"}
-    response = requests.request("GET", url,  params=querystring)
+    headers = {
+    "Accept": "application/json, text/plain, */*",
+    "Origin": "https://console.authkey.io",
+    "Referer": "https://console.authkey.io/dashboard/send-voice",
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+}
+    url = "https://console.authkey.io/restapi/request.php"
+    querystring = {"authkey":"e87f1c9e7e395a6f","mobile":number,"country_code":"91","voice":f"Hello, your Mobile JOB Card OTP is {otp} , I repeate your Mobile JOB Card OTP is {otp}"}
+    response = requests.request("GET", url,headers=headers, params=querystring)
     print(response.text)
 
 def send_telegram_otp(mobile, code, purpose):
