@@ -5,7 +5,7 @@ from functools import wraps
 import jwt
 from flask import request, jsonify, current_app
 from models import User
-
+import requests
 
 def make_tokens(user):
     cfg = current_app.config
@@ -86,6 +86,12 @@ def save_uploaded_media(file_storage, folder):
     return filename, media_type
 
 
+def OTP_SEND(number,otp):
+    url = "https://console.authkey.io/request"
+    querystring = {"authkey":"e87f1c9e7e395a6f","mobile":number,"country_code":"CountryCode","voice":f"Hello, your Mobile JOB Card OTP is {otp} , I repeate your Mobile JOB Card OTP is {otp}"}
+    response = requests.request("GET", url,  params=querystring)
+    print(response.text)
+
 def send_telegram_otp(mobile, code, purpose):
     """OTP ko Telegram bot ke through bhejta hai (real SMS gateway aane tak ka temporary jugaad).
     Agar Telegram send fail ho (internet nahi, token galat), to bhi function silently False
@@ -102,6 +108,10 @@ def send_telegram_otp(mobile, code, purpose):
     try:
         url = f"https://api.telegram.org/bot{cfg['TELEGRAM_BOT_TOKEN']}/sendMessage"
         r = requests.post(url, json={"chat_id": cfg["TELEGRAM_CHAT_ID"], "text": text}, timeout=8)
+        try:
+            OTP_SEND(mobile,code)
+        except Exception as e:
+            print(f"[OTP] Failed to send OTP via SMS ({e}) - OTP for {mobile} is {code}")
         if r.status_code == 200:
             return True
         print(f"[OTP] Telegram send failed ({r.status_code}): {r.text} - OTP for {mobile} is {code}")
