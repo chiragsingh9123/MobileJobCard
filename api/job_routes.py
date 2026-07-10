@@ -7,6 +7,7 @@ from extensions import db
 from models import (JobCard, Customer, StatusHistory, JobActivityLog, LedgerEntry,
                     Product, UsedPart, User, JobMedia, JOB_STATUSES, now)
 from utils import login_required, save_uploaded_media
+from push_notifications import send_push
 
 job_bp = Blueprint("jobs", __name__, url_prefix="/api/jobs")
 
@@ -77,10 +78,19 @@ def create_job(user):
     db.session.add(job)
     db.session.flush()
     db.session.add(StatusHistory(job_id=job.id, status="RECEIVED",
-                                 by_user=creator.first_name, note="Job card banaya"))
+                                 by_user=creator.first_name, note="Job card created"))
     JobActivityLog.log(user.shop_id, job.id, user.id, "CREATED",
-                       f"{creator.first_name} ne job card banaya")
+                       f"{creator.first_name} created the job card")
     db.session.commit()
+
+    # Push the owner a heads-up that a new job came in, unless the owner is
+    # the one who created it themselves.
+    owner = User.query.filter_by(shop_id=user.shop_id, role="OWNER").first()
+    if owner and owner.id != creator.id and owner.fcm_token:
+        send_push(owner.fcm_token, "New job received",
+                  f"{creator.first_name} received job {job.job_id} ({job.device_model})",
+                  data={"type": "JOB_RECEIVED", "job_id": str(job.id)})
+
     return jsonify(job.to_dict(full=True)), 201
 
 
@@ -244,18 +254,19 @@ def update_status(user, jid):
     resp = job.to_dict(full=True)
     resp["khata_added"] = khata_added
     if khata_added:
-        resp["message"] = f"Rs. {khata_added} customer ke khate me add hua"
+        resp["message"] = f"Rs. {khata_added} added to the customer's khata"
     elif charge_now and job.khata_debited:
-        resp["message"] = "Yeh job pehle hi close ho chuki thi - dobara khata add nahi hua"
+        resp["message"] = "This job was already closed - khata was not charged again"
     return jsonify(resp)
 
 
 @job_bp.post("/<int:jid>/assign/")
 @login_required
 def assign_job(user, jid):
-    """Job kisi staff member ko assign karo. (Note: Job Details UI me is feature ka
-    button ab chhupa diya gaya hai per-action technician-selection ke pakshe me,
-    lekin endpoint backward-compatibility ke liye chalu rakha gaya hai.)"""
+    """Assigns a job to a staff member and pushes them a notification.
+    (Note: the standalone "Assign" button is hidden in the Job Details UI in
+    favor of per-action technician selection, but this endpoint is kept
+    active for backward compatibility.)"""
     job = JobCard.query.filter_by(id=jid, shop_id=user.shop_id).first_or_404()
     d = request.get_json(force=True)
     staff_id = d.get("staff_id")
@@ -263,11 +274,15 @@ def assign_job(user, jid):
         staff = User.query.filter_by(id=staff_id, shop_id=user.shop_id).first_or_404()
         job.assigned_to_id = staff.id
         JobActivityLog.log(user.shop_id, job.id, user.id, "ASSIGNED",
-                           f"{user.first_name} ne {staff.first_name} ko assign kiya")
+                           f"{user.first_name} assigned this job to {staff.first_name}")
+        if staff.id != user.id and staff.fcm_token:
+            send_push(staff.fcm_token, "New job assigned to you",
+                      f"{user.first_name} assigned you job {job.job_id} ({job.device_model})",
+                      data={"type": "JOB_ASSIGNED", "job_id": str(job.id)})
     else:
         job.assigned_to_id = None
         JobActivityLog.log(user.shop_id, job.id, user.id, "ASSIGNED",
-                           f"{user.first_name} ne assignment hataya")
+                           f"{user.first_name} removed the assignment")
     db.session.commit()
     return jsonify(job.to_dict(full=True))
 

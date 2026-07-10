@@ -148,6 +148,21 @@ def me(user):
     return jsonify(user.to_dict())
 
 
+@auth_bp.post("/fcm-token/")
+@login_required
+def register_fcm_token(user):
+    """Called by the app right after login (and whenever Firebase issues a
+    fresh token) so push notifications can reach this specific device."""
+    d = request.get_json(force=True)
+    token = (d.get("fcm_token") or "").strip()
+    if not token:
+        return jsonify({"detail": "fcm_token is required"}), 400
+    user.fcm_token = token
+    db.session.commit()
+    return jsonify({"message": "Push token registered"})
+ 
+
+
 @auth_bp.get("/plans/")
 def plans():
     return jsonify({"results": [p.to_dict() for p in

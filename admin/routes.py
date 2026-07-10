@@ -9,6 +9,7 @@ from models import (User, Shop, SubscriptionPlan, Subscription, Voucher,
                     JobCard, Customer, Payment, LedgerEntry, Product,
                     PlatformSettings, PaymentRequest, Notification, now)
 from utils import save_uploaded_image
+from push_notifications import send_push_multicast
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin",
                      template_folder="../templates/admin")
@@ -271,7 +272,12 @@ def notifications():
             return redirect(url_for("admin.notifications"))
         db.session.add(Notification(title=title, message=message))
         db.session.commit()
-        flash("Notification sent to all users", "success")
+ 
+        tokens = [u.fcm_token for u in User.query.filter(
+            User.fcm_token.isnot(None), User.is_active.is_(True)).all()]
+        delivered = send_push_multicast(tokens, title, message, data={"type": "ADMIN_BROADCAST"})
+ 
+        flash(f"Notification sent to all users ({delivered} device(s) reached by push)", "success")
         return redirect(url_for("admin.notifications"))
     sent = Notification.query.order_by(Notification.created_at.desc()).all()
     return render_template("notifications.html", sent=sent)

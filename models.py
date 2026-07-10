@@ -74,6 +74,7 @@ class User(db.Model):
     shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"))
     created_by_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     last_seen_notification_id = db.Column(db.Integer, default=0)
+    fcm_token = db.Column(db.String(255), nullable=True)  # device push-token, set after login
     created_at = db.Column(db.DateTime, default=now)
 
     def set_password(self, raw):
