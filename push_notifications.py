@@ -27,10 +27,7 @@ _last_multicast_error = None
 def firebase_status():
     """Diagnostic snapshot for the admin panel - answers 'why didn't this
     send' without needing to dig through server console logs."""
-    cred_path = os.environ.get(
-    "FIREBASE_CREDENTIALS_PATH",
-    "/root/MobileJobCard/firebase-service-account.json"
-)
+    cred_path = "/root/MobileJobCard/firebase-service-account.json"
     return {
         "library_installed": _FIREBASE_AVAILABLE,
         "credentials_path": cred_path,
@@ -52,10 +49,7 @@ def _init_firebase():
         return True
     if not _FIREBASE_AVAILABLE:
         return False
-    cred_path = os.environ.get(
-    "FIREBASE_CREDENTIALS_PATH",
-    "/root/MobileJobCard/firebase-service-account.json"
-)
+    cred_path  = "/root/MobileJobCard/firebase-service-account.json"
     if not os.path.exists(cred_path):
         return False
     try:
@@ -108,10 +102,7 @@ def send_push_multicast(tokens, title, body, data=None):
         _last_multicast_error = "No devices have a registered push token yet"
         return 0
     if not _init_firebase():
-        cred_path = os.environ.get(
-    "FIREBASE_CREDENTIALS_PATH",
-    "/root/MobileJobCard/firebase-service-account.json"
-)
+        cred_path = "/root/MobileJobCard/firebase-service-account.json"
         _last_multicast_error = (
             f"Firebase is not configured in this process (looked for "
             f"credentials at '{cred_path}' - file exists: {os.path.exists(cred_path)}). "
