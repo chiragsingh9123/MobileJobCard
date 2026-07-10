@@ -28,7 +28,7 @@ def _init_firebase():
         return True
     if not _FIREBASE_AVAILABLE:
         return False
-    cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH", "/root/MobileJobCard/firebase-service-account.json")
+    cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH", "firebase-service-account.json")
     if not os.path.exists(cred_path):
         return False
     try:
