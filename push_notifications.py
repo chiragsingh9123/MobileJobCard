@@ -21,6 +21,7 @@ except ImportError:
 _initialized = False
 
 
+
 def _init_firebase():
     global _initialized
     if _initialized:
