@@ -2,31 +2,6 @@
 <div class="topbar"><h1>Notifications</h1></div>
 
 <div class="card">
-  <h3 style="margin-top:0">Push Delivery Status</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td style="width:260px">Firebase configured</td>
-        <td>
-          {% if status.initialized %}
-            <span class="badge green">Yes</span>
-          {% else %}
-            <span class="badge red">No</span> —
-            looking for credentials at <code>{{ status.credentials_path }}</code>
-            ({% if status.credentials_file_exists %}file exists but failed to load{% else %}file not found{% endif %})
-            {% if status.credentials_path_is_default %}<br><small style="color:#757575">FIREBASE_CREDENTIALS_PATH is not set, so using the default filename above - set that environment variable in the same process that runs this app.</small>{% endif %}
-          {% endif %}
-        </td>
-      </tr>
-      <tr>
-        <td>Users with push registered</td>
-        <td>{{ registered_tokens }} of {{ eligible_users }} active users</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="card">
   <h3 style="margin-top:0">Send a New Notification</h3>
   <p style="color:#757575;font-size:13px">This will be visible to every user across every shop the next time they open the app.</p>
   <form method="post">
