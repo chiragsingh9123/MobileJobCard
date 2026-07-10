@@ -276,6 +276,7 @@ def notifications():
         tokens = [u.fcm_token for u in User.query.filter(
             User.fcm_token.isnot(None), User.is_active.is_(True)).all()]
         delivered = send_push_multicast(tokens, title, message, data={"type": "ADMIN_BROADCAST"})
+        print(f"[ADMIN] Broadcast sent to {len(tokens)} device(s), {delivered} delivered")
         
         flash(f"Notification sent to all users ({delivered} device(s) reached by push)", "success")
         return redirect(url_for("admin.notifications"))
