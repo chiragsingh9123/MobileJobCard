@@ -19,7 +19,26 @@ except ImportError:
     _FIREBASE_AVAILABLE = False
 
 _initialized = False
+_last_multicast_error = None
 
+
+def firebase_status():
+    """Diagnostic snapshot for the admin panel - answers 'why didn't this
+    send' without needing to dig through server console logs."""
+    cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH", "firebase-service-account.json")
+    return {
+        "library_installed": _FIREBASE_AVAILABLE,
+        "credentials_path": cred_path,
+        "credentials_path_is_default": "FIREBASE_CREDENTIALS_PATH" not in os.environ,
+        "credentials_file_exists": os.path.exists(cred_path),
+        "initialized": _init_firebase(),
+    }
+
+
+def get_last_multicast_error():
+    """The most recent error from send_push_multicast(), if the last call
+    delivered to 0 devices despite having tokens to try."""
+    return _last_multicast_error
 
 
 def _init_firebase():
@@ -74,10 +93,20 @@ def send_push_multicast(tokens, title, body, data=None):
     """Sends the same push to many device tokens at once (admin broadcasts).
     Returns the number of devices it was successfully delivered to.
     Also sent data-only - see send_push() for why."""
+    global _last_multicast_error
+    _last_multicast_error = None
     tokens = [t for t in tokens if t]
     if not tokens:
+        _last_multicast_error = "No devices have a registered push token yet"
         return 0
     if not _init_firebase():
+        cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH", "firebase-service-account.json")
+        _last_multicast_error = (
+            f"Firebase is not configured in this process (looked for "
+            f"credentials at '{cred_path}' - file exists: {os.path.exists(cred_path)}). "
+            f"Check that FIREBASE_CREDENTIALS_PATH is set in the same environment "
+            f"your Flask/Gunicorn process actually runs in, not just an SSH session."
+        )
         print(f"[PUSH] (not configured) would broadcast to {len(tokens)} device(s): {title}")
         return 0
     try:
@@ -89,7 +118,13 @@ def send_push_multicast(tokens, title, body, data=None):
             android=messaging.AndroidConfig(priority="high"),
         )
         response = messaging.send_each_for_multicast(message)
+        if response.failure_count > 0:
+            for r in response.responses:
+                if not r.success and r.exception is not None:
+                    _last_multicast_error = f"{response.failure_count} of {len(tokens)} failed - example: {r.exception}"
+                    break
         return response.success_count
     except Exception as e:
+        _last_multicast_error = str(e)
         print(f"[PUSH] Multicast failed: {e}")
         return 0
