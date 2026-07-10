@@ -264,6 +264,11 @@ def app_settings():
 @admin_bp.route("/notifications/", methods=["GET", "POST"])
 @admin_required
 def notifications():
+    print("[ADMIN] /admin/notifications/ accessed")
+    print("[ADMIN] /admin/notifications/ accessed")
+    print("[ADMIN] /admin/notifications/ accessed")
+    print("[ADMIN] /admin/notifications/ accessed")
+    print("[ADMIN] /admin/notifications/ accessed")
     if request.method == "POST":
         title = request.form.get("title", "").strip()
         message = request.form.get("message", "").strip()
