@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.revenueaccount.app" />
+                  <option name="mobileSdkAppId" value="1:692996725115:android:dd1112cc97547af87385de" />
+                  <option name="projectId" value="mobile-job-card" />
+                  <option name="projectNumber" value="692996725115" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

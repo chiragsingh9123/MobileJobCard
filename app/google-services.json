@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "692996725115",
+    "project_id": "mobile-job-card",
+    "storage_bucket": "mobile-job-card.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692996725115:android:dd1112cc97547af87385de",
+        "android_client_info": {
+          "package_name": "com.revenueaccount.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWHNZB_bUTuqEWO2t7t0AAX6AitI5Rp-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

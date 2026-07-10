@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ android:layout_width="match_parent" android:layout_height="match_parent"
+ android:orientation="vertical" android:background="@color/background">
+
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="56dp"
+ android:background="@drawable/bg_header_gradient" android:gravity="center_vertical"
+ android:orientation="horizontal" android:paddingHorizontal="8dp">
+ <ImageView android:id="@+id/btnBack"
+ android:layout_width="44dp" android:layout_height="44dp" android:padding="10dp"
+ android:src="@drawable/ic_back" app:tint="@color/white"/>
+ <TextView
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+ android:text="Backup &amp; Restore" android:textColor="@color/white"
+ android:textSize="19sp" android:textStyle="bold"/>
+ </LinearLayout>
+
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="vertical" android:padding="18dp">
+
+ <com.google.android.material.card.MaterialCardView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ app:cardCornerRadius="14dp" app:cardElevation="2dp">
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="vertical" android:padding="18dp">
+ <TextView
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:text=" Data Export" android:textSize="16sp" android:textStyle="bold"
+ android:textColor="@color/text_primary"/>
+ <TextView
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:layout_marginTop="6dp"
+ android:text="Apne shop ka poora data (customers, jobs, payments, inventory) ek JSON file me export  aur kahin bhi safe rakhein."
+ android:textSize="13sp" android:textColor="@color/text_secondary"/>
+ <Button android:id="@+id/btnExport"
+ android:layout_width="match_parent" android:layout_height="50dp"
+ android:layout_marginTop="16dp" android:backgroundTint="@color/primary"
+ android:text=" Export &amp; Share Backup"/>
+ </LinearLayout>
+ </com.google.android.material.card.MaterialCardView>
+
+ <TextView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="16dp" android:background="@color/warning_light" android:padding="12dp"
+ android:text="The Restore feature is not yet available - it is being carefully designed for data safety. For now, please export and keep a copy; contact support if you need to restore data."
+ android:textColor="#8F5416" android:textSize="12sp"/>
+ </LinearLayout>
+</LinearLayout>

@@ -28,6 +28,9 @@ public interface ApiService {
     @POST("api/auth/reset-password/")
     Call<JsonObject> resetPassword(@Body Map<String, String> body);
 
+    @POST("api/auth/fcm-token/")
+    Call<JsonObject> registerFcmToken(@Body JsonObject body);
+
     @GET("api/auth/me/")
     Call<JsonObject> me();
 

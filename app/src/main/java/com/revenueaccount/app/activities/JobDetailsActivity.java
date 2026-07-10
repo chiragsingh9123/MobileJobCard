@@ -537,7 +537,10 @@ public class JobDetailsActivity extends AppCompatActivity {
                         AppToast.success(JobDetailsActivity.this, "Added successfully");
                         loadMedia();
                     } else {
-                        AppToast.error(JobDetailsActivity.this, "Upload failed");
+                        String errBody = "";
+                        try { if (res.errorBody() != null) errBody = res.errorBody().string(); } catch (Exception ignored) {}
+                        Log.e(TAG, "Upload failed: code=" + res.code() + " body=" + errBody);
+                        AppToast.error(JobDetailsActivity.this, "Upload failed (" + res.code() + ")");
                     }
                 }
                 @Override

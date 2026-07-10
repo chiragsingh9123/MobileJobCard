@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ android:layout_width="match_parent" android:layout_height="match_parent"
+ android:orientation="vertical" android:background="@color/background">
+
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="56dp"
+ android:background="@drawable/bg_header_gradient" android:gravity="center_vertical"
+ android:orientation="horizontal" android:paddingHorizontal="16dp">
+ <TextView
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+ android:text="Reports &amp; Analytics" android:textColor="@color/white"
+ android:textSize="19sp" android:textStyle="bold"/>
+ </LinearLayout>
+
+ <HorizontalScrollView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:paddingHorizontal="8dp" android:paddingTop="8dp" android:scrollbars="none">
+ <com.google.android.material.chip.ChipGroup
+ android:id="@+id/chipGroup"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"
+ app:singleLine="true" app:singleSelection="true"/>
+ </HorizontalScrollView>
+
+ <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+ android:id="@+id/swipeRefresh"
+ android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+ <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="vertical" android:padding="12dp">
+
+ <!-- Static 2x2 stat grid (reuses item_stat_card template) -->
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="horizontal">
+ <include android:id="@+id/statSales" layout="@layout/item_stat_card"
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+ <include android:id="@+id/statCollection" layout="@layout/item_stat_card"
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+ android:layout_marginStart="8dp"/>
+ </LinearLayout>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="8dp" android:orientation="horizontal">
+ <include android:id="@+id/statExpense" layout="@layout/item_stat_card"
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+ <include android:id="@+id/statProfit" layout="@layout/item_stat_card"
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+ android:layout_marginStart="8dp"/>
+ </LinearLayout>
+
+ <com.google.android.material.card.MaterialCardView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" app:cardCornerRadius="14dp" app:cardElevation="2dp">
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="vertical" android:padding="14dp">
+ <TextView style="@style/SectionTitle" android:text=" Daily Revenue (₹)"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+ <com.github.mikephil.charting.charts.LineChart
+ android:id="@+id/lineChart"
+ android:layout_width="match_parent" android:layout_height="220dp"/>
+ </LinearLayout>
+ </com.google.android.material.card.MaterialCardView>
+
+ <com.google.android.material.card.MaterialCardView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" android:layout_marginBottom="24dp"
+ app:cardCornerRadius="14dp" app:cardElevation="2dp">
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="vertical" android:padding="14dp">
+ <TextView style="@style/SectionTitle" android:text=" Jobs Summary"
+ android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="horizontal">
+ <com.github.mikephil.charting.charts.PieChart
+ android:id="@+id/pieChart"
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="180dp"/>
+ <LinearLayout
+ android:id="@+id/pieLegend"
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+ android:gravity="center_vertical" android:orientation="vertical"/>
+ </LinearLayout>
+ </LinearLayout>
+ </com.google.android.material.card.MaterialCardView>
+ </LinearLayout>
+ </ScrollView>
+ </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+ <include layout="@layout/include_bottom_nav"/>
+</LinearLayout>

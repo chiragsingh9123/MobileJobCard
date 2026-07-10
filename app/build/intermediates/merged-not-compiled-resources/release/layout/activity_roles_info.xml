@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ android:layout_width="match_parent" android:layout_height="match_parent"
+ android:orientation="vertical" android:background="@color/background">
+
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="56dp"
+ android:background="@drawable/bg_header_gradient" android:gravity="center_vertical"
+ android:orientation="horizontal" android:paddingHorizontal="8dp">
+ <ImageView android:id="@+id/btnBack"
+ android:layout_width="44dp" android:layout_height="44dp" android:padding="10dp"
+ android:src="@drawable/ic_back" app:tint="@color/white"/>
+ <TextView
+ android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+ android:text="Roles &amp; Permissions" android:textColor="@color/white"
+ android:textSize="19sp" android:textStyle="bold"/>
+ </LinearLayout>
+
+ <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+ <LinearLayout
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:orientation="vertical" android:padding="16dp">
+
+ <com.google.android.material.card.MaterialCardView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ app:cardBackgroundColor="@color/primary_light" app:cardCornerRadius="14dp" app:cardElevation="0dp">
+ <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+ <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:text=" Owner" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/primary_dark"/>
+ <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
+ android:text="The person who created the shop. Can view/edit everything - add or remove staff, subscription, reports, settings, all jobs, and all customers."
+ android:textSize="13sp" android:textColor="@color/text_primary"/>
+ </LinearLayout>
+ </com.google.android.material.card.MaterialCardView>
+
+ <com.google.android.material.card.MaterialCardView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="12dp" app:cardCornerRadius="14dp" app:cardElevation="1dp">
+ <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+ <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+ android:text=" Staff (Technician / Counter / Manager)" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary"/>
+ <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
+ android:text="Staff members created by the Owner. They can create/update job cards, manage customers, and record khata payments. They do NOT have permission to manage staff, subscriptions, or reset other staff passwords - only the Owner can do that."
+ android:textSize="13sp" android:textColor="@color/text_secondary"/>
+ </LinearLayout>
+ </com.google.android.material.card.MaterialCardView>
+
+ <TextView
+ android:layout_width="match_parent" android:layout_height="wrap_content"
+ android:layout_marginTop="16dp" android:textColor="@color/text_secondary" android:textSize="12sp"
+ android:text="Designation (Technician, Counter Staff, Delivery Boy, Manager) is just a label used for job assignment and tracking. Access-level control is only determined by Owner vs Staff role."/>
+
+ <Button android:id="@+id/btnManageStaff"
+ android:layout_width="match_parent" android:layout_height="50dp"
+ android:layout_marginTop="20dp" android:backgroundTint="@color/primary"
+ android:text=" Staff Manage Karein"/>
+ </LinearLayout>
+ </ScrollView>
+</LinearLayout>

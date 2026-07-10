@@ -51,7 +51,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
         email = getIntent().getStringExtra("email");
 
         ((TextView) findViewById(R.id.tvSubtitle)).setText(
-        "We have sent a 6-digit OTP to " + mobile + ". Enter it below.");
+                "We have sent a 6-digit OTP to " + mobile + ". Enter it below.");
 
         etOtp = findViewById(R.id.etOtp);
         btnVerify = findViewById(R.id.btnVerify);
@@ -159,7 +159,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
         try {
             if (res.errorBody() != null) {
                 JsonObject err = com.google.gson.JsonParser.parseString(
-                res.errorBody().string()).getAsJsonObject();
+                        res.errorBody().string()).getAsJsonObject();
                 if (err.has("detail")) msg = err.get("detail").getAsString();
             }
         } catch (Exception ignored) {}
@@ -173,9 +173,10 @@ public class OtpVerifyActivity extends AppCompatActivity {
             SessionManager session = new SessionManager(this);
             session.saveTokens(tokens.get("access").getAsString(), tokens.get("refresh").getAsString());
             String shop = user.has("shop") && !user.get("shop").isJsonNull()
-            ? user.getAsJsonObject("shop").get("name").getAsString() : "";
+                    ? user.getAsJsonObject("shop").get("name").getAsString() : "";
             session.saveUser(user.get("first_name").getAsString(), user.get("mobile").getAsString(), shop);
             if (user.has("role") && !user.get("role").isJsonNull()) session.saveRole(user.get("role").getAsString());
+            com.revenueaccount.app.messaging.MyFirebaseMessagingService.syncTokenWithServer(this);
             startActivity(new Intent(this, DashboardActivity.class));
             finishAffinity();
         } catch (Exception e) {
@@ -191,6 +192,7 @@ public class OtpVerifyActivity extends AppCompatActivity {
             session.saveTokens(tokens.get("access").getAsString(), tokens.get("refresh").getAsString());
             session.saveUser(ownerName, mobile, shopName);
             session.saveRole("OWNER");
+            com.revenueaccount.app.messaging.MyFirebaseMessagingService.syncTokenWithServer(this);
             AppToast.show(this, "Account created! Your 7-day FREE trial has started");
             startActivity(new Intent(this, DashboardActivity.class));
             finishAffinity();

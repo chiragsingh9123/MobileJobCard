@@ -38,6 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tvGreeting)).setText("Hello, " + (name.isEmpty() ? "Owner" : name));
         ((TextView) findViewById(R.id.tvShopName)).setText(session.getShopName());
         ((TextView) findViewById(R.id.tvAvatar)).setText(name.isEmpty() ? "R" : name.substring(0, 1).toUpperCase());
+        com.revenueaccount.app.messaging.MyFirebaseMessagingService.syncTokenWithServer(this);
 
         findViewById(R.id.btnNotification).setOnClickListener(v -> checkNotifications(true));
 
@@ -186,21 +187,21 @@ public class DashboardActivity extends AppCompatActivity {
     /** Notification Settings me jo alerts ON hain, unke conditions check karke local notification dikhao */
     private void checkAlerts(JsonObject d) {
         com.revenueaccount.app.utils.NotificationPrefs prefs =
-        new com.revenueaccount.app.utils.NotificationPrefs(this);
+                new com.revenueaccount.app.utils.NotificationPrefs(this);
         com.revenueaccount.app.utils.NotificationHelper.createChannel(this);
 
         if (prefs.lowStockAlert()) {
             int low = d.has("low_stock_items") ? d.get("low_stock_items").getAsInt() : 0;
             if (low > 0) {
                 com.revenueaccount.app.utils.NotificationHelper.show(this, 1001,
-                " Low Stock Alert", low + " product(s) low ya out of stock hain");
+                        " Low Stock Alert", low + " product(s) low ya out of stock hain");
             }
         }
         if (prefs.khataAlert()) {
             double pending = d.has("pending_amount") ? d.get("pending_amount").getAsDouble() : 0;
             if (pending > 0) {
                 com.revenueaccount.app.utils.NotificationHelper.show(this, 1002,
-                " Khata Pending", "₹" + pending + " customers ke khate me baaki hai");
+                        " Khata Pending", "₹" + pending + " customers ke khate me baaki hai");
             }
         }
     }

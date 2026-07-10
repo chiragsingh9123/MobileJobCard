@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.revenueaccount.app"
+    android:versionCode="2"
+    android:versionName="1.0.5" >
+
+    <uses-sdk
+        android:minSdkVersion="26"
+        android:targetSdkVersion="35" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <permission
+        android:name="com.revenueaccount.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.revenueaccount.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
+    <application
+        android:name="com.revenueaccount.app.RevenueAccountApp"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:extractNativeLibs="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Mobile JobCard"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.RevenueAccount"
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name="com.revenueaccount.app.activities.SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.revenueaccount.app.activities.UpdateRequiredActivity" />
+        <activity android:name="com.revenueaccount.app.activities.LoginActivity" />
+        <activity android:name="com.revenueaccount.app.activities.ForgotPasswordActivity" />
+        <activity android:name="com.revenueaccount.app.activities.RegisterActivity" />
+        <activity android:name="com.revenueaccount.app.activities.OtpVerifyActivity" />
+        <activity android:name="com.revenueaccount.app.activities.DashboardActivity" />
+        <activity android:name="com.revenueaccount.app.activities.NewJobCardActivity" />
+        <activity android:name="com.revenueaccount.app.activities.JobDetailsActivity" />
+        <activity android:name="com.revenueaccount.app.activities.EditJobActivity" />
+        <activity android:name="com.revenueaccount.app.activities.JobsActivity" />
+        <activity android:name="com.revenueaccount.app.activities.CustomersActivity" />
+        <activity android:name="com.revenueaccount.app.activities.CustomerDetailActivity" />
+        <activity android:name="com.revenueaccount.app.activities.InventoryActivity" />
+        <activity android:name="com.revenueaccount.app.activities.ReportsActivity" />
+        <activity android:name="com.revenueaccount.app.activities.SettingsActivity" />
+        <activity android:name="com.revenueaccount.app.activities.DeliveryActivity" />
+        <activity android:name="com.revenueaccount.app.activities.KhataActivity" />
+        <activity android:name="com.revenueaccount.app.activities.RedeemVoucherActivity" />
+        <activity android:name="com.revenueaccount.app.activities.StaffActivity" />
+        <activity android:name="com.revenueaccount.app.activities.SubscriptionActivity" />
+        <activity android:name="com.revenueaccount.app.activities.ShopProfileActivity" />
+        <activity android:name="com.revenueaccount.app.activities.PrintSettingsActivity" />
+        <activity android:name="com.revenueaccount.app.activities.TemplatesActivity" />
+        <activity android:name="com.revenueaccount.app.activities.NotificationSettingsActivity" />
+        <activity android:name="com.revenueaccount.app.activities.BackupActivity" />
+        <activity android:name="com.revenueaccount.app.activities.ChangePasswordActivity" />
+        <activity android:name="com.revenueaccount.app.activities.ActivityLogActivity" />
+        <activity android:name="com.revenueaccount.app.activities.AboutActivity" />
+        <activity android:name="com.revenueaccount.app.activities.RolesInfoActivity" />
+        <activity android:name="com.revenueaccount.app.activities.ExpensesActivity" />
+
+        <!-- Fixes barcode scanner rotating to landscape: forces portrait orientation -->
+        <activity
+            android:name="com.revenueaccount.app.scanner.PortraitCaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name="com.revenueaccount.app.activities.PrivacyPolicyActivity" />
+        <activity android:name="com.revenueaccount.app.activities.DeveloperInfoActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.revenueaccount.app.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.revenueaccount.app.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
