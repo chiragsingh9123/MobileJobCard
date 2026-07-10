@@ -28,6 +28,10 @@ def firebase_status():
     """Diagnostic snapshot for the admin panel - answers 'why didn't this
     send' without needing to dig through server console logs."""
     cred_path = "/root/MobileJobCard/firebase-service-account.json"
+
+
+
+    
     return {
         "library_installed": _FIREBASE_AVAILABLE,
         "credentials_path": cred_path,
