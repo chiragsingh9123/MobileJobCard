@@ -7,7 +7,7 @@ from flask import (Blueprint, render_template, request, redirect,
 from extensions import db
 from models import (User, Shop, SubscriptionPlan, Subscription, Voucher,
                     JobCard, Customer, Payment, LedgerEntry, Product,
-                    PlatformSettings, PaymentRequest, Notification, now)
+                    PlatformSettings, PaymentRequest,RazorpayPayment, Notification, now)
 from utils import save_uploaded_image
 from push_notifications import send_push_multicast
 
@@ -57,7 +57,7 @@ def dashboard():
         "jobs": JobCard.query.count(),
         "customers": Customer.query.count(),
         "revenue": round(sum(p.amount for p in Payment.query.all()), 2),
-        "pending_payments": PaymentRequest.query.filter_by(status="PENDING").count(),
+        "subscription_revenue": round(sum(p.amount for p in RazorpayPayment.query.filter_by(status="PAID").all()), 2),
     }
     recent_shops = Shop.query.order_by(Shop.created_at.desc()).limit(5).all()
     return render_template("dashboard.html", stats=stats, recent_shops=recent_shops)
@@ -179,70 +179,85 @@ def subscriptions():
 
 
 # ---------- UPI PAYMENT REQUESTS (manual verification) ----------
-@admin_bp.get("/payment-requests/")
+# @admin_bp.get("/payment-requests/")
+# @admin_required
+# def payment_requests():
+#     q = PaymentRequest.query.order_by(PaymentRequest.created_at.desc())
+#     f = request.args.get("filter", "PENDING")
+#     if f in ("PENDING", "APPROVED", "REJECTED"):
+#         q = q.filter_by(status=f)
+#     return render_template("payment_requests.html", requests=q.all(), current_filter=f)
+
+
+# @admin_bp.post("/payment-requests/<int:rid>/approve/")
+# @admin_required
+# def approve_payment_request(rid):
+#     pr = PaymentRequest.query.get_or_404(rid)
+#     if pr.status != "PENDING":
+#         flash("Yeh request pehle hi process ho chuki hai", "error")
+#         return redirect(url_for("admin.payment_requests"))
+#     sub = Subscription.activate(pr.shop, pr.plan)
+#     pr.status = "APPROVED"
+#     pr.reviewed_by_id = session.get("admin_id")
+#     pr.reviewed_at = now()
+#     db.session.commit()
+#     flash(f"{pr.shop.name} ka '{pr.plan.name}' plan activate ho gaya "
+#           f"({sub.days_remaining} din)", "success")
+#     return redirect(url_for("admin.payment_requests"))
+
+
+# @admin_bp.post("/payment-requests/<int:rid>/reject/")
+# @admin_required
+# def reject_payment_request(rid):
+#     pr = PaymentRequest.query.get_or_404(rid)
+#     if pr.status != "PENDING":
+#         flash("Yeh request pehle hi process ho chuki hai", "error")
+#         return redirect(url_for("admin.payment_requests"))
+#     pr.status = "REJECTED"
+#     pr.admin_note = request.form.get("reason", "")
+#     pr.reviewed_by_id = session.get("admin_id")
+#     pr.reviewed_at = now()
+#     db.session.commit()
+#     flash(f"{pr.shop.name} ki payment request reject ho gayi", "success")
+#     return redirect(url_for("admin.payment_requests"))
+
+
+# # ---------- UPI SETTINGS (QR code + UPI ID) ----------
+# @admin_bp.route("/upi-settings/", methods=["GET", "POST"])
+# @admin_required
+# def upi_settings():
+#     settings = PlatformSettings.get()
+#     if request.method == "POST":
+#         settings.upi_id = request.form.get("upi_id", "")
+#         settings.upi_name = request.form.get("upi_name", "")
+#         qr_file = request.files.get("qr_image")
+#         if qr_file and qr_file.filename:
+#             filename = save_uploaded_image(qr_file, current_app.config["QR_FOLDER"])
+#             if filename:
+#                 settings.qr_image_path = filename
+#             else:
+#                 flash("QR image sirf jpg/png/webp format me upload karein", "error")
+#         settings.updated_at = now()
+#         db.session.commit()
+#         flash("UPI settings update ho gayi", "success")
+#         return redirect(url_for("admin.upi_settings"))
+#     return render_template("upi_settings.html", settings=settings)
+
+
+
+# ---------- RAZORPAY PAYMENTS (read-only - everything here is automatic) ----------
+@admin_bp.get("/razorpay-payments/")
 @admin_required
-def payment_requests():
-    q = PaymentRequest.query.order_by(PaymentRequest.created_at.desc())
-    f = request.args.get("filter", "PENDING")
-    if f in ("PENDING", "APPROVED", "REJECTED"):
+def razorpay_payments():
+    q = RazorpayPayment.query.order_by(RazorpayPayment.created_at.desc())
+    f = request.args.get("filter", "")
+    if f in ("CREATED", "PAID", "FAILED"):
         q = q.filter_by(status=f)
-    return render_template("payment_requests.html", requests=q.all(), current_filter=f)
-
-
-@admin_bp.post("/payment-requests/<int:rid>/approve/")
-@admin_required
-def approve_payment_request(rid):
-    pr = PaymentRequest.query.get_or_404(rid)
-    if pr.status != "PENDING":
-        flash("Yeh request pehle hi process ho chuki hai", "error")
-        return redirect(url_for("admin.payment_requests"))
-    sub = Subscription.activate(pr.shop, pr.plan)
-    pr.status = "APPROVED"
-    pr.reviewed_by_id = session.get("admin_id")
-    pr.reviewed_at = now()
-    db.session.commit()
-    flash(f"{pr.shop.name} ka '{pr.plan.name}' plan activate ho gaya "
-          f"({sub.days_remaining} din)", "success")
-    return redirect(url_for("admin.payment_requests"))
-
-
-@admin_bp.post("/payment-requests/<int:rid>/reject/")
-@admin_required
-def reject_payment_request(rid):
-    pr = PaymentRequest.query.get_or_404(rid)
-    if pr.status != "PENDING":
-        flash("Yeh request pehle hi process ho chuki hai", "error")
-        return redirect(url_for("admin.payment_requests"))
-    pr.status = "REJECTED"
-    pr.admin_note = request.form.get("reason", "")
-    pr.reviewed_by_id = session.get("admin_id")
-    pr.reviewed_at = now()
-    db.session.commit()
-    flash(f"{pr.shop.name} ki payment request reject ho gayi", "success")
-    return redirect(url_for("admin.payment_requests"))
-
-
-# ---------- UPI SETTINGS (QR code + UPI ID) ----------
-@admin_bp.route("/upi-settings/", methods=["GET", "POST"])
-@admin_required
-def upi_settings():
-    settings = PlatformSettings.get()
-    if request.method == "POST":
-        settings.upi_id = request.form.get("upi_id", "")
-        settings.upi_name = request.form.get("upi_name", "")
-        qr_file = request.files.get("qr_image")
-        if qr_file and qr_file.filename:
-            filename = save_uploaded_image(qr_file, current_app.config["QR_FOLDER"])
-            if filename:
-                settings.qr_image_path = filename
-            else:
-                flash("QR image sirf jpg/png/webp format me upload karein", "error")
-        settings.updated_at = now()
-        db.session.commit()
-        flash("UPI settings update ho gayi", "success")
-        return redirect(url_for("admin.upi_settings"))
-    return render_template("upi_settings.html", settings=settings)
-
+    payments = q.limit(300).all()
+    total_revenue = sum(p.amount for p in RazorpayPayment.query.filter_by(status="PAID").all())
+    return render_template("razorpay_payments.html", payments=payments,
+                           current_filter=f, total_revenue=total_revenue)
+ 
 
 # ---------- APP UPDATE SETTINGS (force-update control) ----------
 @admin_bp.route("/app-settings/", methods=["GET", "POST"])
@@ -264,11 +279,7 @@ def app_settings():
 @admin_bp.route("/notifications/", methods=["GET", "POST"])
 @admin_required
 def notifications():
-    print("[ADMIN] /admin/notifications/ accessed")
-    print("[ADMIN] /admin/notifications/ accessed")
-    print("[ADMIN] /admin/notifications/ accessed")
-    print("[ADMIN] /admin/notifications/ accessed")
-    print("[ADMIN] /admin/notifications/ accessed")
+
     if request.method == "POST":
         title = request.form.get("title", "").strip()
         message = request.form.get("message", "").strip()

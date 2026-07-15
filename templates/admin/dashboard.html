@@ -9,7 +9,7 @@
  <div class="stat-card"><div class="num">{{ stats.jobs }}</div><div class="lbl">Total Job Cards</div></div>
  <div class="stat-card"><div class="num">{{ stats.customers }}</div><div class="lbl">Total Customers</div></div>
  <div class="stat-card"><div class="num">₹{{ stats.revenue }}</div><div class="lbl">Total Revenue (sab shops)</div></div>
- <div class="stat-card"><div class="num">{{ stats.pending_payments }}</div><div class="lbl">⏳ Pending Payment Requests</div></div>
+ <div class="stat-card"><div class="num">Rs. {{ "{:,.0f}".format(stats.subscription_revenue) }}</div><div class="lbl">Subscription Revenue (Razorpay)</div></div>
 </div>
 <div class="card"><h3 style="margin-bottom:12px">🆕 Recent Shops</h3>
 <table><tr><th>Shop</th><th>City</th><th>Registered</th><th>Status</th></tr>

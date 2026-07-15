@@ -1,6 +1,27 @@
 {% extends "base.html" %}{% block content %}
 <div class="topbar"><h1>Notifications</h1></div>
 
+<div class="stats">
+  <div class="stat-card">
+    <div class="num">{% if status.initialized %}<span class="badge green">Ready</span>{% else %}<span class="badge red">Not Set Up</span>{% endif %}</div>
+    <div class="lbl">Firebase push delivery</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">{{ registered_tokens }} / {{ eligible_users }}</div>
+    <div class="lbl">Active users with push enabled</div>
+  </div>
+</div>
+
+{% if not status.initialized %}
+<div class="flash error">
+  Firebase isn't configured in this process yet, so pushes won't actually
+  deliver (in-app notifications still work). Set FIREBASE_CREDENTIALS_PATH
+  to a valid service-account file in the same environment this app runs in.
+  Looking for: {{ status.credentials_path }}
+  ({% if status.credentials_file_exists %}file exists, but failed to load{% else %}file not found{% endif %})
+</div>
+{% endif %}
+
 <div class="card">
   <h3 style="margin-top:0">Send a New Notification</h3>
   <p style="color:#757575;font-size:13px">This will be visible to every user across every shop the next time they open the app.</p>

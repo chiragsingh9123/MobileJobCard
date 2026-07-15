@@ -1,0 +1,41 @@
+{% extends "base.html" %}{% block content %}
+<div class="topbar"><h1>Subscription Payments</h1></div>
+
+<div class="stats">
+  <div class="stat-card">
+    <div class="num">Rs. {{ "{:,.0f}".format(total_revenue) }}</div>
+    <div class="lbl">Total collected (all-time)</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="topbar">
+    <span></span>
+    <span>
+      <a href="{{ url_for('admin.razorpay_payments') }}" class="btn btn-sm {% if not current_filter %}btn-primary{% endif %}">All</a>
+      <a href="{{ url_for('admin.razorpay_payments', filter='PAID') }}" class="btn btn-sm {% if current_filter == 'PAID' %}btn-success{% endif %}">Paid</a>
+      <a href="{{ url_for('admin.razorpay_payments', filter='CREATED') }}" class="btn btn-sm {% if current_filter == 'CREATED' %}btn-primary{% endif %}">Pending</a>
+      <a href="{{ url_for('admin.razorpay_payments', filter='FAILED') }}" class="btn btn-sm {% if current_filter == 'FAILED' %}btn-danger{% endif %}">Failed</a>
+    </span>
+  </div>
+  <table>
+    <tr><th>Shop</th><th>Plan</th><th>Amount</th><th>Razorpay Order ID</th><th>Status</th><th>Created</th></tr>
+    {% for p in payments %}
+    <tr>
+      <td>{{ p.shop.name }}</td>
+      <td>{{ p.plan.name }}</td>
+      <td>Rs. {{ p.amount }}</td>
+      <td>{{ p.razorpay_order_id }}</td>
+      <td>
+        {% if p.status == "PAID" %}<span class="badge green">Paid</span>
+        {% elif p.status == "FAILED" %}<span class="badge red">Failed</span>
+        {% else %}<span class="badge orange">Pending</span>{% endif %}
+      </td>
+      <td>{{ p.created_at.strftime('%d %b %Y, %I:%M %p') }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="6" style="text-align:center;color:#757575">No payments yet</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -88,7 +88,7 @@ def register():
                                       is_purchasable=False)
         db.session.add(trial_plan)
         db.session.flush()
-    db.session.add(Subscription(shop_id=shop.id, plan_id=trial_plan.id, is_trial=True,
+    db.session.add(Subscription(shop_id=shop.id, plan_id=trial_plan.id, is_trial=True, source="TRIAL",
                                 end_date=now() + timedelta(days=current_app.config["TRIAL_DAYS"])))
     db.session.commit()
     return jsonify({"tokens": make_tokens(user), "user": user.to_dict(),

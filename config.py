@@ -60,3 +60,11 @@ class Config:
     OTP_EXPIRY_MINUTES = 5
     OTP_MAX_ATTEMPTS = 5
     OTP_RESEND_COOLDOWN_SECONDS = 45
+
+
+     # ---------------- RAZORPAY (subscription payments) ----------------
+    # From Razorpay Dashboard -> Settings -> API Keys. The webhook secret is
+    # set separately under Settings -> Webhooks when you add the webhook URL.
+    RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID", "rzp_test_TDWQX1aSXNYYOU")
+    RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET", "XyiIG52GbkOGnEQ5vC4dCO0F")
+    RAZORPAY_WEBHOOK_SECRET = os.environ.get("RAZORPAY_WEBHOOK_SECRET", "webhook-secret-from-razorpay-dashboard")

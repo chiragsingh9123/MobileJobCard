@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 import jwt
 from flask import request, jsonify, current_app
-from models import User
+from models import User, Subscription
 import requests
 
 def make_tokens(user):
@@ -31,8 +31,15 @@ def current_user():
         return None
 
 
+# Blueprints that stay reachable even when a shop's subscription has expired -
+# without this, an expired shop could never see its own status, log in, pay
+# to renew, or see admin announcements. Everything else (jobs, customers,
+# inventory, staff, reports, payments/khata) is gated on an active subscription.
+SUBSCRIPTION_EXEMPT_BLUEPRINTS = {"auth", "subscription", "notifications", "app_meta"}
+
+
 def login_required(f):
-    """API routes ke liye: valid JWT + active shop chahiye"""
+    """API routes ke liye: valid JWT + active shop + active subscription chahiye"""
     @wraps(f)
     def wrapper(*args, **kwargs):
         user = current_user()
@@ -40,6 +47,10 @@ def login_required(f):
             return jsonify({"detail": "Authentication required"}), 401
         if user.shop and not user.shop.is_active:
             return jsonify({"detail": "Shop blocked by admin"}), 403
+        if (user.shop_id and request.blueprint not in SUBSCRIPTION_EXEMPT_BLUEPRINTS
+                and not Subscription.is_shop_active(user.shop_id)):
+            return jsonify({"detail": "Your subscription has expired. Please renew to continue.",
+                            "subscription_expired": True}), 402
         return f(user, *args, **kwargs)
     return wrapper
 

@@ -135,40 +135,59 @@ class Subscription(db.Model):
     start_date = db.Column(db.DateTime, default=now)
     end_date = db.Column(db.DateTime, nullable=False)
     is_trial = db.Column(db.Boolean, default=False)
+    # Where this subscription came from - useful for support/audit ("why does
+    # this shop have access") without cross-referencing other tables.
+    source = db.Column(db.String(20), default="TRIAL")  # TRIAL / RAZORPAY / VOUCHER / ADMIN_MANUAL
     created_at = db.Column(db.DateTime, default=now)
-
+ 
     shop = db.relationship("Shop", backref="subscriptions")
     plan = db.relationship("SubscriptionPlan")
-
+ 
     @property
     def days_remaining(self):
         d = (self.end_date - now()).days
         return max(d, 0)
-
+ 
     @property
     def is_active(self):
         return self.end_date > now()
-
+ 
     def to_dict(self):
         return {"id": self.id, "plan": self.plan.to_dict(),
                 "start_date": self.start_date.isoformat(),
                 "end_date": self.end_date.isoformat(),
                 "days_remaining": self.days_remaining,
-                "is_trial": self.is_trial, "is_active": self.is_active}
-
+                "is_trial": self.is_trial, "is_active": self.is_active,
+                "source": self.source}
+ 
     @staticmethod
-    def activate(shop, plan, extra_days=0):
+    def get_current(shop_id):
+        """The shop's most recent subscription (by end_date) - this is THE
+        one place that decides "is this shop currently paid up", so every
+        other piece of code (login gating, UI banners, admin views) reads
+        from this instead of each writing its own query."""
+        return (Subscription.query.filter_by(shop_id=shop_id)
+                .order_by(Subscription.end_date.desc()).first())
+ 
+    @staticmethod
+    def is_shop_active(shop_id):
+        """True if the shop has a subscription and it hasn't expired yet."""
+        current = Subscription.get_current(shop_id)
+        return bool(current and current.is_active)
+ 
+    @staticmethod
+    def activate(shop, plan, extra_days=0, source="ADMIN_MANUAL"):
         """Shop ke liye subscription activate/extend karo (current end se aage badhao)"""
         total_days = plan.duration_days + extra_days
-        current = (Subscription.query.filter_by(shop_id=shop.id)
-                   .order_by(Subscription.end_date.desc()).first())
+        current = Subscription.get_current(shop.id)
         start = now()
         if current and current.end_date > now():
             start = current.end_date
-        sub = Subscription(shop_id=shop.id, plan_id=plan.id,
+        sub = Subscription(shop_id=shop.id, plan_id=plan.id, source=source,
                            start_date=start, end_date=start + timedelta(days=total_days))
         db.session.add(sub)
         return sub
+
 
 
 class Voucher(db.Model):
@@ -200,7 +219,7 @@ class Voucher(db.Model):
         if self.expires_at and self.expires_at < now():
             return None, "This voucher has expired"
 
-        sub = Subscription.activate(shop, self.plan, self.extra_days)
+        sub = Subscription.activate(shop, self.plan, self.extra_days, source="VOUCHER")
         self.is_redeemed = True
         self.redeemed_by_shop_id = shop.id
         self.redeemed_at = now()
@@ -241,6 +260,46 @@ class PlatformSettings(db.Model):
                 "min_version_code": self.min_version_code,
                 "update_message": self.update_message,
                 "play_store_url": self.play_store_url}
+
+
+class RazorpayPayment(db.Model):
+    """Automated subscription purchase via Razorpay. One row per checkout
+    attempt: created the moment an order is opened, then updated once the
+    payment is verified (or marked FAILED if verification fails). This
+    replaces the old manual UPI-screenshot + admin-approval flow (kept above
+    as PaymentRequest, untouched, purely for historical records)."""
+    __tablename__ = "razorpay_payments"
+    id = db.Column(db.Integer, primary_key=True)
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"), nullable=False, index=True)
+    plan_id = db.Column(db.Integer, db.ForeignKey("subscription_plans.id"), nullable=False)
+    subscription_id = db.Column(db.Integer, db.ForeignKey("subscriptions.id"), nullable=True)
+    razorpay_order_id = db.Column(db.String(64), nullable=False, unique=True, index=True)
+    razorpay_payment_id = db.Column(db.String(64), nullable=True)
+    razorpay_signature = db.Column(db.String(128), nullable=True)
+    amount = db.Column(db.Float, nullable=False)  # rupees, for readability
+    currency = db.Column(db.String(8), default="INR")
+    status = db.Column(db.String(12), default="CREATED")  # CREATED / PAID / FAILED
+    failure_reason = db.Column(db.String(255), default="")
+    created_at = db.Column(db.DateTime, default=now)
+    verified_at = db.Column(db.DateTime, nullable=True)
+ 
+    shop = db.relationship("Shop")
+    plan = db.relationship("SubscriptionPlan")
+    subscription = db.relationship("Subscription")
+ 
+    def to_dict(self):
+        return {"id": self.id, "plan": self.plan.to_dict(), "amount": self.amount,
+                "currency": self.currency, "status": self.status,
+                "razorpay_order_id": self.razorpay_order_id,
+                "created_at": self.created_at.isoformat(),
+                "verified_at": self.verified_at.isoformat() if self.verified_at else None}
+ 
+    def to_admin_dict(self):
+        d = self.to_dict()
+        d["shop"] = self.shop.to_dict()
+        d["failure_reason"] = self.failure_reason
+        d["razorpay_payment_id"] = self.razorpay_payment_id
+        return d
 
 
 class PaymentRequest(db.Model):
