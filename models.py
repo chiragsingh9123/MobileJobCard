@@ -123,9 +123,10 @@ class SubscriptionPlan(db.Model):
     is_purchasable = db.Column(db.Boolean, default=True)  # False for auto Free-Trial plan
 
     def to_dict(self):
-        return {"id": self.id, "name": self.name, "price": self.price,
-                "duration_days": self.duration_days, "description": self.description}
-
+        return {"id": self.id, "name": self.name or "Plan",
+            "price": self.price if self.price is not None else 0,
+            "duration_days": self.duration_days if self.duration_days is not None else 30,
+            "description": self.description or ""}
 
 class Subscription(db.Model):
     __tablename__ = "subscriptions"
