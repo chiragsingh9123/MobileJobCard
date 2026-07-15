@@ -9,7 +9,8 @@ from models import (User, Shop, SubscriptionPlan, Subscription, Voucher,
                     JobCard, Customer, Payment, LedgerEntry, Product,
                     PlatformSettings, PaymentRequest,RazorpayPayment, Notification, now)
 from utils import save_uploaded_image
-from push_notifications import send_push_multicast
+# from push_notifications import send_push_multicast
+from push_notifications import send_push_multicast, get_last_multicast_error, firebase_status
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin",
                      template_folder="../templates/admin")
@@ -279,7 +280,6 @@ def app_settings():
 @admin_bp.route("/notifications/", methods=["GET", "POST"])
 @admin_required
 def notifications():
-
     if request.method == "POST":
         title = request.form.get("title", "").strip()
         message = request.form.get("message", "").strip()
@@ -288,16 +288,24 @@ def notifications():
             return redirect(url_for("admin.notifications"))
         db.session.add(Notification(title=title, message=message))
         db.session.commit()
- 
+
         tokens = [u.fcm_token for u in User.query.filter(
             User.fcm_token.isnot(None), User.is_active.is_(True)).all()]
         delivered = send_push_multicast(tokens, title, message, data={"type": "ADMIN_BROADCAST"})
-        print(f"[ADMIN] Broadcast sent to {len(tokens)} device(s), {delivered} delivered")
-        
-        flash(f"Notification sent to all users ({delivered} device(s) reached by push)", "success")
+
+        if delivered > 0:
+            flash(f"Notification sent to all users ({delivered} device(s) reached by push)", "success")
+        else:
+            reason = get_last_multicast_error() or "Unknown reason"
+            flash(f"Notification saved, but 0 devices were reached by push. Reason: {reason}", "error")
         return redirect(url_for("admin.notifications"))
     sent = Notification.query.order_by(Notification.created_at.desc()).all()
-    return render_template("notifications.html", sent=sent)
+    status = firebase_status()
+    eligible_users = User.query.filter(User.is_active.is_(True)).count()
+    registered_tokens = User.query.filter(
+        User.fcm_token.isnot(None), User.is_active.is_(True)).count()
+    return render_template("notifications.html", sent=sent, status=status,
+                           eligible_users=eligible_users, registered_tokens=registered_tokens)
 
 
 @admin_bp.post("/notifications/<int:nid>/retract/")

@@ -65,6 +65,6 @@ class Config:
      # ---------------- RAZORPAY (subscription payments) ----------------
     # From Razorpay Dashboard -> Settings -> API Keys. The webhook secret is
     # set separately under Settings -> Webhooks when you add the webhook URL.
-    RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID", "rzp_test_TDWQX1aSXNYYOU")
-    RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET", "XyiIG52GbkOGnEQ5vC4dCO0F")
+    RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID", "rzp_live_TDOg5Z1DEn9DSi")
+    RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET", "1Cy1v33gNkuk6UUKWYKmKUfJ")
     RAZORPAY_WEBHOOK_SECRET = os.environ.get("RAZORPAY_WEBHOOK_SECRET", "webhook-secret-from-razorpay-dashboard")
