@@ -166,7 +166,9 @@ def register_fcm_token(user):
 @auth_bp.get("/plans/")
 def plans():
     return jsonify({"results": [p.to_dict() for p in
-                    SubscriptionPlan.query.filter_by(is_active=True, is_purchasable=True).all()]})
+                    SubscriptionPlan.query.filter(
+        SubscriptionPlan.is_active.isnot(False),
+        SubscriptionPlan.is_purchasable.isnot(False)).all()]})
 
 
 @auth_bp.post("/redeem-voucher/")
