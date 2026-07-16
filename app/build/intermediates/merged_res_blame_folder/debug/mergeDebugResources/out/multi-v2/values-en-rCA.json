@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.revenueaccount.app-mergeDebugResources-44:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.revenueaccount.app-mergeDebugResources-48:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\82396cea6042b2c00bc853f6dec4b60a\\transformed\\appcompat-1.7.1\\res\\values-en-rCA\\values-en-rCA.xml",
@@ -35,6 +35,23 @@
                         "startOffsets": "2762,2858,2960,3059,3158,3262,3364,3563",
                         "endColumns": "95,101,98,98,103,101,115,100",
                         "endOffsets": "2853,2955,3054,3153,3257,3359,3475,3659"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\4711b7bbd3914eac7c834c2ca0e60683\\transformed\\play-services-wallet-18.1.3\\res\\values-en-rCA\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "206",
+                        "endColumns": "70",
+                        "endOffsets": "276"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "3664",
+                        "endColumns": "74",
+                        "endOffsets": "3734"
                     }
                 }
             ]

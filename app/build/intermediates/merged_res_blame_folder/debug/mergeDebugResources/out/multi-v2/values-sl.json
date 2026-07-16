@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.revenueaccount.app-mergeDebugResources-44:/values-sl/values-sl.xml",
+            "outputFile": "com.revenueaccount.app-mergeDebugResources-48:/values-sl/values-sl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\00f6c5b6bd9e99f0a0fdf6cb13390ea2\\transformed\\core-1.13.0\\res\\values-sl\\values-sl.xml",
@@ -91,6 +91,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\4711b7bbd3914eac7c834c2ca0e60683\\transformed\\play-services-wallet-18.1.3\\res\\values-sl\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "202",
+                        "endColumns": "70",
+                        "endOffsets": "272"
+                    },
+                    "to": {
+                        "startLines": "137",
+                        "startColumns": "4",
+                        "startOffsets": "12360",
+                        "endColumns": "74",
+                        "endOffsets": "12430"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\a0a41a5c57523de87ab50931d8082f4d\\transformed\\zxing-android-embedded-4.3.0\\res\\values-sl\\values-sl.xml",
                     "from": {
                         "startLines": "2,3,4,5",
@@ -100,11 +117,11 @@
                         "endOffsets": "109,160,313,413"
                     },
                     "to": {
-                        "startLines": "137,138,139,140",
+                        "startLines": "138,139,140,141",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "12360,12419,12470,12623",
+                        "startOffsets": "12435,12494,12545,12698",
                         "endColumns": "58,50,152,99",
-                        "endOffsets": "12414,12465,12618,12718"
+                        "endOffsets": "12489,12540,12693,12793"
                     }
                 }
             ]

@@ -1,131 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
- xmlns:app="http://schemas.android.com/apk/res-auto"
- android:layout_width="match_parent" android:layout_height="match_parent"
- android:orientation="vertical" android:background="@color/background">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
  <LinearLayout
- android:layout_width="match_parent" android:layout_height="56dp"
- android:background="@drawable/bg_header_gradient" android:gravity="center_vertical"
- android:orientation="horizontal" android:paddingHorizontal="8dp">
- <ImageView android:id="@+id/btnBack"
- android:layout_width="44dp" android:layout_height="44dp" android:padding="10dp"
- android:src="@drawable/ic_back" app:tint="@color/white"/>
- <TextView
- android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
- android:text="Subscription" android:textColor="@color/white"
- android:textSize="19sp" android:textStyle="bold"/>
+     android:layout_width="match_parent" android:layout_height="match_parent"
+     android:orientation="vertical" android:background="@color/background">
+
+  <LinearLayout
+      android:layout_width="match_parent" android:layout_height="56dp"
+      android:background="@drawable/bg_header_gradient" android:gravity="center_vertical"
+      android:orientation="horizontal" android:paddingHorizontal="8dp">
+   <ImageView android:id="@+id/btnBack"
+       android:layout_width="44dp" android:layout_height="44dp" android:padding="10dp"
+       android:src="@drawable/ic_back" app:tint="@color/white"/>
+   <TextView
+       android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+       android:text="Subscription" android:textColor="@color/white"
+       android:textSize="19sp" android:textStyle="bold"/>
+  </LinearLayout>
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/swipeRefresh"
+      android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+   <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+     <!-- Current status card - color/content set programmatically (active vs expired) -->
+     <com.google.android.material.card.MaterialCardView
+         android:id="@+id/statusCard"
+         android:layout_width="match_parent" android:layout_height="wrap_content"
+         app:cardCornerRadius="16dp" app:cardElevation="0dp" app:strokeWidth="0dp">
+      <LinearLayout
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="vertical" android:padding="20dp">
+       <TextView android:id="@+id/tvStatusEyebrow"
+           android:layout_width="wrap_content" android:layout_height="wrap_content"
+           android:textSize="12sp" android:letterSpacing="0.06" android:textStyle="bold"/>
+       <TextView android:id="@+id/tvStatusHeadline"
+           android:layout_width="wrap_content" android:layout_height="wrap_content"
+           android:layout_marginTop="6dp" android:textSize="20sp" android:textStyle="bold"
+           android:fontFamily="sans-serif-medium"/>
+       <TextView android:id="@+id/tvStatusSub"
+           android:layout_width="wrap_content" android:layout_height="wrap_content"
+           android:layout_marginTop="4dp" android:textSize="13sp"/>
+      </LinearLayout>
+     </com.google.android.material.card.MaterialCardView>
+
+     <TextView
+         android:layout_width="wrap_content" android:layout_height="wrap_content"
+         android:layout_marginTop="24dp" android:text="Choose a Plan"
+         android:textColor="@color/text_primary" android:textSize="18sp"
+         android:fontFamily="sans-serif-medium"/>
+
+     <LinearLayout android:id="@+id/planContainer"
+         android:layout_width="match_parent" android:layout_height="wrap_content"
+         android:orientation="vertical" android:layout_marginTop="12dp"/>
+
+     <!-- Voucher - secondary, collapsed by default -->
+     <TextView android:id="@+id/tvVoucherToggle"
+         android:layout_width="wrap_content" android:layout_height="wrap_content"
+         android:layout_marginTop="24dp" android:padding="4dp"
+         android:text="Have a voucher code?" android:textColor="@color/primary"
+         android:textSize="14sp" android:fontFamily="sans-serif-medium"/>
+     <LinearLayout android:id="@+id/voucherSection"
+         android:layout_width="match_parent" android:layout_height="wrap_content"
+         android:orientation="horizontal" android:layout_marginTop="10dp"
+         android:visibility="gone">
+      <com.google.android.material.textfield.TextInputLayout
+          style="@style/Input" android:hint="Voucher Code" android:layout_marginTop="0dp"
+          android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content">
+       <com.google.android.material.textfield.TextInputEditText
+           android:id="@+id/etVoucherCode" android:textAllCaps="true"
+           android:layout_width="match_parent" android:layout_height="wrap_content"/>
+      </com.google.android.material.textfield.TextInputLayout>
+      <Button android:id="@+id/btnRedeem"
+          style="@style/Widget.Material3.Button.OutlinedButton"
+          android:layout_width="wrap_content" android:layout_height="56dp"
+          android:layout_marginStart="10dp" android:text="Redeem"/>
+     </LinearLayout>
+
+     <TextView
+         android:layout_width="wrap_content" android:layout_height="wrap_content"
+         android:layout_marginTop="28dp" android:text="Payment History"
+         android:textColor="@color/text_primary" android:textSize="18sp"
+         android:fontFamily="sans-serif-medium"/>
+     <LinearLayout android:id="@+id/historyContainer"
+         android:layout_width="match_parent" android:layout_height="wrap_content"
+         android:orientation="vertical" android:layout_marginTop="12dp"
+         android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+   </ScrollView>
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
  </LinearLayout>
 
- <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
- <LinearLayout
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:orientation="vertical" android:padding="14dp">
-
- <TextView android:id="@+id/tvCurrentPlan"
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:background="@color/primary_light" android:padding="14dp"
- android:textColor="@color/primary_dark" android:textSize="14sp"
- android:layout_marginBottom="14dp"/>
-
- <!-- Tab selector -->
- <LinearLayout
- android:layout_width="match_parent" android:layout_height="48dp"
- android:orientation="horizontal" android:background="@color/white"
- android:layout_marginBottom="12dp">
- <Button android:id="@+id/btnTabVoucher"
- style="@style/Widget.Material3.Button.TextButton"
- android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
- android:text=" Voucher Code"/>
- <Button android:id="@+id/btnTabUpi"
- style="@style/Widget.Material3.Button.TextButton"
- android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
- android:text=" UPI Payment"/>
+ <!-- Processing overlay: shown during order creation / checkout / verification -->
+ <LinearLayout android:id="@+id/processingOverlay"
+     android:layout_width="match_parent" android:layout_height="match_parent"
+     android:background="#CC16324A" android:gravity="center" android:orientation="vertical"
+     android:visibility="gone" android:clickable="true" android:focusable="true">
+  <ProgressBar
+      android:layout_width="48dp" android:layout_height="48dp"
+      android:indeterminateTint="@color/white"/>
+  <TextView android:id="@+id/tvProcessingStatus"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_marginTop="16dp" android:text="Processing..."
+      android:textColor="@color/white" android:textSize="15sp"/>
  </LinearLayout>
 
- <!-- ===== VOUCHER SECTION ===== -->
- <LinearLayout android:id="@+id/voucherSection"
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:orientation="vertical">
- <com.google.android.material.textfield.TextInputLayout
- style="@style/Input"
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:hint="Voucher Code (RA-XXXXXXXXXX)">
- <com.google.android.material.textfield.TextInputEditText
- android:id="@+id/etVoucherCode" android:inputType="textCapCharacters"
- android:layout_width="match_parent" android:layout_height="wrap_content"/>
- </com.google.android.material.textfield.TextInputLayout>
- <Button android:id="@+id/btnRedeem"
- android:layout_width="match_parent" android:layout_height="52dp"
- android:layout_marginTop="12dp" android:backgroundTint="@color/primary"
- android:text="Redeem Karein"/>
+ <!-- Success overlay: animated checkmark -->
+ <LinearLayout android:id="@+id/successOverlay"
+     android:layout_width="match_parent" android:layout_height="match_parent"
+     android:background="@color/background" android:gravity="center" android:orientation="vertical"
+     android:visibility="gone">
+  <ImageView android:id="@+id/ivSuccessCheck"
+      android:layout_width="96dp" android:layout_height="96dp"
+      android:src="@drawable/ic_check_circle" app:tint="@color/success"
+      android:contentDescription="@null"/>
+  <TextView android:id="@+id/tvSuccessTitle"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_marginTop="20dp" android:text="Payment Successful"
+      android:textColor="@color/text_primary" android:textSize="22sp"
+      android:fontFamily="sans-serif-medium"/>
+  <TextView android:id="@+id/tvSuccessSub"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_marginTop="8dp" android:textColor="@color/text_secondary" android:textSize="14sp"
+      android:gravity="center" android:paddingHorizontal="32dp"/>
+  <Button android:id="@+id/btnSuccessDone"
+      android:layout_width="200dp" android:layout_height="52dp"
+      android:layout_marginTop="28dp" android:backgroundTint="@color/primary" android:text="Done"/>
  </LinearLayout>
 
- <!-- ===== UPI SECTION ===== -->
- <LinearLayout android:id="@+id/upiSection"
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:orientation="vertical" android:visibility="gone">
-
- <TextView style="@style/SectionTitle" android:text="1⃣ Plan Chunein"
- android:layout_width="wrap_content" android:layout_height="wrap_content"/>
- <LinearLayout android:id="@+id/planContainer"
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:orientation="vertical" android:layout_marginBottom="14dp"/>
-
- <TextView style="@style/SectionTitle" android:text="2⃣ QR Scan Karke Pay Karein"
- android:layout_width="wrap_content" android:layout_height="wrap_content"/>
- <com.google.android.material.card.MaterialCardView
- android:layout_width="match_parent" android:layout_height="wrap_content"
- app:cardCornerRadius="14dp" app:cardElevation="2dp">
- <LinearLayout
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:orientation="vertical" android:gravity="center" android:padding="16dp">
- <ImageView android:id="@+id/ivQr"
- android:layout_width="200dp" android:layout_height="200dp"
- android:background="#F7F8FA" android:scaleType="fitCenter"/>
- <TextView android:id="@+id/tvUpiId"
- android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:layout_marginTop="10dp" android:textColor="@color/text_primary"
- android:textSize="15sp" android:textStyle="bold"/>
- <TextView android:id="@+id/tvAmount"
- android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:layout_marginTop="4dp" android:textColor="@color/success"
- android:textSize="18sp" android:textStyle="bold"/>
- </LinearLayout>
- </com.google.android.material.card.MaterialCardView>
-
- <TextView style="@style/SectionTitle" android:text="3⃣ Payment Proof Submit Karein"
- android:layout_marginTop="16dp"
- android:layout_width="wrap_content" android:layout_height="wrap_content"/>
- <com.google.android.material.textfield.TextInputLayout
- style="@style/Input"
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:hint="UTR / Transaction Number *">
- <com.google.android.material.textfield.TextInputEditText
- android:id="@+id/etUtr"
- android:layout_width="match_parent" android:layout_height="wrap_content"/>
- </com.google.android.material.textfield.TextInputLayout>
- <Button android:id="@+id/btnPickScreenshot"
- style="@style/Widget.Material3.Button.OutlinedButton"
- android:layout_width="match_parent" android:layout_height="52dp"
- android:layout_marginTop="10dp" android:text=" Payment Screenshot Chunein"/>
- <ImageView android:id="@+id/ivScreenshotPreview"
- android:layout_width="120dp" android:layout_height="120dp"
- android:layout_marginTop="10dp" android:scaleType="centerCrop"
- android:visibility="gone" android:background="#F7F8FA"/>
- <Button android:id="@+id/btnSubmitPayment"
- android:layout_width="match_parent" android:layout_height="52dp"
- android:layout_marginTop="14dp" android:backgroundTint="@color/success"
- android:text=" Submit Karein"/>
+ <!-- Failure overlay: shown when the user cancels, the payment fails, or
+      verification doesn't succeed - covers all three cases from one screen,
+      with the specific reason set in the subtitle text at runtime. -->
+ <LinearLayout android:id="@+id/failureOverlay"
+     android:layout_width="match_parent" android:layout_height="match_parent"
+     android:background="@color/background" android:gravity="center" android:orientation="vertical"
+     android:visibility="gone">
+  <ImageView android:id="@+id/ivFailureIcon"
+      android:layout_width="96dp" android:layout_height="96dp"
+      android:src="@drawable/ic_error_circle" app:tint="@color/error"
+      android:contentDescription="@null"/>
+  <TextView android:id="@+id/tvFailureTitle"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_marginTop="20dp" android:text="Payment Failed"
+      android:textColor="@color/text_primary" android:textSize="22sp"
+      android:fontFamily="sans-serif-medium"/>
+  <TextView android:id="@+id/tvFailureSub"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_marginTop="8dp" android:textColor="@color/text_secondary" android:textSize="14sp"
+      android:gravity="center" android:paddingHorizontal="32dp"/>
+  <Button android:id="@+id/btnFailureRetry"
+      android:layout_width="200dp" android:layout_height="52dp"
+      android:layout_marginTop="28dp" android:backgroundTint="@color/primary" android:text="Try Again"/>
+  <Button android:id="@+id/btnFailureClose"
+      style="@style/Widget.Material3.Button.TextButton"
+      android:layout_width="200dp" android:layout_height="48dp"
+      android:layout_marginTop="6dp" android:text="Close"/>
  </LinearLayout>
 
- <!-- ===== MY PAYMENT REQUESTS HISTORY ===== -->
- <TextView style="@style/SectionTitle" android:text=" Meri Payment Requests"
- android:layout_marginTop="24dp"
- android:layout_width="wrap_content" android:layout_height="wrap_content"/>
- <LinearLayout android:id="@+id/requestsContainer"
- android:layout_width="match_parent" android:layout_height="wrap_content"
- android:orientation="vertical" android:paddingBottom="24dp"/>
- </LinearLayout>
- </ScrollView>
-</LinearLayout>
+</FrameLayout>

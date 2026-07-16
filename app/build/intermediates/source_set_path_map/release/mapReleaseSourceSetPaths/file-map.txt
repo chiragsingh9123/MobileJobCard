@@ -1,39 +1,54 @@
-com.revenueaccount.app-activity-1.8.0-0 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\03b6c4eed0bd4923ad6edb2c35f01f32\transformed\activity-1.8.0\res
-com.revenueaccount.app-recyclerview-1.3.2-1 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\0a6f9e994e5c65229ec4a50bc317c0ab\transformed\recyclerview-1.3.2\res
-com.revenueaccount.app-material-1.11.0-2 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1426e8610580d9f6b8261a79910ac9a9\transformed\material-1.11.0\res
-com.revenueaccount.app-core-1.9.0-3 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1b464219331fa84f75b241c4e1af3ade\transformed\core-1.9.0\res
-com.revenueaccount.app-core-ktx-1.9.0-4 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\1d8e017fa53e6bc31513abf96085f8d2\transformed\core-ktx-1.9.0\res
-com.revenueaccount.app-coordinatorlayout-1.1.0-5 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\23118caa6ebd82e7f31534ed31f2567d\transformed\coordinatorlayout-1.1.0\res
-com.revenueaccount.app-lifecycle-viewmodel-2.6.1-6 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2ad483421999e92b30f7dd6d4d6cfa61\transformed\lifecycle-viewmodel-2.6.1\res
-com.revenueaccount.app-lifecycle-livedata-2.6.1-7 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2b5aa8b2563f1f6c6b91baed9131bd80\transformed\lifecycle-livedata-2.6.1\res
-com.revenueaccount.app-transition-1.2.0-8 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\2bb19459c3167d89d162791f322f7a47\transformed\transition-1.2.0\res
-com.revenueaccount.app-appcompat-1.6.1-9 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\53d03f74fecc451e722f509e370803bf\transformed\appcompat-1.6.1\res
-com.revenueaccount.app-customview-poolingcontainer-1.0.0-10 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\543f08ee476d029336e41f1da0ee9a2f\transformed\customview-poolingcontainer-1.0.0\res
-com.revenueaccount.app-emoji2-1.2.0-11 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\615902493b60cc537f213a74a5dfd7ca\transformed\emoji2-1.2.0\res
-com.revenueaccount.app-viewpager2-1.1.0-beta02-12 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\641c29bb14728b66e6a6a0e6b2c00fc0\transformed\viewpager2-1.1.0-beta02\res
-com.revenueaccount.app-fragment-1.3.6-13 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\6c5a3063c14ea55d108904f91507f81b\transformed\fragment-1.3.6\res
-com.revenueaccount.app-annotation-experimental-1.3.0-14 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\792635365be0d0a76680e53a679a5ec4\transformed\annotation-experimental-1.3.0\res
-com.revenueaccount.app-startup-runtime-1.1.1-15 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\7eeea8ae437e99bc47177f1d35b3b39a\transformed\startup-runtime-1.1.1\res
-com.revenueaccount.app-zxing-android-embedded-4.3.0-16 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\8b59469a74bc3746d68ab7c4c351f6e7\transformed\zxing-android-embedded-4.3.0\res
-com.revenueaccount.app-profileinstaller-1.3.0-17 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9458d9b71482cbe0882be9e5b29e7244\transformed\profileinstaller-1.3.0\res
-com.revenueaccount.app-lifecycle-runtime-2.6.1-18 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9a341760af028a17b1c298a021ecd0f8\transformed\lifecycle-runtime-2.6.1\res
-com.revenueaccount.app-cardview-1.0.0-19 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9d55c34aa08c6e410e55f34242b5761a\transformed\cardview-1.0.0\res
-com.revenueaccount.app-savedstate-1.2.1-20 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\9ec63f677557a51d1b5595abcf504538\transformed\savedstate-1.2.1\res
-com.revenueaccount.app-core-runtime-2.2.0-21 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\a1ddd16cd8c46fea0c36b9dfd510b459\transformed\core-runtime-2.2.0\res
-com.revenueaccount.app-constraintlayout-2.1.4-22 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\adbf91871f0bfa594c85c059ce6accb4\transformed\constraintlayout-2.1.4\res
-com.revenueaccount.app-appcompat-resources-1.6.1-23 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\b030bb78a0d3d82cd52f1b9bde58a047\transformed\appcompat-resources-1.6.1\res
-com.revenueaccount.app-lifecycle-viewmodel-savedstate-2.6.1-24 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\c11def47f398be27ae3621fa56edf9e2\transformed\lifecycle-viewmodel-savedstate-2.6.1\res
-com.revenueaccount.app-lifecycle-process-2.6.1-25 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\d7d2c353d82b9278518fc88c37e13b93\transformed\lifecycle-process-2.6.1\res
-com.revenueaccount.app-swiperefreshlayout-1.1.0-26 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ea82081a7beb49dac0a8662795576b19\transformed\swiperefreshlayout-1.1.0\res
-com.revenueaccount.app-emoji2-views-helper-1.2.0-27 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ebf473dcbb6ae620cdf2b0b500114b9a\transformed\emoji2-views-helper-1.2.0\res
-com.revenueaccount.app-glide-4.16.0-28 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\ecc825780ebb8299834abeee1d6b1799\transformed\glide-4.16.0\res
-com.revenueaccount.app-drawerlayout-1.1.1-29 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\f78ff57c4e15c8aa364c0b2750a2947c\transformed\drawerlayout-1.1.1\res
-com.revenueaccount.app-lifecycle-livedata-core-2.6.1-30 C:\Users\Chirag\.gradle\caches\9.0-milestone-1\transforms\fc1e423ba36f401272175f5b8a0d810f\transformed\lifecycle-livedata-core-2.6.1\res
-com.revenueaccount.app-pngs-31 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\generated\res\pngs\release
-com.revenueaccount.app-resValues-32 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\generated\res\resValues\release
-com.revenueaccount.app-packageReleaseResources-33 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
-com.revenueaccount.app-packageReleaseResources-34 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
-com.revenueaccount.app-merged-not-compiled-resources-35 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\merged-not-compiled-resources\release
-com.revenueaccount.app-release-36 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\merged_res\release\mergeReleaseResources
-com.revenueaccount.app-main-37 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\res
-com.revenueaccount.app-release-38 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\release\res
+com.revenueaccount.app-core-runtime-2.2.0-0 C:\Users\Chirag\.gradle\caches\transforms-4\0066b0740949d9c2c51168338052683d\transformed\core-runtime-2.2.0\res
+com.revenueaccount.app-core-1.13.0-1 C:\Users\Chirag\.gradle\caches\transforms-4\00f6c5b6bd9e99f0a0fdf6cb13390ea2\transformed\core-1.13.0\res
+com.revenueaccount.app-ads-adservices-java-1.1.0-beta11-2 C:\Users\Chirag\.gradle\caches\transforms-4\0fbcc0a2323fbbbea0c1ddabc21e30ff\transformed\ads-adservices-java-1.1.0-beta11\res
+com.revenueaccount.app-recyclerview-1.3.2-3 C:\Users\Chirag\.gradle\caches\transforms-4\12afcff2aa18801aeca61e9899e79eec\transformed\recyclerview-1.3.2\res
+com.revenueaccount.app-play-services-basement-18.9.0-4 C:\Users\Chirag\.gradle\caches\transforms-4\1cb2a8bcca66d90bfe904097526ddc37\transformed\play-services-basement-18.9.0\res
+com.revenueaccount.app-cardview-1.0.0-5 C:\Users\Chirag\.gradle\caches\transforms-4\293d6ce5272103e0c715c259c2bbfeaf\transformed\cardview-1.0.0\res
+com.revenueaccount.app-fragment-1.5.7-6 C:\Users\Chirag\.gradle\caches\transforms-4\331663bb1702fa55ad26b4daf9a506d2\transformed\fragment-1.5.7\res
+com.revenueaccount.app-savedstate-1.2.1-7 C:\Users\Chirag\.gradle\caches\transforms-4\33349748e352ad5d426dd72dd5fb1467\transformed\savedstate-1.2.1\res
+com.revenueaccount.app-emoji2-views-helper-1.3.0-8 C:\Users\Chirag\.gradle\caches\transforms-4\3e06438cac13dd630e89d06f8e6261e1\transformed\emoji2-views-helper-1.3.0\res
+com.revenueaccount.app-standard-core-1.7.16-9 C:\Users\Chirag\.gradle\caches\transforms-4\3ee4d15d0c64d9def7a934b0cc50db1a\transformed\standard-core-1.7.16\res
+com.revenueaccount.app-lifecycle-runtime-2.6.2-10 C:\Users\Chirag\.gradle\caches\transforms-4\4056389f6aebc2dcf39788a143161d0b\transformed\lifecycle-runtime-2.6.2\res
+com.revenueaccount.app-play-services-wallet-18.1.3-11 C:\Users\Chirag\.gradle\caches\transforms-4\4711b7bbd3914eac7c834c2ca0e60683\transformed\play-services-wallet-18.1.3\res
+com.revenueaccount.app-datastore-release-12 C:\Users\Chirag\.gradle\caches\transforms-4\51fb64e46f4a91367bf16b96a0f3847b\transformed\datastore-release\res
+com.revenueaccount.app-transition-1.5.0-13 C:\Users\Chirag\.gradle\caches\transforms-4\5bed4d366220b6467f14f51002baa62b\transformed\transition-1.5.0\res
+com.revenueaccount.app-datastore-preferences-core-release-14 C:\Users\Chirag\.gradle\caches\transforms-4\5ffbd66e8e0e7dc3912b4742e7c3076a\transformed\datastore-preferences-core-release\res
+com.revenueaccount.app-viewpager2-1.1.0-beta02-15 C:\Users\Chirag\.gradle\caches\transforms-4\62dfb143306b1d60f66ec302d621e95d\transformed\viewpager2-1.1.0-beta02\res
+com.revenueaccount.app-play-services-base-18.9.0-16 C:\Users\Chirag\.gradle\caches\transforms-4\63e2177e043c56b36f351ede70400f68\transformed\play-services-base-18.9.0\res
+com.revenueaccount.app-lifecycle-viewmodel-2.6.2-17 C:\Users\Chirag\.gradle\caches\transforms-4\6753a2fc15cb89bd42f474b43f383c35\transformed\lifecycle-viewmodel-2.6.2\res
+com.revenueaccount.app-drawerlayout-1.1.1-18 C:\Users\Chirag\.gradle\caches\transforms-4\6908a20ae20e911bfa3f537d962b09a6\transformed\drawerlayout-1.1.1\res
+com.revenueaccount.app-lifecycle-process-2.6.2-19 C:\Users\Chirag\.gradle\caches\transforms-4\753949eea308112967b3087eb4c23fe8\transformed\lifecycle-process-2.6.2\res
+com.revenueaccount.app-datastore-core-release-20 C:\Users\Chirag\.gradle\caches\transforms-4\76f0a07ba1c94801dbbc4910ba14b15b\transformed\datastore-core-release\res
+com.revenueaccount.app-glide-4.16.0-21 C:\Users\Chirag\.gradle\caches\transforms-4\774e10fa4bdf401eea076d010ceb6638\transformed\glide-4.16.0\res
+com.revenueaccount.app-annotation-experimental-1.4.0-22 C:\Users\Chirag\.gradle\caches\transforms-4\7837d57df7402f5151e32c735bc00148\transformed\annotation-experimental-1.4.0\res
+com.revenueaccount.app-coordinatorlayout-1.1.0-23 C:\Users\Chirag\.gradle\caches\transforms-4\7cc60423ab035dc71fba3e4c545c4f4c\transformed\coordinatorlayout-1.1.0\res
+com.revenueaccount.app-datastore-preferences-release-24 C:\Users\Chirag\.gradle\caches\transforms-4\7ffe9fdc7fe233f19194d2eeaf918226\transformed\datastore-preferences-release\res
+com.revenueaccount.app-appcompat-1.7.1-25 C:\Users\Chirag\.gradle\caches\transforms-4\82396cea6042b2c00bc853f6dec4b60a\transformed\appcompat-1.7.1\res
+com.revenueaccount.app-swiperefreshlayout-1.1.0-26 C:\Users\Chirag\.gradle\caches\transforms-4\876a82859ec09543382d7d0aa5556ed5\transformed\swiperefreshlayout-1.1.0\res
+com.revenueaccount.app-play-services-auth-21.1.0-27 C:\Users\Chirag\.gradle\caches\transforms-4\8782ee92dd6f4d69593c0b2a1bccd8ef\transformed\play-services-auth-21.1.0\res
+com.revenueaccount.app-startup-runtime-1.1.1-28 C:\Users\Chirag\.gradle\caches\transforms-4\8bde06e8ef7039906386c2b5da19ed08\transformed\startup-runtime-1.1.1\res
+com.revenueaccount.app-appcompat-resources-1.7.1-29 C:\Users\Chirag\.gradle\caches\transforms-4\8de8022648f96bc8f1350f160cd98b72\transformed\appcompat-resources-1.7.1\res
+com.revenueaccount.app-lifecycle-viewmodel-savedstate-2.6.2-30 C:\Users\Chirag\.gradle\caches\transforms-4\9d030c58b1ef41c3f69a1587d93e3477\transformed\lifecycle-viewmodel-savedstate-2.6.2\res
+com.revenueaccount.app-core-ktx-1.13.0-31 C:\Users\Chirag\.gradle\caches\transforms-4\9d6c01b054f969804601be71bfbd000d\transformed\core-ktx-1.13.0\res
+com.revenueaccount.app-zxing-android-embedded-4.3.0-32 C:\Users\Chirag\.gradle\caches\transforms-4\a0a41a5c57523de87ab50931d8082f4d\transformed\zxing-android-embedded-4.3.0\res
+com.revenueaccount.app-play-services-maps-17.0.0-33 C:\Users\Chirag\.gradle\caches\transforms-4\a8ea0921dd83adc721c1f66fe5ec97d2\transformed\play-services-maps-17.0.0\res
+com.revenueaccount.app-ads-adservices-1.1.0-beta11-34 C:\Users\Chirag\.gradle\caches\transforms-4\ad05dafbe3040d796effeda2d1e47643\transformed\ads-adservices-1.1.0-beta11\res
+com.revenueaccount.app-constraintlayout-2.1.4-35 C:\Users\Chirag\.gradle\caches\transforms-4\b37469e8fd810c2fc43f9b653afe5c81\transformed\constraintlayout-2.1.4\res
+com.revenueaccount.app-activity-1.8.0-36 C:\Users\Chirag\.gradle\caches\transforms-4\b6ace2f85f0415fa0240d67d324fa612\transformed\activity-1.8.0\res
+com.revenueaccount.app-material-1.12.0-37 C:\Users\Chirag\.gradle\caches\transforms-4\c2a76f40256be48781f0963fc5d71a7f\transformed\material-1.12.0\res
+com.revenueaccount.app-customview-poolingcontainer-1.0.0-38 C:\Users\Chirag\.gradle\caches\transforms-4\c819afe1a011d8f1f5349daab81709a6\transformed\customview-poolingcontainer-1.0.0\res
+com.revenueaccount.app-profileinstaller-1.3.1-39 C:\Users\Chirag\.gradle\caches\transforms-4\cb140c1e0fd5d3a877a5d687eff16a25\transformed\profileinstaller-1.3.1\res
+com.revenueaccount.app-core-1.0.17-40 C:\Users\Chirag\.gradle\caches\transforms-4\cc332da9b7f5feffb47db5f5605a72ad\transformed\core-1.0.17\res
+com.revenueaccount.app-lifecycle-livedata-core-2.6.2-41 C:\Users\Chirag\.gradle\caches\transforms-4\d409990696ef937ea00868b3be2de418\transformed\lifecycle-livedata-core-2.6.2\res
+com.revenueaccount.app-firebase-common-22.1.0-42 C:\Users\Chirag\.gradle\caches\transforms-4\eae661d7bba713cc7af063224a99a341\transformed\firebase-common-22.1.0\res
+com.revenueaccount.app-emoji2-1.3.0-43 C:\Users\Chirag\.gradle\caches\transforms-4\ec0a31aa7d8bbc93d76a4a6c8f92ca60\transformed\emoji2-1.3.0\res
+com.revenueaccount.app-firebase-messaging-25.1.1-44 C:\Users\Chirag\.gradle\caches\transforms-4\fac6be8abc05029c323a23c215a69bfe\transformed\firebase-messaging-25.1.1\res
+com.revenueaccount.app-pngs-45 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\generated\res\pngs\release
+com.revenueaccount.app-res-46 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\generated\res\processReleaseGoogleServices
+com.revenueaccount.app-resValues-47 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\generated\res\resValues\release
+com.revenueaccount.app-packageReleaseResources-48 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.revenueaccount.app-packageReleaseResources-49 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.revenueaccount.app-merged-not-compiled-resources-50 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\merged-not-compiled-resources\release
+com.revenueaccount.app-release-51 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.revenueaccount.app-main-52 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\main\res
+com.revenueaccount.app-release-53 C:\Users\Chirag\OneDrive\Desktop\Mobile JobCard\android\RevenueAccount\app\src\release\res

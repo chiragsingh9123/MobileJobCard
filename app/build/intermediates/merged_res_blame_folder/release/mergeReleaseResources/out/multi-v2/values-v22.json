@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.revenueaccount.app-mergeReleaseResources-33:/values-v22/values-v22.xml",
+            "outputFile": "com.revenueaccount.app-mergeReleaseResources-48:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Chirag\\.gradle\\caches\\9.0-milestone-1\\transforms\\53d03f74fecc451e722f509e370803bf\\transformed\\appcompat-1.6.1\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\82396cea6042b2c00bc853f6dec4b60a\\transformed\\appcompat-1.7.1\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",

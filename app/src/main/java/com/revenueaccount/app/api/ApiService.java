@@ -169,17 +169,29 @@ public interface ApiService {
     Call<JsonObject> staffJobs(@Path("id") long id);
 
     // ---------- UPI SUBSCRIPTION PAYMENT ----------
-    @GET("api/subscription/upi-details/")
-    Call<JsonObject> upiDetails();
+//    @GET("api/subscription/upi-details/")
+//    Call<JsonObject> upiDetails();
+//
+//    @Multipart
+//    @POST("api/subscription/submit-payment/")
+//    Call<JsonObject> submitPayment(@Part("plan_id") RequestBody planId,
+//    @Part("utr_number") RequestBody utrNumber,
+//    @Part MultipartBody.Part screenshot);
+//
+//    @GET("api/subscription/my-payment-requests/")
+//    Call<JsonObject> myPaymentRequests();
 
-    @Multipart
-    @POST("api/subscription/submit-payment/")
-    Call<JsonObject> submitPayment(@Part("plan_id") RequestBody planId,
-    @Part("utr_number") RequestBody utrNumber,
-    @Part MultipartBody.Part screenshot);
+    @GET("api/subscription/status/")
+    Call<JsonObject> subscriptionStatus();
 
-    @GET("api/subscription/my-payment-requests/")
-    Call<JsonObject> myPaymentRequests();
+    @POST("api/subscription/create-order/")
+    Call<JsonObject> createSubscriptionOrder(@Body JsonObject body);
+
+    @POST("api/subscription/verify-payment/")
+    Call<JsonObject> verifySubscriptionPayment(@Body JsonObject body);
+
+    @GET("api/subscription/my-payments/")
+    Call<JsonObject> myPayments();
 
     // ---------- SHOP SETTINGS ----------
     @GET("api/shop/profile/")

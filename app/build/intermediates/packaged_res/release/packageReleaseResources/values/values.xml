@@ -36,6 +36,12 @@
     <dimen name="text_subtitle">16sp</dimen>
     <dimen name="text_title">19sp</dimen>
     <string name="app_name">Mobile JobCard</string>
+    <string name="gcm_defaultSenderId" translatable="false">692996725115</string>
+    <string name="google_api_key" translatable="false">AIzaSyDWHNZB_bUTuqEWO2t7t0AAX6AitI5Rp-k</string>
+    <string name="google_app_id" translatable="false">1:692996725115:android:dd1112cc97547af87385de</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDWHNZB_bUTuqEWO2t7t0AAX6AitI5Rp-k</string>
+    <string name="google_storage_bucket" translatable="false">mobile-job-card.firebasestorage.app</string>
+    <string name="project_id" translatable="false">mobile-job-card</string>
     <style name="ActionTile">
         <item name="cardCornerRadius">@dimen/radius_tile</item>
         <item name="cardElevation">0dp</item>

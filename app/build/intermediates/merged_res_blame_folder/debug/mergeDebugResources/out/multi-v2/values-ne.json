@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.revenueaccount.app-mergeDebugResources-44:/values-ne/values-ne.xml",
+            "outputFile": "com.revenueaccount.app-mergeDebugResources-48:/values-ne/values-ne.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\00f6c5b6bd9e99f0a0fdf6cb13390ea2\\transformed\\core-1.13.0\\res\\values-ne\\values-ne.xml",
@@ -54,6 +54,23 @@
                         "startOffsets": "4541,4652,4810,4944,5061,5232,5368,5478,5747,5927,6041,6205,6338,6486,6638,6704,6776",
                         "endColumns": "110,157,133,116,170,135,109,104,179,113,163,132,147,151,65,71,91",
                         "endOffsets": "4647,4805,4939,5056,5227,5363,5473,5578,5922,6036,6200,6333,6481,6633,6699,6771,6863"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Chirag\\.gradle\\caches\\transforms-4\\4711b7bbd3914eac7c834c2ca0e60683\\transformed\\play-services-wallet-18.1.3\\res\\values-ne\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "202",
+                        "endColumns": "79",
+                        "endOffsets": "281"
+                    },
+                    "to": {
+                        "startLines": "135",
+                        "startColumns": "4",
+                        "startOffsets": "12421",
+                        "endColumns": "83",
+                        "endOffsets": "12500"
                     }
                 },
                 {

@@ -2,7 +2,23 @@
 -keep class androidx.core.content.FileProvider { <init>(); }
 -keep class androidx.profileinstaller.ProfileInstallReceiver { <init>(); }
 -keep class androidx.startup.InitializationProvider { <init>(); }
+-keep class com.google.android.datatransport.runtime.backends.TransportBackendDiscovery { <init>(); }
+-keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver { <init>(); }
+-keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService { <init>(); }
+-keep class com.google.android.gms.auth.api.signin.RevocationBoundService { <init>(); }
+-keep class com.google.android.gms.auth.api.signin.internal.SignInHubActivity { <init>(); }
+-keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
+-keep class com.google.android.gms.measurement.AppMeasurementJobService { <init>(); }
+-keep class com.google.android.gms.measurement.AppMeasurementReceiver { <init>(); }
+-keep class com.google.android.gms.measurement.AppMeasurementService { <init>(); }
+-keep class com.google.firebase.components.ComponentDiscoveryService { <init>(); }
+-keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(); }
+-keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(); }
+-keep class com.google.firebase.provider.FirebaseInitProvider { <init>(); }
 -keep class com.journeyapps.barcodescanner.CaptureActivity { <init>(); }
+-keep class com.razorpay.CheckoutActivity { <init>(); }
+-keep class com.razorpay.DeeplinkActivity { <init>(); }
+-keep class com.razorpay.MagicXActivity { <init>(); }
 -keep class com.revenueaccount.app.RevenueAccountApp { <init>(); }
 -keep class com.revenueaccount.app.activities.AboutActivity { <init>(); }
 -keep class com.revenueaccount.app.activities.ActivityLogActivity { <init>(); }
@@ -37,6 +53,7 @@
 -keep class com.revenueaccount.app.activities.SubscriptionActivity { <init>(); }
 -keep class com.revenueaccount.app.activities.TemplatesActivity { <init>(); }
 -keep class com.revenueaccount.app.activities.UpdateRequiredActivity { <init>(); }
+-keep class com.revenueaccount.app.messaging.MyFirebaseMessagingService { <init>(); }
 -keep class com.revenueaccount.app.scanner.PortraitCaptureActivity { <init>(); }
 -keep class android.widget.Space { <init>(android.content.Context, android.util.AttributeSet); }
 
@@ -149,6 +166,8 @@
 -keep class com.journeyapps.barcodescanner.DecoratedBarcodeView { <init>(android.content.Context, android.util.AttributeSet); }
 
 -keep class com.journeyapps.barcodescanner.ViewfinderView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.razorpay.CircularProgressView { <init>(android.content.Context, android.util.AttributeSet); }
 
 -keep class com.revenueaccount.app.widgets.PatternLockView { <init>(android.content.Context, android.util.AttributeSet); }
 

@@ -13,6 +13,15 @@
 -keepclassmembers,allowobfuscation class * {
   @com.google.gson.annotations.SerializedName <fields>;
 }
+
+# ===== Razorpay Checkout =====
+-keep class com.razorpay.** { *; }
+-keepclassmembers class * {
+  @android.webkit.JavascriptInterface <methods>;
+}
+-dontwarn com.razorpay.**
+-optimizations !method/removal/parameter
+
 -keep,allowobfuscation,allowshrinking interface retrofit2.Call
 -keep,allowobfuscation,allowshrinking class retrofit2.Response
 
