@@ -3153,6 +3153,8 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dot_active
+drawable dot_inactive
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_add
@@ -3202,6 +3204,9 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_notification
 drawable ic_notification_announcement
 drawable ic_notification_assigned
+drawable ic_onboard_docs
+drawable ic_onboard_khata
+drawable ic_onboard_tracking
 drawable ic_people
 drawable ic_person
 drawable ic_phone_android
@@ -3396,6 +3401,7 @@ id anticipate
 id arc
 id asConfigured
 id async
+id authButtons
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -3445,6 +3451,8 @@ id btnScanImei2
 id btnSendMessage
 id btnSendOtp
 id btnSettle
+id btnSignIn
+id btnSignUp
 id btnSubscribe
 id btnSuccessDone
 id btnTabAadhaar
@@ -3526,6 +3534,7 @@ id disableScroll
 id disjoint
 id donate_with
 id donate_with_google
+id dotsContainer
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3655,6 +3664,7 @@ id italic
 id item_touch_helper_previous_elevation
 id ivFailureIcon
 id ivIcon
+id ivOnboardIcon
 id ivPreview
 id ivSlotCheck
 id ivSlotIcon
@@ -4054,6 +4064,8 @@ id tvMobile
 id tvName
 id tvNoMedia
 id tvNote
+id tvOnboardDesc
+id tvOnboardTitle
 id tvOtpSentTo
 id tvPatternStatus
 id tvPayInfo
@@ -4073,6 +4085,7 @@ id tvResend
 id tvResendOtp
 id tvShop
 id tvShopName
+id tvSkip
 id tvSlotLabel
 id tvStats
 id tvStatus
@@ -4100,6 +4113,7 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id viewPager
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -4280,6 +4294,7 @@ layout activity_staff
 layout activity_subscription
 layout activity_templates
 layout activity_update_required
+layout activity_welcome
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -4314,6 +4329,7 @@ layout item_job
 layout item_khata_customer
 layout item_media_thumb
 layout item_menu_row
+layout item_onboarding_page
 layout item_payment_history
 layout item_plan_card
 layout item_product

@@ -18,7 +18,7 @@ public class SessionManager {
 
     public void saveUser(String name, String mobile, String shopName) {
         prefs.edit().putString("name", name).putString("mobile", mobile)
-        .putString("shop", shopName).apply();
+                .putString("shop", shopName).apply();
     }
 
     /** Role bhi save karo — role-based UI ke liye (OWNER sab dekh sakta hai, STAFF limited) */
@@ -35,6 +35,17 @@ public class SessionManager {
     public boolean isOwner() { return "OWNER".equals(getRole()); }
     public boolean isStaff() { return "STAFF".equals(getRole()); }
     public boolean isLoggedIn() { return getAccessToken() != null; }
-    public void logout() { prefs.edit().clear().apply(); }
-    public void clear() { prefs.edit().clear().apply(); }
+
+    public void logout() {
+        boolean seenOnboarding = hasSeenOnboarding();
+        prefs.edit().clear().apply();
+        if (seenOnboarding) setOnboardingSeen();
+    }
+
+    public void clear() { logout(); }
+
+    /** Welcome/onboarding slides should only be shown once, ever - not every
+     * time a logged-out user opens the app, and not again after a logout. */
+    public boolean hasSeenOnboarding() { return prefs.getBoolean("onboarding_seen", false); }
+    public void setOnboardingSeen() { prefs.edit().putBoolean("onboarding_seen", true).apply(); }
 }

@@ -105,7 +105,14 @@ public class SplashActivity extends AppCompatActivity {
 
     private void goToNextScreen() {
         SessionManager session = new SessionManager(this);
-        Class<?> target = session.isLoggedIn() ? DashboardActivity.class : LoginActivity.class;
+        Class<?> target;
+        if (session.isLoggedIn()) {
+            target = DashboardActivity.class;
+        } else if (!session.hasSeenOnboarding()) {
+            target = WelcomeActivity.class;
+        } else {
+            target = LoginActivity.class;
+        }
         startActivity(new Intent(this, target));
     }
 }

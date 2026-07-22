@@ -446,7 +446,7 @@
 }
 
 # End of content from C:\Users\Chirag\.gradle\caches\transforms-4\4cc72edc5685aabdbea1ff24166d6f08\transformed\play-services-measurement-impl-23.2.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Chirag\.gradle\caches\transforms-4\3ee4d15d0c64d9def7a934b0cc50db1a\transformed\standard-core-1.7.16\proguard.txt
+# The proguard configuration file for the following section is C:\Users\Chirag\.gradle\caches\transforms-4\52d5666b2489336a6f68e752a42b64e3\transformed\standard-core-1.7.17\proguard.txt
 # Consumer rules bundled into the checkout fat AAR.
 # This is a fail-safe so merchant app shrinking does not rename or strip
 # Razorpay SDK classes that are packaged inside the published artifact.
@@ -470,7 +470,7 @@
   public void onPayment*(...);
 }
 
-# End of content from C:\Users\Chirag\.gradle\caches\transforms-4\3ee4d15d0c64d9def7a934b0cc50db1a\transformed\standard-core-1.7.16\proguard.txt
+# End of content from C:\Users\Chirag\.gradle\caches\transforms-4\52d5666b2489336a6f68e752a42b64e3\transformed\standard-core-1.7.17\proguard.txt
 # The proguard configuration file for the following section is C:\Users\Chirag\.gradle\caches\transforms-4\0abc673cc574f768d11e2d0d5329b123\transformed\play-services-auth-base-18.0.10\proguard.txt
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
@@ -914,6 +914,7 @@
 -keep class com.razorpay.CheckoutActivity { <init>(); }
 -keep class com.razorpay.DeeplinkActivity { <init>(); }
 -keep class com.razorpay.MagicXActivity { <init>(); }
+-keep class com.razorpay.UpiChooserSelectionReceiver { <init>(); }
 -keep class com.revenueaccount.app.RevenueAccountApp { <init>(); }
 -keep class com.revenueaccount.app.activities.AboutActivity { <init>(); }
 -keep class com.revenueaccount.app.activities.ActivityLogActivity { <init>(); }
@@ -948,6 +949,7 @@
 -keep class com.revenueaccount.app.activities.SubscriptionActivity { <init>(); }
 -keep class com.revenueaccount.app.activities.TemplatesActivity { <init>(); }
 -keep class com.revenueaccount.app.activities.UpdateRequiredActivity { <init>(); }
+-keep class com.revenueaccount.app.activities.WelcomeActivity { <init>(); }
 -keep class com.revenueaccount.app.messaging.MyFirebaseMessagingService { <init>(); }
 -keep class com.revenueaccount.app.scanner.PortraitCaptureActivity { <init>(); }
 -keep class android.widget.Space { <init>(android.content.Context, android.util.AttributeSet); }
@@ -1001,6 +1003,8 @@
 -keep class androidx.recyclerview.widget.RecyclerView { <init>(android.content.Context, android.util.AttributeSet); }
 
 -keep class androidx.swiperefreshlayout.widget.SwipeRefreshLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.viewpager2.widget.ViewPager2 { <init>(android.content.Context, android.util.AttributeSet); }
 
 -keep class com.github.mikephil.charting.charts.LineChart { <init>(android.content.Context, android.util.AttributeSet); }
 

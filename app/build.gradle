@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace 'com.revenueaccount.app'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.revenueaccount.app"
         minSdk 26
-        targetSdk 35
-        versionCode 5
-        versionName "1.1.6"
+        targetSdk 36
+        versionCode 6
+        versionName "1.1.8"
     }
 
 
@@ -72,7 +72,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:34.16.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation "com.google.firebase:firebase-messaging"
-
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation "androidx.datastore:datastore-preferences:1.1.7"
     implementation("com.razorpay:checkout:1.6.41")
 

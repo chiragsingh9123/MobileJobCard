@@ -42,6 +42,8 @@ drawable bg_badge
 drawable bg_circle_white
 drawable bg_header_gradient
 drawable bg_splash
+drawable dot_active
+drawable dot_inactive
 drawable ic_add
 drawable ic_back
 drawable ic_backup_cloud
@@ -71,6 +73,9 @@ drawable ic_more
 drawable ic_notification
 drawable ic_notification_announcement
 drawable ic_notification_assigned
+drawable ic_onboard_docs
+drawable ic_onboard_khata
+drawable ic_onboard_tracking
 drawable ic_people
 drawable ic_person
 drawable ic_phone_android
@@ -89,6 +94,7 @@ drawable ic_video
 drawable ic_voucher
 drawable ic_wrench
 id activityContainer
+id authButtons
 id bottomNav
 id btnAddPhoto
 id btnAddStock
@@ -122,6 +128,8 @@ id btnScanImei2
 id btnSendMessage
 id btnSendOtp
 id btnSettle
+id btnSignIn
+id btnSignUp
 id btnSubscribe
 id btnSuccessDone
 id btnTabAadhaar
@@ -135,6 +143,7 @@ id chipAll
 id chipGroup
 id chipPending
 id contactContainer
+id dotsContainer
 id etAadhaarNumber
 id etAccessories
 id etAddress
@@ -181,6 +190,7 @@ id flipper
 id historyContainer
 id ivFailureIcon
 id ivIcon
+id ivOnboardIcon
 id ivPreview
 id ivSlotCheck
 id ivSlotIcon
@@ -313,6 +323,8 @@ id tvMobile
 id tvName
 id tvNoMedia
 id tvNote
+id tvOnboardDesc
+id tvOnboardTitle
 id tvOtpSentTo
 id tvPatternStatus
 id tvPayInfo
@@ -332,6 +344,7 @@ id tvResend
 id tvResendOtp
 id tvShop
 id tvShopName
+id tvSkip
 id tvSlotLabel
 id tvStats
 id tvStatus
@@ -351,6 +364,7 @@ id tvType
 id tvVersion
 id tvVideoBadge
 id tvVoucherToggle
+id viewPager
 id voucherSection
 layout activity_about
 layout activity_activity_log
@@ -385,6 +399,7 @@ layout activity_staff
 layout activity_subscription
 layout activity_templates
 layout activity_update_required
+layout activity_welcome
 layout dialog_photo_preview
 layout dialog_ready_status
 layout dialog_rwr
@@ -401,6 +416,7 @@ layout item_job
 layout item_khata_customer
 layout item_media_thumb
 layout item_menu_row
+layout item_onboarding_page
 layout item_payment_history
 layout item_plan_card
 layout item_product

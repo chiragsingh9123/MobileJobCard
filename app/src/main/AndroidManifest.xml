@@ -66,6 +66,8 @@
         <activity android:name=".activities.AboutActivity" />
         <activity android:name=".activities.RolesInfoActivity" />
         <activity android:name=".activities.ExpensesActivity" />
+        <activity android:name=".activities.WelcomeActivity" />
+
 
         <!-- Fixes barcode scanner rotating to landscape: forces portrait orientation -->
         <activity android:name=".scanner.PortraitCaptureActivity"
