@@ -121,10 +121,18 @@ def login():
     mobile = d.get("mobile", "").strip()
     password = d.get("password", "")
     otp = d.get("otp", "")
+
  
     user = User.query.filter_by(mobile=mobile).first()
+
+    if user.is_deleted:
+            return jsonify({"detail": "This account has been deleted"}), 401
+
+        
     if not user or not user.check_password(password):
         return jsonify({"detail": "Mobile number or password is incorrect"}), 401
+
+    
     if not user.is_active:
         return jsonify({"detail": "This account has been deactivated"}), 403
  
@@ -146,6 +154,29 @@ def login():
 
 
 
+@auth_bp.post("/delete-account/")
+@login_required
+def delete_account(user):
+    """Soft-deletes the logged-in user's own account. Requires the current
+    password as confirmation, so a stolen/left-open session alone can't be
+    used to delete an account. If the account is an OWNER, the whole shop
+    is also disabled (soft), since staff can't meaningfully keep operating
+    a shop with no owner in this per-shop-subscription model."""
+    d = request.get_json(force=True)
+    password = d.get("password", "")
+    if not user.check_password(password):
+        return jsonify({"detail": "Password is incorrect"}), 401
+ 
+    user.is_deleted = True
+    user.is_active = False
+    user.deleted_at = now()
+ 
+    if user.role == "OWNER" and user.shop:
+        user.shop.is_active = False
+ 
+    db.session.commit()
+    return jsonify({"message": "Your account has been deleted"})
+ 
 
   
 @auth_bp.post("/refresh/")

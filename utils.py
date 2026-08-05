@@ -61,6 +61,8 @@ def login_required(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         user = current_user()
+        if user.is_deleted:                                              # <-- NEW
+            return jsonify({"detail": "This account has been deleted"}), 401
         if not user or not user.is_active:
             return jsonify({"detail": "Authentication required"}), 401
         if user.shop and not user.shop.is_active:
