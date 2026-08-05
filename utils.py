@@ -20,6 +20,24 @@ def make_tokens(user):
     return {"access": access, "refresh": refresh}
 
 
+def verify_refresh_token(token):
+    """Checks a refresh token is genuinely ours, of type 'refresh', and not
+    expired. Returns (user, None) on success or (None, error_message) on
+    failure - never raises, so the route calling this can't 500 on a
+    garbage/expired token, only return a clean 401."""
+    try:
+        payload = jwt.decode(token, current_app.config["SECRET_KEY"], algorithms=["HS256"])
+    except jwt.ExpiredSignatureError:
+        return None, "Refresh token has expired, please log in again"
+    except jwt.InvalidTokenError:
+        return None, "Invalid refresh token"
+    if payload.get("type") != "refresh":
+        return None, "Invalid token type"
+    user = User.query.get(payload.get("user_id"))
+    if not user or not user.is_active:
+        return None, "Account no longer active"
+    return user, None
+
 def current_user():
     auth = request.headers.get("Authorization", "")
     if not auth.startswith("Bearer "):

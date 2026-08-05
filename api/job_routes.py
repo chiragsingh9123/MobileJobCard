@@ -5,9 +5,12 @@ from datetime import datetime
 from flask import Blueprint, request, jsonify, current_app
 from extensions import db
 from models import (JobCard, Customer, StatusHistory, JobActivityLog, LedgerEntry,
-                    Product, UsedPart, User, JobMedia, JOB_STATUSES, now)
-from utils import login_required, save_uploaded_media
+                    Product, UsedPart, User, JobMedia, JOB_STATUSES, now,Payment)
+from utils import login_required, save_uploaded_media,owner_required
 from push_notifications import send_push
+
+import os
+
 
 job_bp = Blueprint("jobs", __name__, url_prefix="/api/jobs")
 
@@ -350,6 +353,57 @@ def get_message(user, jid, msg_type):
         return jsonify({"detail": "message type must be one of received/ready/delivered/rwr"}), 400
     text = user.shop.format_message(key, job)
     return jsonify({"message": text, "customer_mobile": job.customer.mobile})
+
+
+
+
+
+@job_bp.post("/<int:jid>/delete/")
+@owner_required
+def delete_job(user, jid):
+    """Deletes a job card completely - only the shop owner can do this.
+    Restores stock for any parts that were used, deletes attached
+    photos/videos from disk, and removes any payments/khata entries tied
+    to this job so nothing is left orphaned."""
+    job = JobCard.query.filter_by(id=jid, shop_id=user.shop_id).first_or_404()
+ 
+    # Restore stock for any parts that were used on this job
+    for used in UsedPart.query.filter_by(job_card_id=job.id).all():
+        product = Product.query.get(used.product_id)
+        if product:
+            product.quantity += used.quantity
+        db.session.delete(used)
+ 
+    # Delete media files from disk, then their DB records
+    media_folder = current_app.config.get("JOB_MEDIA_FOLDER", "")
+    for media in JobMedia.query.filter_by(job_card_id=job.id).all():
+        if media.file_path and media_folder:
+            file_path = os.path.join(media_folder, media.file_path)
+            if os.path.exists(file_path):
+                try:
+                    os.remove(file_path)
+                except OSError:
+                    pass  # don't block the delete if the file is already gone
+        db.session.delete(media)
+ 
+    # Remove khata entries and payments tied to this specific job, so the
+    # customer's balance doesn't keep a debit for a job that no longer exists
+    for entry in LedgerEntry.query.filter_by(job_card_id=job.id).all():
+        db.session.delete(entry)
+    for payment in Payment.query.filter_by(job_card_id=job.id).all():
+        db.session.delete(payment)
+ 
+    for h in StatusHistory.query.filter_by(job_id=job.id).all():
+        db.session.delete(h)
+    for a in JobActivityLog.query.filter_by(job_card_id=job.id).all():
+        db.session.delete(a)
+ 
+    job_id_label = job.job_id
+    db.session.delete(job)
+    db.session.commit()
+    return jsonify({"message": f"Job {job_id_label} deleted"})
+ 
+
 
 
 @job_bp.post("/<int:jid>/use_part/")

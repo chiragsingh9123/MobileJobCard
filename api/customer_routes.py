@@ -59,3 +59,32 @@ def history(user, cid):
                     "jobs": [j.to_dict() for j in
                              sorted(c.jobs, key=lambda j: j.created_at, reverse=True)],
                     "khata": [e.to_dict() for e in entries]})
+
+
+
+@customer_bp.post("/<int:cid>/update/")
+@login_required
+def update_customer(user, cid):
+    """Edit a customer's details, including correcting a mistyped mobile
+    number. Mobile numbers must stay unique within a shop, so this checks
+    for a conflict with another existing customer before saving."""
+    customer = Customer.query.filter_by(id=cid, shop_id=user.shop_id).first_or_404()
+    d = request.get_json(force=True)
+ 
+    if "mobile" in d:
+        new_mobile = d.get("mobile", "").strip()
+        if len(new_mobile) != 10 or not new_mobile.isdigit():
+            return jsonify({"detail": "Enter a valid 10-digit mobile number"}), 400
+        if new_mobile != customer.mobile:
+            conflict = Customer.query.filter_by(
+                shop_id=user.shop_id, mobile=new_mobile).first()
+            if conflict and conflict.id != customer.id:
+                return jsonify({"detail": "Another customer already has this mobile number"}), 400
+            customer.mobile = new_mobile
+ 
+    for field in ["name", "email", "address", "city"]:
+        if field in d:
+            setattr(customer, field, d.get(field, ""))
+ 
+    db.session.commit()
+    return jsonify(customer.to_dict(full=True))

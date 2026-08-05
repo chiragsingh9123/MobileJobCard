@@ -3,7 +3,7 @@ from datetime import timedelta
 from flask import Blueprint, request, jsonify, current_app
 from extensions import db
 from models import User, Shop, SubscriptionPlan, Subscription, Voucher, OTPCode, now
-from utils import make_tokens, login_required, send_telegram_otp
+from utils import make_tokens, login_required, send_telegram_otp,verify_refresh_token
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
@@ -95,25 +95,73 @@ def register():
                     "message": "Registration successful! Your 7-day free trial is now active."}), 201
 
 
+# @auth_bp.post("/login/")
+# def login():
+#     d = request.get_json(force=True)
+#     user = User.query.filter_by(mobile=d.get("mobile", "")).first()
+#     if not user or not user.check_password(d.get("password", "")):
+#         return jsonify({"detail": "Mobile number or password is incorrect"}), 401
+#     if not user.is_active:
+#         return jsonify({"detail": "This account has been deactivated"}), 403
+
+#     # OTP verify karo (password sahi hone ke baad)
+#     otp = d.get("otp")
+#     if not otp:
+#         return jsonify({"detail": "OTP is required - please tap 'Send OTP' first"}), 400
+#     err = _verify_otp(user.mobile, "LOGIN", otp)
+#     if err:
+#         return jsonify({"detail": err}), 400
+
+#     return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
+
+
 @auth_bp.post("/login/")
 def login():
     d = request.get_json(force=True)
-    user = User.query.filter_by(mobile=d.get("mobile", "")).first()
-    if not user or not user.check_password(d.get("password", "")):
+    mobile = d.get("mobile", "").strip()
+    password = d.get("password", "")
+    otp = d.get("otp", "")
+ 
+    user = User.query.filter_by(mobile=mobile).first()
+    if not user or not user.check_password(password):
         return jsonify({"detail": "Mobile number or password is incorrect"}), 401
     if not user.is_active:
         return jsonify({"detail": "This account has been deactivated"}), 403
-
-    # OTP verify karo (password sahi hone ke baad)
-    otp = d.get("otp")
-    if not otp:
-        return jsonify({"detail": "OTP is required - please tap 'Send OTP' first"}), 400
-    err = _verify_otp(user.mobile, "LOGIN", otp)
-    if err:
+ 
+    # Play Store review account: skips OTP entirely (password is still
+    # checked above, normally). Only applies to the exact mobile number
+    # configured on the server - every other account is unaffected.
+    reviewer_mobile = current_app.config.get("REVIEWER_BYPASS_MOBILE", "")
+    if reviewer_mobile and mobile == reviewer_mobile:
+        return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
+ 
+    # Normal flow: OTP required, exactly as before
+    otp_record = OTPCode.latest_pending(mobile, "LOGIN")
+    if not otp_record or not otp:
+        return jsonify({"detail": "OTP is required", "otp_required": True}), 400
+    ok, err = otp_record.verify(otp)
+    if not ok:
         return jsonify({"detail": err}), 400
-
     return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
 
+
+
+
+  
+@auth_bp.post("/refresh/")
+def refresh_token():
+    """Called automatically by the app when an access token has expired -
+    exchanges a still-valid refresh token for a new access token, without
+    the user ever seeing a login screen. Only a genuinely expired/invalid
+    REFRESH token (not access token) forces an actual re-login."""
+    d = request.get_json(force=True)
+    token = d.get("refresh_token", "")
+    if not token:
+        return jsonify({"detail": "refresh_token is required"}), 400
+    user, err = verify_refresh_token(token)
+    if err:
+        return jsonify({"detail": err}), 401
+    return jsonify({"tokens": make_tokens(user)})
 
 @auth_bp.post("/reset-password/")
 def reset_password():
