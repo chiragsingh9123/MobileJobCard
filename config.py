@@ -70,3 +70,4 @@ class Config:
     RAZORPAY_WEBHOOK_SECRET = os.environ.get("RAZORPAY_WEBHOOK_SECRET", "webhook-secret-from-razorpay-dashboard")
 
     REVIEWER_BYPASS_MOBILE=9696969696
+    REVIEWER_BYPASS_MOBILE = os.environ.get("REVIEWER_BYPASS_MOBILE", "9696969696")
