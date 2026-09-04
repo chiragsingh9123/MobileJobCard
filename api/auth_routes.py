@@ -115,42 +115,133 @@ def register():
 #     return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
 
 
-@auth_bp.post("/login/")
-def login():
-    d = request.get_json(force=True)
-    mobile = d.get("mobile", "").strip()
-    password = d.get("password", "")
-    otp = d.get("otp", "")
+# @auth_bp.post("/login/")
+# def login():
+#     d = request.get_json(force=True)
+#     mobile = d.get("mobile", "").strip()
+#     password = d.get("password", "")
+#     otp = d.get("otp", "")
 
  
-    user = User.query.filter_by(mobile=mobile).first()
+#     user = User.query.filter_by(mobile=mobile).first()
 
-    if user.is_deleted:
-            return jsonify({"detail": "This account has been deleted"}), 401
+#     if user.is_deleted:
+#             return jsonify({"detail": "This account has been deleted"}), 401
 
         
-    if not user or not user.check_password(password):
-        return jsonify({"detail": "Mobile number or password is incorrect"}), 401
+#     if not user or not user.check_password(password):
+#         return jsonify({"detail": "Mobile number or password is incorrect"}), 401
 
     
+#     if not user.is_active:
+#         return jsonify({"detail": "This account has been deactivated"}), 403
+ 
+#     # Play Store review account: skips OTP entirely (password is still
+#     # checked above, normally). Only applies to the exact mobile number
+#     # configured on the server - every other account is unaffected.
+#     reviewer_mobile = current_app.config.get("REVIEWER_BYPASS_MOBILE", "")
+#     if reviewer_mobile and mobile == reviewer_mobile:
+#         return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
+ 
+#     # Normal flow: OTP required, exactly as before
+#     otp_record = OTPCode.latest_pending(mobile, "LOGIN")
+#     if not otp_record or not otp:
+#         return jsonify({"detail": "OTP is required", "otp_required": True}), 400
+#     ok, err = otp_record.verify(otp)
+#     if not ok:
+#         return jsonify({"detail": err}), 400
+#     return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
+
+
+
+
+
+@auth_bp.post("/login/")
+def login():
+    d = request.get_json(silent=True) or {}
+
+    mobile = str(d.get("mobile", "")).strip()
+    password = str(d.get("password", ""))
+    otp = str(d.get("otp", "")).strip()
+
+    # Basic validation
+    if not mobile:
+        return jsonify({
+            "detail": "Mobile number is required"
+        }), 400
+
+    if not password:
+        return jsonify({
+            "detail": "Password is required"
+        }), 400
+
+    # Find user
+    user = User.query.filter_by(mobile=mobile).first()
+
+    # IMPORTANT: check None first
+    if not user:
+        return jsonify({
+            "detail": "Mobile number or password is incorrect"
+        }), 401
+
+    # Now it is safe to access user fields
+    if user.is_deleted:
+        return jsonify({
+            "detail": "This account has been deleted"
+        }), 401
+
+    # Check password
+    if not user.check_password(password):
+        return jsonify({
+            "detail": "Mobile number or password is incorrect"
+        }), 401
+
+    # Check account status
     if not user.is_active:
-        return jsonify({"detail": "This account has been deactivated"}), 403
- 
-    # Play Store review account: skips OTP entirely (password is still
-    # checked above, normally). Only applies to the exact mobile number
-    # configured on the server - every other account is unaffected.
-    reviewer_mobile = current_app.config.get("REVIEWER_BYPASS_MOBILE", "")
+        return jsonify({
+            "detail": "This account has been deactivated"
+        }), 403
+
+    # -----------------------------------------
+    # Play Store reviewer OTP bypass
+    # -----------------------------------------
+    reviewer_mobile = str(
+        current_app.config.get("REVIEWER_BYPASS_MOBILE", "")
+    ).strip()
+
     if reviewer_mobile and mobile == reviewer_mobile:
-        return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
- 
-    # Normal flow: OTP required, exactly as before
+        return jsonify({
+            "tokens": make_tokens(user),
+            "user": user.to_dict()
+        }), 200
+
+    # -----------------------------------------
+    # Normal OTP login flow
+    # -----------------------------------------
     otp_record = OTPCode.latest_pending(mobile, "LOGIN")
+
     if not otp_record or not otp:
-        return jsonify({"detail": "OTP is required", "otp_required": True}), 400
+        return jsonify({
+            "detail": "OTP is required",
+            "otp_required": True
+        }), 400
+
     ok, err = otp_record.verify(otp)
+
     if not ok:
-        return jsonify({"detail": err}), 400
-    return jsonify({"tokens": make_tokens(user), "user": user.to_dict()})
+        return jsonify({
+            "detail": err or "Invalid OTP"
+        }), 400
+
+    return jsonify({
+        "tokens": make_tokens(user),
+        "user": user.to_dict()
+    }), 200
+
+
+
+
+
 
 
 
