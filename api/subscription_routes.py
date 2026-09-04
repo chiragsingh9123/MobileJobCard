@@ -57,6 +57,7 @@ def create_order(user):
     d = request.get_json(force=True)
     plan = SubscriptionPlan.query.filter_by(
         id=d.get("plan_id"), is_active=True, is_purchasable=True).first()
+    print(plan)
     if not plan:
         return jsonify({"detail": "Plan not found"}), 400
 
@@ -65,6 +66,7 @@ def create_order(user):
         plan.price, receipt,
         notes={"shop_id": str(user.shop_id), "plan_id": str(plan.id), "shop_name": user.shop.name},
     )
+    print(order, error)
     if error:
         return jsonify({"detail": f"Could not start payment: {error}"}), 502
 
