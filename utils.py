@@ -118,18 +118,34 @@ def save_uploaded_media(file_storage, folder):
 
 
 
+OTP_SENDER_URL = "http://187.127.186.197:8083"
+OTP_API_KEY = "change-me-to-a-long-random-value"
+import httpx
+def OTP_SEND(number,message):
+    print(f"-> Checking {OTP_SENDER_URL}/health ...")
+    try:
+        r = httpx.get(f"{OTP_SENDER_URL}/health", timeout=10)
+        print(f"   {r.status_code} {r.json()}")
+    except Exception as exc:
+        send_telegram_otp(number,message,"ERROR IN WHTAPP OTP SENDER")
+        
 
-def OTP_SEND(number,otp):
-    headers = {
-    "Accept": "application/json, text/plain, */*",
-    "Origin": "https://console.authkey.io",
-    "Referer": "https://console.authkey.io/dashboard/send-voice",
-    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
-    }
-    url = "https://console.authkey.io/restapi/request.php"
-    querystring = {"authkey":"e87f1c9e7e395a6f","mobile":number,"country_code":"91","voice":f"Hello, your Mobile JOB Card OTP is {otp} , I repeate your Mobile JOB Card OTP is {otp}"}
-    response = requests.request("GET", url,headers=headers, params=querystring)
-    print(response.text)
+    try:
+        r = httpx.post(
+            f"{OTP_SENDER_URL}/send-otp",
+            headers={"X-Api-Key": OTP_API_KEY},
+            json={"phone": number, "message": message},
+            timeout=30,
+        )
+    except Exception as exc:
+        print(f"   Request failed: {exc}")
+        
+
+    print(f"   {r.status_code} {r.text}")
+    if r.status_code == 200:
+        print("\nSuccess.")
+    else:
+        print("\nFailed - see detail above.")
 
 def send_telegram_otp(mobile, code, purpose):
     """OTP ko Telegram bot ke through bhejta hai (real SMS gateway aane tak ka temporary jugaad).
@@ -148,7 +164,7 @@ def send_telegram_otp(mobile, code, purpose):
         url = f"https://api.telegram.org/bot{cfg['TELEGRAM_BOT_TOKEN']}/sendMessage"
         r = requests.post(url, json={"chat_id": cfg["TELEGRAM_CHAT_ID"], "text": text}, timeout=8)
         try:
-            OTP_SEND(mobile,code)
+            OTP_SEND(mobile,text)
         except Exception as e:
             print(f"[OTP] Failed to send OTP via SMS ({e}) - OTP for {mobile} is {code}")
         if r.status_code == 200:
